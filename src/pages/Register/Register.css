@@ -1,0 +1,93 @@
+.register__container {
+
+  .register-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f9f9f9;
+    /* Nền nhạt */
+  }
+
+  /* Hộp đăng ký */
+  .register-box {
+    background-color: #ffffff;
+    /* Nền trắng */
+    width: 400px;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    /* Hiệu ứng nổi */
+    text-align: center;
+  }
+
+  /* Tiêu đề */
+  .register-title {
+    font-size: 24px;
+    color: #03B151;
+    /* Màu thương hiệu */
+    margin-bottom: 20px;
+    font-weight: bold;
+  }
+
+  /* Form */
+  .register-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .form-group label {
+    font-size: 14px;
+    color: #202020;
+    margin-bottom: 5px;
+    text-align: left;
+    display: block;
+  }
+
+  .form-group input {
+    width: 100%;
+    height: 40px;
+    border: 1px solid #c5c5c5;
+    border-radius: 8px;
+    padding: 0 10px;
+    box-sizing: border-box;
+    font-size: 16px;
+    transition: border-color 0.3s, box-shadow 0.3s;
+  }
+
+  .form-group input:focus {
+    border-color: #03B151;
+    box-shadow: 0 0 8px rgba(3, 177, 81, 0.3);
+    outline: none;
+  }
+
+  /* Nút đăng ký */
+  .register-button {
+    background-color: #03B151;
+    /* Màu thương hiệu */
+    color: #ffffff;
+    /* Màu chữ trắng */
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 0;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+  }
+
+  .register-button:hover {
+    background-color: #029544;
+    /* Màu đậm hơn khi hover */
+    transform: translateY(-2px);
+    /* Hiệu ứng nổi khi hover */
+  }
+
+  .register-button:active {
+    background-color: #02773a;
+    /* Màu nhấn */
+    transform: translateY(0);
+    /* Trả về vị trí ban đầu */
+  }
+}

@@ -6,7 +6,9 @@
 
 /* Content */
 .content {
-  margin-left: 20%;
+  position: absolute;
+  margin-top: 60px;
+  right: 0;
   /* Đẩy nội dung ra khỏi navbar */
   width: 80%;
   /* Phần còn lại của màn hình */
