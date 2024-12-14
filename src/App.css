@@ -1,0 +1,15 @@
+/* Bố cục tổng thể */
+.app-container {
+  display: flex;
+  height: 100vh;
+}
+
+/* Content */
+.content {
+  margin-left: 20%;
+  /* Đẩy nội dung ra khỏi navbar */
+  width: 80%;
+  /* Phần còn lại của màn hình */
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
