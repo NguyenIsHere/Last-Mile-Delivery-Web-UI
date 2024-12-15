@@ -1,61 +1,62 @@
-/* OrderTracking.css */
+/* Bọc CSS trong lớp cha để tránh bị ghi đè */
 .order-tracking-container {
+  font-family: Arial, sans-serif;
   width: 100%;
-  max-width: 600px;
+  height: 100vh;
   margin: 0 auto;
   padding: 20px;
-  background-color: #fff;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #f9f9f9;
 }
 
-.tracking-title {
-  font-size: 24px;
-  color: #202020;
-  margin-bottom: 20px;
+.order-tracking-title {
   text-align: center;
+  color: #03B151;
 }
 
-.tracking-timeline {
+.order-tracking-status {
   display: flex;
-  flex-direction: column;
-  gap: 20px;
+  justify-content: space-between;
+  margin-top: 20px;
 }
 
-.timeline-step {
+.status-step {
   display: flex;
   align-items: center;
-  position: relative;
+  flex-direction: column;
 }
 
-.step-marker {
-  width: 16px;
-  height: 16px;
-  background-color: #ddd;
-  border: 2px solid #03B151;
+.status-circle {
+  width: 20px;
+  height: 20px;
   border-radius: 50%;
-  flex-shrink: 0;
-  margin-right: 15px;
+  border: 2px solid #03B151;
+  background-color: white;
+  margin-bottom: 8px;
 }
 
-.timeline-step.completed .step-marker {
+.status-step.active .status-circle {
   background-color: #03B151;
+  border-color: #03B151;
 }
 
-.step-line {
-  position: absolute;
-  left: 8px;
-  top: 18px;
-  width: 2px;
-  height: 40px;
-  background-color: #ddd;
+.status-step span {
+  font-size: 14px;
+  color: #333;
 }
 
-.timeline-step.completed .step-line {
-  background-color: #03B151;
+.order-tracking-details {
+  margin-top: 30px;
+  padding: 20px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.step-label {
+.order-tracking-details p {
   font-size: 16px;
-  color: #202020;
+  margin-bottom: 8px;
+}
+
+.order-tracking-details p strong {
+  color: #03B151;
 }

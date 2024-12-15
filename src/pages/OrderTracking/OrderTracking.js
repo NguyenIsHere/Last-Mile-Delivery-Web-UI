@@ -2,27 +2,36 @@ import React from 'react'
 import './OrderTracking.css'
 
 const OrderTracking = () => {
-  const orderSteps = [
-    { id: 1, label: 'Đơn hàng đã được tạo', completed: true },
-    { id: 2, label: 'Đơn hàng đang được xử lý', completed: true },
-    { id: 3, label: 'Đang vận chuyển', completed: false },
-    { id: 4, label: 'Giao hàng thành công', completed: false }
-  ]
-
   return (
     <div className='order-tracking-container'>
-      <h2 className='tracking-title'>Theo dõi trạng thái đơn hàng</h2>
-      <div className='tracking-timeline'>
-        {orderSteps.map((step, index) => (
-          <div
-            key={step.id}
-            className={`timeline-step ${step.completed ? 'completed' : ''}`}
-          >
-            <div className='step-marker'></div>
-            <p className='step-label'>{step.label}</p>
-            {index < orderSteps.length - 1 && <div className='step-line'></div>}
-          </div>
-        ))}
+      <h1 className='order-tracking-title'>Theo dõi trạng thái đơn hàng</h1>
+
+      <div className='order-tracking-status'>
+        <div className='status-step active'>
+          <div className='status-circle'></div>
+          <span>Đặt hàng</span>
+        </div>
+        <div className='status-step active'>
+          <div className='status-circle'></div>
+          <span>Đang xử lý</span>
+        </div>
+        <div className='status-step'>
+          <div className='status-circle'></div>
+          <span>Đang giao</span>
+        </div>
+        <div className='status-step'>
+          <div className='status-circle'></div>
+          <span>Hoàn thành</span>
+        </div>
+      </div>
+
+      <div className='order-tracking-details'>
+        <p>
+          <strong>Thông tin đơn hàng:</strong>
+        </p>
+        <p>Mã đơn hàng: #123456789</p>
+        <p>Ngày đặt: 15/12/2024</p>
+        <p>Vị trí hiện tại: Quận 1, TP.HCM</p>
       </div>
     </div>
   )
