@@ -11,16 +11,19 @@ const Navbar = () => {
             <Link to='/'>Trang Chủ</Link>
           </li>
           <li>
-            <Link to='/register'>Đăng ký</Link>
+            <Link to='/register'>Đăng Ký</Link>
           </li>
           <li>
-            <Link to='/login'>Đăng nhập</Link>
+            <Link to='/login'>Đăng Nhập</Link>
           </li>
           <li>
             <Link to='/create-order'>Tạo Đơn</Link>
           </li>
           <li>
             <Link to='/order-tracking'>Theo Dõi Đơn Hàng</Link>
+          </li>
+          <li>
+            <Link to='/order-management'>Quản Lý Đơn Hàng</Link>
           </li>
         </ul>
       </div>

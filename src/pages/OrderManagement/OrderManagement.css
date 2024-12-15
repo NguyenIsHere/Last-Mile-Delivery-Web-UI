@@ -1,0 +1,105 @@
+.order-management-container {
+  padding: 20px;
+  background-color: #f8f9fa;
+  /* Màu nền nhạt */
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
+}
+
+.order-management-container h2 {
+  font-size: 24px;
+  color: #03B151;
+  /* Màu tiêu đề chủ đạo */
+  margin-bottom: 20px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #ffffff;
+  /* Màu nền bảng */
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+thead th {
+  background-color: #03B151;
+  /* Màu xanh chủ đạo */
+  color: #ffffff;
+  /* Màu chữ trắng */
+  text-align: left;
+  padding: 10px;
+  font-weight: bold;
+}
+
+thead th select {
+  background-color: #ffffff;
+  color: #03B151;
+  /* Màu chữ dropdown */
+  font-size: 14px;
+  padding: 5px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+tbody td {
+  padding: 10px;
+  border-bottom: 1px solid #dee2e6;
+  color: #495057;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #f1f3f5;
+  /* Màu nền nhạt cho hàng chẵn */
+}
+
+tbody tr:hover {
+  background-color: #e9f7ee;
+  /* Màu nền khi hover (nhạt hơn chủ đạo) */
+}
+
+input[type="checkbox"] {
+  cursor: pointer;
+}
+
+label {
+  font-size: 14px;
+  color: #495057;
+  /* Màu nhãn chữ tối */
+}
+
+button {
+  padding: 8px 16px;
+  background-color: #03B151;
+  /* Màu nút chủ đạo */
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+  margin: 10px 0;
+  display: inline-block;
+}
+
+button:hover {
+  background-color: #029d47;
+  /* Màu đậm hơn khi hover */
+}
+
+button:disabled {
+  background-color: #6c757d;
+  /* Màu xám khi không hoạt động */
+  cursor: not-allowed;
+}
+
+tfoot td {
+  text-align: center;
+  padding: 15px;
+  background-color: #f8f9fa;
+  color: #495057;
+}
+
+tfoot td button {
+  width: 200px;
+}
