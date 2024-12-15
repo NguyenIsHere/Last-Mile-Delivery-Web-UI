@@ -8,76 +8,89 @@
 .navbar {
   width: 20%;
   /* Đặt chiều rộng cố định cho navbar */
-  background-color: #03B151;
+  background-color: #ffffff;
   /* Màu nền navbar */
-  color: white;
-  padding: 20px;
   position: fixed;
   /* Giữ navbar cố định bên trái */
   height: 100vh;
   /* Chiều cao bằng chiều cao màn hình */
   top: 0;
   left: 0;
-  border-radius: 0 15px 15px 0;
-  /* Bo góc bên phải */
-  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
-  /* Thêm bóng cho navbar */
+  /*căn trái các item*/
+  display: flex;
+  flex-direction: column;
+  /* Căn chỉnh các item theo chiều dọc */
 }
 
-.navbar ul {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-}
-
-.navbar li {
-  padding: 15px;
-  text-align: center;
-  margin: 10px 0;
-  border-radius: 8px;
-  /* Bo góc các item */
-  border: 2px solid transparent;
-  /* Tạo border mặc định để tránh đột ngột thay đổi layout */
-  transition: border-color 0.3s ease, background-color 0.3s ease;
+.navbar .logo-btn {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
-  /* Khoảng cách giữa icon và tên */
-}
-
-.navbar li:hover {
-  background-color: #575757;
-  /* Màu nền khi hover */
-  border-color: #028140;
-  /* Màu border khi hover */
-  border-radius: 8px;
-}
-
-.navbar li a {
-  color: white;
+  text-align: center;
+  height: 60px;
+  transition: border-color 0.3s ease, background-color 0.3s ease;
+  color: #5D5D5D;
   text-decoration: none;
-  display: block;
   font-size: 16px;
   font-weight: 600;
-  flex-grow: 1;
-  /* Cho phép liên kết chiếm không gian còn lại */
 }
 
-.navbar li a.active {
-  background-color: #028140;
-  /* Màu nền cho liên kết active */
+.navbar .btn:hover .sign {
+  background-color: #03B151;
+  width: 10px;
+  height: 100%;
+}
+
+.navbar .btn.active .sign {
+  background-color: #03B151;
+  width: 10px;
+  height: 100%;
+}
+
+
+.navbar .btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 10%;
+  flex: 1;
+  text-align: center;
+  transition: border-color 0.3s ease, background-color 0.3s ease;
+  color: #5D5D5D;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.navbar .btn.active {
+  color: #03B151;
+  /* Màu nền khi active */
+}
+
+.navbar .btn:hover {
+  background-color: #dddddd;
+  color: #03B151;
+  /* Màu nền khi hover */
 }
 
 /* CSS cho icon */
-.navbar li svg {
+.navbar .btn svg {
   width: 20px;
   height: 20px;
-  /* Giảm kích thước của icon */
-  transition: transform 0.3s ease;
+  fill: #5D5D5D;
+  /* Màu mặc định của icon */
+  transition: transform 0.3s ease, fill 0.3s ease;
+  /* Thêm hiệu ứng chuyển màu */
 }
 
-.navbar li:hover svg {
+/* Đổi màu icon khi hover */
+.navbar .btn:hover svg {
+  fill: #03B151;
+  /* Màu mới khi hover */
   transform: scale(1.2);
   /* Tăng kích thước icon khi hover */
+}
+
+.navbar .btn.active svg {
+  fill: #03B151;
 }

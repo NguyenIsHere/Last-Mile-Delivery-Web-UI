@@ -17,47 +17,184 @@ import { ReactComponent as DocumentGearFillIcon } from '../../assets/icons/docum
 import { ReactComponent as PlusFillIcon } from '../../assets/icons/map-marker-plus (1).svg'
 
 const Navbar = () => {
-  // Sử dụng state để theo dõi trạng thái chọn của mỗi icon
-  const [selectedIcon, setSelectedIcon] = useState(null) // null có nghĩa là không có icon nào được chọn
+  // State quản lý hover cho từng icon
+  const [hoveredIcon, setHoveredIcon] = useState(null)
+  // State quản lý icon đã được chọn
+  const [selectedIcon, setSelectedIcon] = useState(null)
 
-  // Hàm xử lý khi người dùng click vào icon
-  const handleIconClick = iconName => {
-    setSelectedIcon(selectedIcon === iconName ? null : iconName) // Nếu click vào icon đã chọn, bỏ chọn, nếu không, chọn icon mới
+  // Hàm handle hover icon
+  const handleHover = icon => {
+    setHoveredIcon(icon)
+  }
+
+  // Hàm handle rời khỏi hover
+  const handleLeave = () => {
+    setHoveredIcon(null)
+  }
+
+  // Hàm handle click chọn icon
+  const handleClick = icon => {
+    setSelectedIcon(icon)
   }
 
   return (
     <div className='navbar__container'>
       <div className='navbar'>
-        <ul>
-          <li onClick={() => handleIconClick('bell')}>
-            {selectedIcon === 'bell' ? <BellFillIcon /> : <BellIcon />}
-            <Link to='/register'>Đăng Ký</Link>
-          </li>
-          <li onClick={() => handleIconClick('user')}>
-            {selectedIcon === 'user' ? <UserFillIcon /> : <UserIcon />}
-            <Link to='/login'>Đăng Nhập</Link>
-          </li>
-          <li onClick={() => handleIconClick('plus')}>
-            {selectedIcon === 'plus' ? <PlusFillIcon /> : <PlusIcon />}
-            <Link to='/create-order'>Tạo Đơn</Link>
-          </li>
-          <li onClick={() => handleIconClick('location')}>
-            {selectedIcon === 'location' ? (
-              <LocationFillIcon />
-            ) : (
-              <LocationIcon />
-            )}
-            <Link to='/order-tracking'>Theo Dõi Đơn Hàng</Link>
-          </li>
-          <li onClick={() => handleIconClick('documentGear')}>
-            {selectedIcon === 'documentGear' ? (
-              <DocumentGearFillIcon />
-            ) : (
-              <DocumentGearIcon />
-            )}
-            <Link to='/order-management'>Quản Lý Đơn Hàng</Link>
-          </li>
-        </ul>
+        <div className='logo-btn'>Grab</div>
+        <Link
+          className={`btn ${selectedIcon === 'bell' ? 'active' : ''}`}
+          to='/register'
+          onMouseEnter={() => handleHover('bell')}
+          onMouseLeave={handleLeave}
+          onClick={() => handleClick('bell')}
+        >
+          {selectedIcon === 'bell' || hoveredIcon === 'bell' ? (
+            <BellFillIcon />
+          ) : (
+            <BellIcon />
+          )}
+          Đăng Ký
+          <div className='sign'></div>
+        </Link>
+
+        <Link
+          className={`btn ${selectedIcon === 'user' ? 'active' : ''}`}
+          to='/login'
+          onMouseEnter={() => handleHover('user')}
+          onMouseLeave={handleLeave}
+          onClick={() => handleClick('user')}
+        >
+          {selectedIcon === 'user' || hoveredIcon === 'user' ? (
+            <UserFillIcon />
+          ) : (
+            <UserIcon />
+          )}
+          Đăng Nhập
+          <div className='sign'></div>
+        </Link>
+
+        <Link
+          className={`btn ${selectedIcon === 'location' ? 'active' : ''}`}
+          to='/create-order'
+          onMouseEnter={() => handleHover('location')}
+          onMouseLeave={handleLeave}
+          onClick={() => handleClick('location')}
+        >
+          {selectedIcon === 'location' || hoveredIcon === 'location' ? (
+            <LocationFillIcon />
+          ) : (
+            <LocationIcon />
+          )}
+          Tạo Đơn
+          <div className='sign'></div>
+        </Link>
+
+        <Link
+          className={`btn ${selectedIcon === 'document' ? 'active' : ''}`}
+          to='/order-tracking'
+          onMouseEnter={() => handleHover('document')}
+          onMouseLeave={handleLeave}
+          onClick={() => handleClick('document')}
+        >
+          {selectedIcon === 'document' || hoveredIcon === 'document' ? (
+            <DocumentGearFillIcon />
+          ) : (
+            <DocumentGearIcon />
+          )}
+          Theo Dõi Đơn Hàng
+          <div className='sign'></div>
+        </Link>
+
+        <Link
+          className={`btn ${selectedIcon === 'plus' ? 'active' : ''}`}
+          to='/order-management'
+          onMouseEnter={() => handleHover('plus')}
+          onMouseLeave={handleLeave}
+          onClick={() => handleClick('plus')}
+        >
+          {selectedIcon === 'plus' || hoveredIcon === 'plus' ? (
+            <PlusFillIcon />
+          ) : (
+            <PlusIcon />
+          )}
+          Quản Lý Đơn Hàng
+          <div className='sign'></div>
+        </Link>
+        <Link
+          className={`btn ${selectedIcon === 'plus' ? 'active' : ''}`}
+          to='/order-management'
+          onMouseEnter={() => handleHover('plus')}
+          onMouseLeave={handleLeave}
+          onClick={() => handleClick('plus')}
+        >
+          {selectedIcon === 'plus' || hoveredIcon === 'plus' ? (
+            <PlusFillIcon />
+          ) : (
+            <PlusIcon />
+          )}
+          Quản Lý Đơn Hàng
+          <div className='sign'></div>
+        </Link>
+        <Link
+          className={`btn ${selectedIcon === 'plus' ? 'active' : ''}`}
+          to='/order-management'
+          onMouseEnter={() => handleHover('plus')}
+          onMouseLeave={handleLeave}
+          onClick={() => handleClick('plus')}
+        >
+          {selectedIcon === 'plus' || hoveredIcon === 'plus' ? (
+            <PlusFillIcon />
+          ) : (
+            <PlusIcon />
+          )}
+          Quản Lý Đơn Hàng
+          <div className='sign'></div>
+        </Link>
+        <Link
+          className={`btn ${selectedIcon === 'plus' ? 'active' : ''}`}
+          to='/order-management'
+          onMouseEnter={() => handleHover('plus')}
+          onMouseLeave={handleLeave}
+          onClick={() => handleClick('plus')}
+        >
+          {selectedIcon === 'plus' || hoveredIcon === 'plus' ? (
+            <PlusFillIcon />
+          ) : (
+            <PlusIcon />
+          )}
+          Quản Lý Đơn Hàng
+          <div className='sign'></div>
+        </Link>
+        <Link
+          className={`btn ${selectedIcon === 'plus' ? 'active' : ''}`}
+          to='/order-management'
+          onMouseEnter={() => handleHover('plus')}
+          onMouseLeave={handleLeave}
+          onClick={() => handleClick('plus')}
+        >
+          {selectedIcon === 'plus' || hoveredIcon === 'plus' ? (
+            <PlusFillIcon />
+          ) : (
+            <PlusIcon />
+          )}
+          Quản Lý Đơn Hàng
+          <div className='sign'></div>
+        </Link>
+        <Link
+          className={`btn ${selectedIcon === 'plus' ? 'active' : ''}`}
+          to='/order-management'
+          onMouseEnter={() => handleHover('plus')}
+          onMouseLeave={handleLeave}
+          onClick={() => handleClick('plus')}
+        >
+          {selectedIcon === 'plus' || hoveredIcon === 'plus' ? (
+            <PlusFillIcon />
+          ) : (
+            <PlusIcon />
+          )}
+          Quản Lý Đơn Hàng
+          <div className='sign'></div>
+        </Link>
       </div>
     </div>
   )
