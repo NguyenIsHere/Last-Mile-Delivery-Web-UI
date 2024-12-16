@@ -1,0 +1,139 @@
+.grabhome__container {
+
+  padding: 0 100px;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+
+  .grab-header-group {
+    display: flex;
+    position: absolute;
+    top: 0;
+    left: 0;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+    width: 100vw;
+    height: 287px;
+    padding: 0 100px;
+    background: url(../../assets/images/layout-background.png);
+    background-size: cover;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1);
+    color: #fff;
+
+  }
+
+  .header-1 {
+    display: flex;
+    width: 80%;
+    justify-content: space-between;
+    gap: 56px;
+    align-items: center;
+    padding-top: 24px;
+    padding-bottom: 58px;
+  }
+
+  .grab-navbar__logo {
+    display: flex;
+    align-items: center;
+    width: 100px;
+  }
+
+  .grab-navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+
+  .grab-navbar .link-group {
+    display: flex;
+    gap: 32px;
+  }
+
+  .grab-navbar .link-group .grab-link,
+  .user-info {
+    text-decoration: none;
+    font-size: 14px;
+    color: #ffffffc4;
+  }
+
+
+
+  .header-2 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    height: 36px;
+    box-sizing: border-box;
+  }
+
+  .header-2 .left-header-2 {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    height: 100%;
+  }
+
+  .left-header-2 h1 {
+    font-size: 24px;
+    padding: 0;
+    margin: 0;
+  }
+
+  .right-header-2 {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    height: 100%;
+  }
+
+  .right-header-2-item-group {
+    text-decoration: none;
+  }
+
+  .right-header-2-item-group .text {
+    color: #ffffffc4;
+    font-size: 14px;
+  }
+
+  .header-3 {
+    box-sizing: border-box;
+    display: flex;
+    flex-flow: row-wrap;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    margin-top: 22px;
+    background: #fff;
+    box-shadow: 0 12px 20px rgba(26, 26, 26, .12);
+    padding: 16px;
+    border-radius: 8px;
+  }
+
+  .send-location {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .send-location-text {
+    font-size: 16px;
+    padding: 0;
+    margin: 0;
+    color: var(--font-color-100);
+  }
+
+  .send-location-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .send-location-icon img {
+    width: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+}

@@ -71,8 +71,8 @@ const Home = () => {
           <Link to='/service' className='nav-link'>
             Service
           </Link>
-          <Link to='/blog' className='nav-link'>
-            Blog
+          <Link to='/grab-home' className='nav-link'>
+            Grab
           </Link>
           <Link to='/main' className='get-started-btn'>
             Get Started <ArrowIcon />
@@ -102,31 +102,7 @@ const Home = () => {
           <img src={Bike} alt='' />
         </div>
       </div>
-      <div className='middle'>
-        <div className='top-mid'></div>
-        <div className='bottom-mid'>
-          <div className='mid-item'>
-            <div className='mid-icon'></div>
-            <h2 className='mid-title'></h2>
-            <p className='mid-description'></p>
-          </div>
-          <div className='mid-item'>
-            <div className='mid-icon'></div>
-            <h2 className='mid-title'></h2>
-            <p className='mid-description'></p>
-          </div>
-          <div className='mid-item'>
-            <div className='mid-icon'></div>
-            <h2 className='mid-title'></h2>
-            <p className='mid-description'></p>
-          </div>
-          <div className='mid-item'>
-            <div className='mid-icon'></div>
-            <h2 className='mid-title'></h2>
-            <p className='mid-description'></p>
-          </div>
-        </div>
-      </div>
+
       <div className='footer'>
         <img src={Footer} alt='' />
       </div>

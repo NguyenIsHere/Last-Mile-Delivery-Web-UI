@@ -1,4 +1,6 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
+import './GrabHome.css'
 
 const GrabHome = () => {
   return (
@@ -20,7 +22,7 @@ const GrabHome = () => {
                     fill='#00B14F'
                   />
                   <path
-                    d='M72.6578 21.644V24.3923H61.1888V6.06934H72.5553V8.81814H64.1773V13.704H71.7108V16.4523H64.1773V21.644H72.6578ZM87.4744 10.4705L82.291 17.4195L87.3741 24.2653V24.3923H83.7722L80.4264 19.7355L77.1054 24.3923H73.5041V24.2653L78.5362 17.4703L73.3251 10.4727V10.3452H76.927L80.4009 15.1809L83.8748 10.3452H87.4761L87.4744 10.4705ZM96.4166 24.7726C94.2964 24.7726 92.6107 23.5763 92.0234 22.3297H91.8954V29.9909H88.9579V17.3433C88.9579 12.7114 91.9208 9.88697 96.1101 9.88697C100.299 9.88697 103.313 12.7114 103.313 17.3433C103.313 22.0001 100.325 24.7743 96.4166 24.7743V24.7726ZM96.1334 12.6589C93.7068 12.6589 91.8931 14.5167 91.8931 17.5454C91.8931 20.2428 93.7323 21.9984 96.1334 21.9984C98.5344 21.9984 100.376 20.2676 100.376 17.446C100.376 14.5183 98.5622 12.6606 96.1356 12.6606L96.1334 12.6589Z'
+                    d='M72.6578 21.644V24.3923div1.1888V6.06934H72.5553V8.81814div4.1773V13.704H71.7108V16.4523div4.1773V21.644H72.6578ZM87.4744 10.4705L82.291 17.4195L87.3741 24.2653V24.3923H83.7722L80.4264 19.7355L77.1054 24.3923H73.5041V24.2653L78.5362 17.4703L73.3251 10.4727V10.3452H76.927L80.4009 15.1809L83.8748 10.3452H87.4761L87.4744 10.4705ZM96.4166 24.7726C94.2964 24.7726 92.6107 23.5763 92.0234 22.3297H91.8954V29.9909H88.9579V17.3433C88.9579 12.7114 91.9208 9.88697 96.1101 9.88697C100.299 9.88697 103.313 12.7114 103.313 17.3433C103.313 22.0001 100.325 24.7743 96.4166 24.7743V24.7726ZM96.1334 12.6589C93.7068 12.6589 91.8931 14.5167 91.8931 17.5454C91.8931 20.2428 93.7323 21.9984 96.1334 21.9984C98.5344 21.9984 100.376 20.2676 100.376 17.446C100.376 14.5183 98.5622 12.6606 96.1356 12.6606L96.1334 12.6589Z'
                     fill='#00B14F'
                   />
                   <path
@@ -55,10 +57,14 @@ const GrabHome = () => {
           </div>
           <div className='grab-navbar'>
             <div className='link-group'>
-              <Link to='/grab-home'>Trang chủ</Link>
-              <Link to='/grab-order'>Đơn hàng</Link>
+              <Link className='grab-link' to='/grab-home'>
+                Trang chủ
+              </Link>
+              <Link className='grab-link' to='/grab-order'>
+                Đơn hàng
+              </Link>
             </div>
-            <Link to='/grab-profile' className='user-info'>
+            <Link className='user-info' to='/grab-profile'>
               Nguyên
             </Link>
           </div>
@@ -71,21 +77,32 @@ const GrabHome = () => {
             </div>
           </div>
           <div className='right-header-2'>
-            <Link className='add-orders'></Link>
-            <Link className='upload-orders'></Link>
+            <Link className='right-header-2-item-group'>
+              <div className='right-header-2-item-icon'></div>
+              <div className='text'>Thêm đơn hàng</div>
+            </Link>
+            <Link className='right-header-2-item-group'>
+              <div className='right-header-2-item-icon'></div>
+              <div className='text'>Upload đơn hàng</div>
+            </Link>
           </div>
         </div>
         <div className='header-3'>
           <div className='send-location'>
-            <div className='send-location-icon'></div>
-            <h6 className='send-location-text'>Điểm gửi hàng</h6>
+            <div className='send-location-icon'>
+              <img
+                src='https://express.grab.com/book/static/images/pick-up.20L3NpX.svg'
+                alt=''
+              />
+            </div>
+            <div className='send-location-text'>Điểm gửi hàng</div>
           </div>
           <div className='swap-btn'>
             <img src='' alt='' />
           </div>
           <div className='receive-location'>
             <div className='receive-location-icon'></div>
-            <h6 className='receive-location-text'>Điểm nhận hàng</h6>
+            <div className='receive-location-text'>Điểm nhận hàng</div>
           </div>
           <div className='service-type-btn'>
             <div className='service-type-icon'>
