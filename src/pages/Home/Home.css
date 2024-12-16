@@ -133,14 +133,26 @@
   }
 
   .search-now input {
-    height: 46px;
+    height: 44px;
     border-bottom-left-radius: 8px;
     border-top-left-radius: 8px;
     border-bottom-right-radius: 0px;
     border-top-right-radius: 0px;
-    border: 1px solid var(--main-color-100);
+    border-top: 2px solid var(--main-color-100);
+    border-left: 2px solid var(--main-color-100);
+    border-bottom: 2px solid var(--main-color-100);
+    border-right: none;
     flex: 1;
     padding-left: 8px;
+    color: var(--font-color-100);
+  }
+
+  .search-now input::placeholder {
+    color: var(--font-color-60);
+  }
+
+  .search-now input:focus {
+    outline: none;
   }
 
   .search-now .search-now-btn {

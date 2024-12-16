@@ -92,7 +92,7 @@ const Home = () => {
               bảo an toàn và chính xác.
             </p>
             <div className='search-now'>
-              <input type='text' placeholder='Bạn muốn gửi hàng đến đâu?' />
+              <input type='text' placeholder='Bạn muốn gửi hàng đến đâu?' pla />
               <button className='search-now-btn'>Tìm ngay</button>
             </div>
           </div>
