@@ -1,6 +1,5 @@
 /* Bọc CSS trong lớp cha để tránh bị ghi đè */
 .order-tracking-container {
-  font-family: Arial, sans-serif;
   width: 100%;
   height: 100vh;
   margin: 0 auto;

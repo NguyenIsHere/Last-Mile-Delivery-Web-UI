@@ -8,6 +8,7 @@
 .content {
   position: absolute;
   margin-top: 60px;
+  font-family: "Quicksand", sans-serif;
   right: 0;
   /* Đẩy nội dung ra khỏi navbar */
   width: 80%;

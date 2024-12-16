@@ -2,6 +2,7 @@
 .searchbar__container {
 
   .searchbar {
+    font-family: "Quicksand", sans-serif;
     z-index: 1000;
     width: 80%;
     background-color: #fff;
@@ -26,11 +27,17 @@
     border-radius: 8px;
     padding: 0 10px;
     box-sizing: border-box;
+    font-family: "Quicksand", sans-serif;
   }
 
   .menu-group {
     display: flex;
     gap: 20px;
     width: 20%;
+    font-family: "Quicksand", sans-serif;
+  }
+
+  .noti-btn {
+    font-family: "Quicksand", sans-serif;
   }
 }

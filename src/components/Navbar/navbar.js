@@ -43,7 +43,7 @@ const Navbar = () => {
         <div className='logo-btn'>Grab</div>
         <Link
           className={`btn ${selectedIcon === 'bell' ? 'active' : ''}`}
-          to='/register'
+          to='/main/register'
           onMouseEnter={() => handleHover('bell')}
           onMouseLeave={handleLeave}
           onClick={() => handleClick('bell')}
@@ -59,7 +59,7 @@ const Navbar = () => {
 
         <Link
           className={`btn ${selectedIcon === 'user' ? 'active' : ''}`}
-          to='/login'
+          to='/main/login'
           onMouseEnter={() => handleHover('user')}
           onMouseLeave={handleLeave}
           onClick={() => handleClick('user')}
@@ -75,7 +75,7 @@ const Navbar = () => {
 
         <Link
           className={`btn ${selectedIcon === 'location' ? 'active' : ''}`}
-          to='/create-order'
+          to='/main/create-order'
           onMouseEnter={() => handleHover('location')}
           onMouseLeave={handleLeave}
           onClick={() => handleClick('location')}
@@ -91,7 +91,7 @@ const Navbar = () => {
 
         <Link
           className={`btn ${selectedIcon === 'document' ? 'active' : ''}`}
-          to='/order-tracking'
+          to='/main/order-tracking'
           onMouseEnter={() => handleHover('document')}
           onMouseLeave={handleLeave}
           onClick={() => handleClick('document')}
@@ -107,7 +107,7 @@ const Navbar = () => {
 
         <Link
           className={`btn ${selectedIcon === 'plus' ? 'active' : ''}`}
-          to='/order-management'
+          to='/main/order-management'
           onMouseEnter={() => handleHover('plus')}
           onMouseLeave={handleLeave}
           onClick={() => handleClick('plus')}
@@ -122,7 +122,7 @@ const Navbar = () => {
         </Link>
         <Link
           className={`btn ${selectedIcon === 'plus' ? 'active' : ''}`}
-          to='/order-management'
+          to='/main/order-management'
           onMouseEnter={() => handleHover('plus')}
           onMouseLeave={handleLeave}
           onClick={() => handleClick('plus')}
@@ -137,7 +137,7 @@ const Navbar = () => {
         </Link>
         <Link
           className={`btn ${selectedIcon === 'plus' ? 'active' : ''}`}
-          to='/order-management'
+          to='/main/order-management'
           onMouseEnter={() => handleHover('plus')}
           onMouseLeave={handleLeave}
           onClick={() => handleClick('plus')}
@@ -152,7 +152,7 @@ const Navbar = () => {
         </Link>
         <Link
           className={`btn ${selectedIcon === 'plus' ? 'active' : ''}`}
-          to='/order-management'
+          to='/main/order-management'
           onMouseEnter={() => handleHover('plus')}
           onMouseLeave={handleLeave}
           onClick={() => handleClick('plus')}
@@ -167,7 +167,7 @@ const Navbar = () => {
         </Link>
         <Link
           className={`btn ${selectedIcon === 'plus' ? 'active' : ''}`}
-          to='/order-management'
+          to='/main/order-management'
           onMouseEnter={() => handleHover('plus')}
           onMouseLeave={handleLeave}
           onClick={() => handleClick('plus')}
@@ -182,7 +182,7 @@ const Navbar = () => {
         </Link>
         <Link
           className={`btn ${selectedIcon === 'plus' ? 'active' : ''}`}
-          to='/order-management'
+          to='/main/order-management'
           onMouseEnter={() => handleHover('plus')}
           onMouseLeave={handleLeave}
           onClick={() => handleClick('plus')}
