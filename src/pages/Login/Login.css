@@ -26,7 +26,7 @@
   /* Tiêu đề */
   .login-title {
     font-size: 24px;
-    color: #03B151;
+    color: var(--main-color-100);
     /* Màu thương hiệu */
     margin-bottom: 20px;
     font-weight: bold;
@@ -41,7 +41,7 @@
 
   .form-group label {
     font-size: 14px;
-    color: #202020;
+    color: var(--font-color-100);
     margin-bottom: 5px;
     text-align: left;
     display: block;
@@ -62,14 +62,14 @@
 
 
   .form-group input:focus {
-    border-color: #03B151;
+    border-color: var(--main-color-100);
     box-shadow: 0 0 8px rgba(3, 177, 81, 0.3);
     outline: none;
   }
 
   /* Nút đăng nhập */
   .login-button {
-    background-color: #03B151;
+    background-color: var(--main-color-100);
     /* Màu thương hiệu */
     color: #ffffff;
     /* Màu chữ trắng */
@@ -83,14 +83,14 @@
   }
 
   .login-button:hover {
-    background-color: #029544;
+    background-color: var(--secondary-color-100);
     /* Màu đậm hơn khi hover */
     transform: translateY(-2px);
     /* Hiệu ứng nổi khi hover */
   }
 
   .login-button:active {
-    background-color: #02773a;
+    background-color: var(--secondary-color-100);
     /* Màu nhấn */
     transform: translateY(0);
     /* Trả về vị trí ban đầu */

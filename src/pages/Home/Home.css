@@ -10,28 +10,181 @@
     left: 0;
     flex-direction: row;
     justify-content: space-between;
-    height: 60px;
+    height: 80px;
     box-sizing: border-box;
     width: 100%;
     padding: 15px 100px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 11;
+    background-color: rgba(255, 255, 255, 0.753);
+  }
+
+  .home-header .logo {
+    align-items: center;
+    justify-content: center;
+    display: flex;
   }
 
   .home-navbar {
     display: flex;
     flex-direction: row;
     align-items: center;
-    gap: 20px;
+    gap: 60px;
   }
 
   .nav-link {
     text-align: center;
     text-decoration: none;
+    font-weight: bold;
+    color: var(--font-color-100);
   }
 
   .get-started-btn {
+    display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
     text-decoration: none;
+    font-weight: 600;
+    background-color: var(--main-color-100);
+    color: white;
+    padding: 12px 16px;
+    border-radius: 8px;
+    transition: all 0.3s;
   }
+
+  .get-started-btn:hover {
+    background-color: var(--secondary-color-100);
+    transform: translateX(2px);
+  }
+
+  .hero {
+    display: flex;
+    width: 100%;
+    /* Chiều rộng toàn màn hình */
+    height: 100vh;
+    /* Chiều cao toàn màn hình */
+  }
+
+  .left-hero,
+  .right-hero {
+    flex: 1;
+    /* Chiếm 50% chiều rộng */
+    display: flex;
+    flex-direction: column;
+    /* Sắp xếp nội dung bên trong theo chiều dọc */
+    justify-content: center;
+    /* Căn giữa theo trục dọc */
+    align-items: center;
+    /* Căn giữa theo trục ngang (nếu cần) */
+  }
+
+  .left-hero {
+    /* background-color: #03B151; */
+    /* Màu chủ đạo */
+    /* color: white; */
+    color: var(--font-color-100);
+    /* Đổi màu chữ */
+    gap: 24px
+  }
+
+  .left-hero-content {
+    padding: 0 64px 0 80px;
+    flex: 1;
+    /* Chiếm 50% chiều rộng */
+    display: flex;
+    flex-direction: column;
+    /* Sắp xếp nội dung bên trong theo chiều dọc */
+    justify-content: center;
+    /* Căn giữa theo trục dọc */
+    /* Căn giữa theo trục ngang (nếu cần) */
+    gap: 24px;
+  }
+
+  .left-hero h3 {
+    margin: 0;
+    font-size: 1.5rem;
+  }
+
+  .left-hero h1 {
+    font-size: 5rem;
+    /* Kích thước chữ */
+    font-weight: 700;
+    margin: 0;
+    /* Độ đậm */
+  }
+
+  .left-hero p {
+    margin: 0;
+  }
+
+  .left-hero h1 span {
+    color: var(--main-color-100);
+  }
+
+  .search-now {
+    display: flex;
+    gap: 0;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    width: 50%;
+    margin-top: 8px;
+  }
+
+  .search-now input {
+    height: 46px;
+    border-bottom-left-radius: 8px;
+    border-top-left-radius: 8px;
+    border-bottom-right-radius: 0px;
+    border-top-right-radius: 0px;
+    border: 1px solid var(--main-color-100);
+    flex: 1;
+    padding-left: 8px;
+  }
+
+  .search-now .search-now-btn {
+    border-bottom-right-radius: 8px;
+    border-top-right-radius: 8px;
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+    background-color: var(--main-color-100);
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 16px 16px;
+    height: 50px;
+    font-weight: 700;
+    font-family: 'QuickSand', sans-serif;
+  }
+
+  .search-now .search-now-btn:hover {
+    background-color: var(--secondary-color-100);
+  }
+
+  .right-hero {
+    border-radius: 50%;
+    /* Màu nền khác */
+  }
+
+  .right-hero .circle-bg {
+    background-color: var(--main-color-30);
+    border-radius: 50%;
+    width: 60%;
+    height: 60%;
+    margin-top: 80px;
+    margin-left: 60px;
+  }
+
+  .right-hero img {
+    z-index: 10;
+    position: absolute;
+    max-width: 50%;
+    /* Hình ảnh co giãn theo khung cha */
+    height: auto;
+    /* Giữ tỉ lệ ảnh */
+    transform: scaleX(-1);
+    /* Lật theo trục ngang */
+  }
+
 }

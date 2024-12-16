@@ -1,3 +1,15 @@
+:root {
+  --main-color-100: #15BF61;
+  --main-color-50: #8ADFB0;
+  --main-color-30: #BAECD0;
+  --secondary-color-100: #027F4A;
+  --font-color-100: #4B4B4B;
+  --font-color-60: #666666;
+  --danger-color: #FF4C4B;
+  --icon-color: #FFB700;
+}
+
+
 body {
   margin: 0;
   font-family: "Quicksand", sans-serif;

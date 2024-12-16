@@ -27,14 +27,14 @@
   /* Titles */
   .create-order-title {
     font-size: 28px;
-    color: #202020;
+    color: var(--font-color-100);
     margin-bottom: 20px;
   }
 
   .section-title {
     font-size: 20px;
     font-weight: bold;
-    color: #202020;
+    color: var(--font-color-100);
     border-bottom: 1px solid #c5c5c5;
     margin-bottom: 10px;
     margin-left: -15px;
@@ -62,7 +62,7 @@
     display: block;
     margin-bottom: 5px;
     font-size: 14px;
-    color: #5D5D5D;
+    color: var(--font-color-60);
   }
 
   .form-input,
@@ -77,7 +77,7 @@
 
   .form-input:focus,
   .form-textarea:focus {
-    border-color: #03B151;
+    border-color: var(--main-color-100);
     transition: 0.3s;
     outline: none;
   }
@@ -90,7 +90,7 @@
   /* Buttons */
   .submit-button {
     padding: 10px 20px;
-    background-color: #03B151;
+    background-color: var(--main-color-100);
     color: #fff;
     font-size: 16px;
     border: none;
@@ -99,7 +99,7 @@
   }
 
   .submit-button:hover {
-    background-color: #02a14a;
+    background-color: var(--secondary-color-100);
   }
 
   /* Order Section */
