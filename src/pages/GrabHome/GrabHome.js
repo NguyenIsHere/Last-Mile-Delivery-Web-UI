@@ -1,8 +1,165 @@
-import React from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import './GrabHome.css'
+import { ReactComponent as Dot } from '../../assets/icons/dot-circle (1).svg'
+import { ReactComponent as Destination } from '../../assets/icons/marker.svg'
+import { ReactComponent as Exchange } from '../../assets/icons/exchange.svg'
+import { ReactComponent as Right } from '../../assets/icons/angle-small-right (1).svg'
+import { ReactComponent as Boxes } from '../../assets/icons/boxes (1).svg'
+import { ReactComponent as Upload } from '../../assets/icons/upload.svg'
+import { ReactComponent as Cross } from '../../assets/icons/cross.svg'
+
+import Fast from '../../assets/images/Instant_36x36.png'
+import TwoHours from '../../assets/images/UpfrontBatchV2_36x36.png'
+import Cheap from '../../assets/images/SameDay_36x36.png'
+import Food from '../../assets/images/Food_36x36.png'
+
+const DotIcon = () => {
+  return (
+    <Dot
+      style={{ fill: 'var(--blue-color-100)', width: '16px', height: '16px' }}
+    />
+  )
+}
+
+const DestinationIcon = () => {
+  return (
+    <Destination
+      style={{
+        fill: 'var(--orange-color-100)',
+        width: '16px',
+        height: '16px'
+      }}
+    />
+  )
+}
+
+const ExchangeIcon = () => {
+  return (
+    <Exchange
+      style={{ fill: 'var(--blue-color-30)', width: '20px', height: '20px' }}
+    />
+  )
+}
+
+const RightIcon = () => {
+  return <Right style={{ fill: '#fff', width: '14px', height: '14px' }} />
+}
+
+const BoxesIcon = () => {
+  return (
+    <Boxes style={{ fill: '#ffffffc4', width: '17px', height: '15.5px' }} />
+  )
+}
+
+const UploadIcon = () => {
+  return (
+    <Upload style={{ fill: '#ffffffc4', width: '15.5px', height: '15.5px' }} />
+  )
+}
+
+const CrossIcon = () => {
+  return (
+    <Cross
+      style={{ fill: 'var(--font-color-100)', width: '20px', height: '20px' }}
+    />
+  )
+}
 
 const GrabHome = () => {
+  const [selectedLocation, setSelectedLocation] = useState('Ho Chi Minh') // Giá trị mặc định
+  const [showDropdown, setShowDropdown] = useState(false)
+  const dropdownRef = useRef(null) // Tạo tham chiếu đến dropdown
+
+  const locations = [
+    'Ho Chi Minh',
+    'Ha Noi',
+    'Da Nang',
+    'Can Tho',
+    'Hai Phong',
+    'Vung Tau',
+    'Nha Trang',
+    'Da Lat',
+    'Hue',
+    'Quang Ninh',
+    'Phu Quoc',
+    'Phan Thiet',
+    'Buon Ma Thuot',
+    'Bac Lieu',
+    'Ca Mau',
+    'Bac Ninh',
+    'Bac Giang',
+    'Binh Duong',
+    'Binh Phuoc',
+    'Binh Thuan',
+    'Binh Dinh',
+    'Binh Thuan',
+    'Ben Tre',
+    'Dong Nai',
+    'Dong Thap',
+    'Dong Nai',
+    'Dong Thap',
+    'Gia Lai',
+    'Ha Giang',
+    'Ha Nam',
+    'Ha Tinh',
+    'Hai Duong',
+    'Hau Giang',
+    'Hoa Binh',
+    'Hung Yen',
+    'Khanh Hoa',
+    'Kien Giang',
+    'Kon Tum',
+    'Lai Chau',
+    'Lam Dong',
+    'Lang Son',
+    'Lao Cai',
+    'Long An',
+    'Nam Dinh',
+    'Nghe An',
+    'Ninh Binh',
+    'Ninh Thuan',
+    'Phu Tho',
+    'Quang Binh',
+    'Quang Nam',
+    'Quang Ngai',
+    'Quang Tri',
+    'Soc Trang',
+    'Son La',
+    'Tay Ninh',
+    'Thai Binh',
+    'Thai Nguyen',
+    'Thanh Hoa',
+    'Thua Thien Hue',
+    'Tien Giang',
+    'Tra Vinh',
+    'Tuyen Quang',
+    'Vinh Long',
+    'Vinh Phuc',
+    'Yen Bai'
+  ]
+
+  const handleSelect = location => {
+    setSelectedLocation(location) // Cập nhật giá trị chọn
+    setShowDropdown(false) // Đóng dropdown
+  }
+
+  // Xử lý click bên ngoài dropdown
+  useEffect(() => {
+    const handleClickOutside = event => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setShowDropdown(false) // Ẩn dropdown
+      }
+    }
+    document.addEventListener('mousedown', handleClickOutside)
+    return () => document.removeEventListener('mousedown', handleClickOutside)
+  }, [])
+
+  const [isModalOpen, setIsModalOpen] = useState(false)
+
+  const openModal = () => setIsModalOpen(true)
+  const closeModal = () => setIsModalOpen(false)
+
   return (
     <div className='grabhome__container'>
       <div className='grab-header-group'>
@@ -71,59 +228,426 @@ const GrabHome = () => {
         </div>
         <div className='header-2'>
           <div className='left-header-2'>
-            <h1>Giao tai Ho Chi Minh</h1>
-            <div className='dropdown-gps'>
-              <img src='' alt='' />
+            <h1>
+              Giao tai <span>{selectedLocation}</span>
+            </h1>
+            <div className='dropdown-gps' ref={dropdownRef}>
+              {/* Icon để mở dropdown */}
+              <div
+                className='icon-dropdown'
+                onClick={() => setShowDropdown(prev => !prev)}
+                style={{ cursor: 'pointer' }}
+              >
+                <div className='right-icon'>
+                  <RightIcon />
+                </div>
+              </div>
+
+              {/* Dropdown List */}
+              {showDropdown && (
+                <ul className='dropdown-list'>
+                  {locations.map(location => (
+                    <li
+                      key={location}
+                      className='dropdown-item'
+                      onClick={() => handleSelect(location)}
+                    >
+                      {location}
+                    </li>
+                  ))}
+                </ul>
+              )}
             </div>
           </div>
           <div className='right-header-2'>
             <Link className='right-header-2-item-group'>
-              <div className='right-header-2-item-icon'></div>
+              <div className='icon'>
+                <BoxesIcon />
+              </div>
               <div className='text'>Thêm đơn hàng</div>
             </Link>
             <Link className='right-header-2-item-group'>
-              <div className='right-header-2-item-icon'></div>
+              <div className='icon'>
+                <UploadIcon />
+              </div>
               <div className='text'>Upload đơn hàng</div>
             </Link>
           </div>
         </div>
         <div className='header-3'>
-          <div className='send-location'>
-            <div className='send-location-icon'>
-              <img
-                src='https://express.grab.com/book/static/images/pick-up.20L3NpX.svg'
-                alt=''
-              />
-            </div>
-            <div className='send-location-text'>Điểm gửi hàng</div>
-          </div>
-          <div className='swap-btn'>
-            <img src='' alt='' />
-          </div>
-          <div className='receive-location'>
-            <div className='receive-location-icon'></div>
-            <div className='receive-location-text'>Điểm nhận hàng</div>
-          </div>
-          <div className='service-type-btn'>
-            <div className='service-type-icon'>
-              <img src='' alt='' />
-            </div>
-            <div className='service-type-text-group'>
-              <div className='service-type-text'>
-                Lấy hàng hôm nay, đặt ngay
+          <div className='send-location-col'>
+            <div className='send-location'>
+              <div className='send-location-icon'>
+                <DotIcon />
               </div>
-              <div className='service-type-text-sub'>Giao vào 00:13</div>
+              <div className='send-location-text'>Điểm gửi hàng</div>
             </div>
           </div>
-          <div className='order-detail-btn'>
-            <div className='order-detail-text-group'>
-              <div className='order-detail-text'>Thêm chi tiết đơn hàng</div>
-              <div className='order-detail-text-sub'>
-                29.000<span>đ</span>
+          <div className='swap-btn-col'>
+            <div className='swap-btn'>
+              <ExchangeIcon />
+            </div>
+          </div>
+          <div className='receive-location-col'>
+            <div className='receive-location'>
+              <div className='receive-location-icon'>
+                <DestinationIcon />
+              </div>
+              <div className='receive-location-text'>Điểm nhận hàng</div>
+            </div>
+          </div>
+
+          <div className='service-type-btn-col'>
+            <div className='service-type-btn' onClick={openModal}>
+              <div className='service-type-btn-content'>
+                <div className='service-type-icon'>
+                  <img src={Fast} alt='' />
+                </div>
+                <div className='service-type-text-group'>
+                  <div className='service-type-text'>
+                    Lấy hàng hôm nay, đặt ngay
+                  </div>
+                  <div className='service-type-text-sub'>Giao vào 00:13</div>
+                </div>
               </div>
             </div>
-            <div className='order-detail-icon'>
-              <img src='' alt='' />
+          </div>
+
+          <div className='order-detail-btn-col'>
+            <div className='order-detail-btn'>
+              <div className='order-detail-btn-content'>
+                <div className='order-detail-text-group'>
+                  <div className='order-detail-text'>
+                    Thêm chi tiết đơn hàng
+                  </div>
+                  <div className='order-detail-text-sub'>
+                    29.000<span>đ</span>
+                  </div>
+                </div>
+                <div className='order-detail-icon'>
+                  <RightIcon />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        className={`modal-background ${isModalOpen ? 'open' : ''}`}
+        onClick={closeModal}
+      >
+        <div className={`modal-container-col ${isModalOpen ? 'open' : ''}`}>
+          <div className='modal-content'>
+            <div className='modal-header'>
+              <div className='modal-header-content'>
+                <div className='modal-header-icon' onClick={closeModal}>
+                  <CrossIcon />
+                </div>
+                <div className='modal-header-text'>Tùy chọn giao hàng</div>
+              </div>
+            </div>
+            <div className='modal-body'>
+              <div className='modal-body-content'>
+                <div className='modal-body-content-title'>Loại giao hàng</div>
+                <div className='modal-body-content-btn-list'>
+                  <div className='modal-service-btn'>
+                    <div className='modal-service-btn-content'>
+                      <div className='modal-service-icon'>
+                        <img src={Fast} alt='' />
+                      </div>
+                      <div className='modal-service-text-group'>
+                        <div className='modal-service-text'>
+                          <div className='modal-service-text-left'>
+                            Siêu tốc
+                          </div>
+                          <div className='modal-service-text-right'>
+                            69.000 <span>đ</span>
+                          </div>
+                        </div>
+                        <div className='modal-service-text-sub'>
+                          Giao nhanh 30 phút/5km
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className='modal-service-btn'>
+                    <div className='modal-service-btn-content'>
+                      <div className='modal-service-icon'>
+                        <img src={TwoHours} alt='' />
+                      </div>
+                      <div className='modal-service-text-group'>
+                        <div className='modal-service-text'>
+                          <div className='modal-service-text-left'>2H</div>
+                          <div className='modal-service-text-right'>
+                            43.000 <span>đ</span>
+                          </div>
+                        </div>
+                        <div className='modal-service-text-sub'>
+                          Giao nhanh 2 giờ, giá tốt hơn
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className='modal-service-btn'>
+                    <div className='modal-service-btn-content'>
+                      <div className='modal-service-icon'>
+                        <img src={Cheap} alt='' />
+                      </div>
+                      <div className='modal-service-text-group'>
+                        <div className='modal-service-text'>
+                          <div className='modal-service-text-left'>Siêu rẻ</div>
+                          <div className='modal-service-text-right'>
+                            84.000 <span>đ</span>
+                          </div>
+                        </div>
+                        <div className='modal-service-text-sub'>
+                          Giao nội thành trong 4H, đồng giá
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className='modal-service-btn'>
+                    <div className='modal-service-btn-content'>
+                      <div className='modal-service-icon'>
+                        <img src={Food} alt='' />
+                      </div>
+                      <div className='modal-service-text-group'>
+                        <div className='modal-service-text'>
+                          <div className='modal-service-text-left'>
+                            Thực phẩm
+                          </div>
+                          <div className='modal-service-text-right'>
+                            63.000 <span>đ</span>
+                          </div>
+                        </div>
+                        <div className='modal-service-text-sub'>
+                          Giao siêu tốc dành riêng cho thực phẩm
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className='modal-footer'>
+              <div className='modal-submit-btn'>Xác nhận</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div
+        className={`modal-background ${isModalOpen ? 'open-1' : ''}`}
+        onClick={closeModal}
+      >
+        <div className={`modal-container-col ${isModalOpen ? 'open-1' : ''}`}>
+          <div className='modal-content'>
+            <div className='modal-header'>
+              <div className='modal-header-content'>
+                <div className='modal-header-icon' onClick={closeModal}>
+                  <CrossIcon />
+                </div>
+                <div className='modal-header-text'>Tùy chọn giao hàng</div>
+              </div>
+            </div>
+            <div className='modal-body'>
+              <div className='modal-body-content'>
+                <div className='modal-body-content-title'>Loại giao hàng</div>
+                <div className='modal-body-content-btn-list'>
+                  <div className='modal-service-btn'>
+                    <div className='modal-service-btn-content'>
+                      <div className='modal-service-icon'>
+                        <img src={Fast} alt='' />
+                      </div>
+                      <div className='modal-service-text-group'>
+                        <div className='modal-service-text'>
+                          <div className='modal-service-text-left'>
+                            Siêu tốc
+                          </div>
+                          <div className='modal-service-text-right'>
+                            69.000 <span>đ</span>
+                          </div>
+                        </div>
+                        <div className='modal-service-text-sub'>
+                          Giao nhanh 30 phút/5km
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className='modal-service-btn'>
+                    <div className='modal-service-btn-content'>
+                      <div className='modal-service-icon'>
+                        <img src={TwoHours} alt='' />
+                      </div>
+                      <div className='modal-service-text-group'>
+                        <div className='modal-service-text'>
+                          <div className='modal-service-text-left'>2H</div>
+                          <div className='modal-service-text-right'>
+                            43.000 <span>đ</span>
+                          </div>
+                        </div>
+                        <div className='modal-service-text-sub'>
+                          Giao nhanh 2 giờ, giá tốt hơn
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className='modal-service-btn'>
+                    <div className='modal-service-btn-content'>
+                      <div className='modal-service-icon'>
+                        <img src={Cheap} alt='' />
+                      </div>
+                      <div className='modal-service-text-group'>
+                        <div className='modal-service-text'>
+                          <div className='modal-service-text-left'>Siêu rẻ</div>
+                          <div className='modal-service-text-right'>
+                            84.000 <span>đ</span>
+                          </div>
+                        </div>
+                        <div className='modal-service-text-sub'>
+                          Giao nội thành trong 4H, đồng giá
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className='modal-service-btn'>
+                    <div className='modal-service-btn-content'>
+                      <div className='modal-service-icon'>
+                        <img src={Food} alt='' />
+                      </div>
+                      <div className='modal-service-text-group'>
+                        <div className='modal-service-text'>
+                          <div className='modal-service-text-left'>
+                            Thực phẩm
+                          </div>
+                          <div className='modal-service-text-right'>
+                            63.000 <span>đ</span>
+                          </div>
+                        </div>
+                        <div className='modal-service-text-sub'>
+                          Giao siêu tốc dành riêng cho thực phẩm
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className='modal-footer'>
+              <div className='modal-submit-btn'>Xác nhận</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div
+        className={`modal-background ${isModalOpen ? 'open-2' : ''}`}
+        onClick={closeModal}
+      >
+        <div className={`modal-container-col ${isModalOpen ? 'open-2' : ''}`}>
+          <div className='modal-content'>
+            <div className='modal-header'>
+              <div className='modal-header-content'>
+                <div className='modal-header-icon' onClick={closeModal}>
+                  <CrossIcon />
+                </div>
+                <div className='modal-header-text'>Tùy chọn giao hàng</div>
+              </div>
+            </div>
+            <div className='modal-body'>
+              <div className='modal-body-content'>
+                <div className='modal-body-content-title'>Loại giao hàng</div>
+                <div className='modal-body-content-btn-list'>
+                  <div className='modal-service-btn'>
+                    <div className='modal-service-btn-content'>
+                      <div className='modal-service-icon'>
+                        <img src={Fast} alt='' />
+                      </div>
+                      <div className='modal-service-text-group'>
+                        <div className='modal-service-text'>
+                          <div className='modal-service-text-left'>
+                            Siêu tốc
+                          </div>
+                          <div className='modal-service-text-right'>
+                            69.000 <span>đ</span>
+                          </div>
+                        </div>
+                        <div className='modal-service-text-sub'>
+                          Giao nhanh 30 phút/5km
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className='modal-service-btn'>
+                    <div className='modal-service-btn-content'>
+                      <div className='modal-service-icon'>
+                        <img src={TwoHours} alt='' />
+                      </div>
+                      <div className='modal-service-text-group'>
+                        <div className='modal-service-text'>
+                          <div className='modal-service-text-left'>2H</div>
+                          <div className='modal-service-text-right'>
+                            43.000 <span>đ</span>
+                          </div>
+                        </div>
+                        <div className='modal-service-text-sub'>
+                          Giao nhanh 2 giờ, giá tốt hơn
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className='modal-service-btn'>
+                    <div className='modal-service-btn-content'>
+                      <div className='modal-service-icon'>
+                        <img src={Cheap} alt='' />
+                      </div>
+                      <div className='modal-service-text-group'>
+                        <div className='modal-service-text'>
+                          <div className='modal-service-text-left'>Siêu rẻ</div>
+                          <div className='modal-service-text-right'>
+                            84.000 <span>đ</span>
+                          </div>
+                        </div>
+                        <div className='modal-service-text-sub'>
+                          Giao nội thành trong 4H, đồng giá
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className='modal-service-btn'>
+                    <div className='modal-service-btn-content'>
+                      <div className='modal-service-icon'>
+                        <img src={Food} alt='' />
+                      </div>
+                      <div className='modal-service-text-group'>
+                        <div className='modal-service-text'>
+                          <div className='modal-service-text-left'>
+                            Thực phẩm
+                          </div>
+                          <div className='modal-service-text-right'>
+                            63.000 <span>đ</span>
+                          </div>
+                        </div>
+                        <div className='modal-service-text-sub'>
+                          Giao siêu tốc dành riêng cho thực phẩm
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className='modal-footer'>
+              <div className='modal-submit-btn'>Xác nhận</div>
             </div>
           </div>
         </div>

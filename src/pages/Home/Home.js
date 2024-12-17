@@ -71,7 +71,7 @@ const Home = () => {
           <Link to='/service' className='nav-link'>
             Service
           </Link>
-          <Link to='/grab-home' className='nav-link'>
+          <Link to='/grab' className='nav-link'>
             Grab
           </Link>
           <Link to='/main' className='get-started-btn'>

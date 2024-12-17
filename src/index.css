@@ -5,8 +5,11 @@
   --secondary-color-100: #027F4A;
   --font-color-100: #4B4B4B;
   --font-color-60: #666666;
-  --danger-color: #FF4C4B;
-  --icon-color: #FFB700;
+  --orange-color-100: #ED5D4C;
+  --blue-color-100: #01A4CE;
+  --blue-color-30: #A7C3CB;
+  --white-color-50: #E9EDF5;
+
 }
 
 
@@ -20,4 +23,9 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+* {
+  box-sizing: border-box;
+  transition: all .3s cubic-bezier(.645, .045, .355, 1);
 }
