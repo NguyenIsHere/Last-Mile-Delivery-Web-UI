@@ -8,11 +8,17 @@ import { ReactComponent as Right } from '../../assets/icons/angle-small-right (1
 import { ReactComponent as Boxes } from '../../assets/icons/boxes (1).svg'
 import { ReactComponent as Upload } from '../../assets/icons/upload.svg'
 import { ReactComponent as Cross } from '../../assets/icons/cross.svg'
+import { ReactComponent as Plus } from '../../assets/icons/plus (1).svg'
+import { ReactComponent as Minus } from '../../assets/icons/minus.svg'
+import { ReactComponent as Bookmark } from '../../assets/icons/bookmark (1).svg'
+import { ReactComponent as BookmarkFill } from '../../assets/icons/bookmark (2).svg'
 
 import Fast from '../../assets/images/Instant_36x36.png'
 import TwoHours from '../../assets/images/UpfrontBatchV2_36x36.png'
 import Cheap from '../../assets/images/SameDay_36x36.png'
 import Food from '../../assets/images/Food_36x36.png'
+
+import Map from '../../assets/images/map.png'
 
 const DotIcon = () => {
   return (
@@ -63,6 +69,67 @@ const CrossIcon = () => {
     <Cross
       style={{ fill: 'var(--font-color-100)', width: '20px', height: '20px' }}
     />
+  )
+}
+
+const PlusIcon = () => {
+  return (
+    <Plus
+      style={{ fill: 'var(--font-color-100)', width: '16px', height: '16px' }}
+    />
+  )
+}
+
+const MinusIcon = () => {
+  return (
+    <Minus
+      style={{
+        fill: 'var(--font-color-100)',
+        width: '16px',
+        height: '16px'
+      }}
+    />
+  )
+}
+
+const BookmarkIcon = () => {
+  return (
+    <Bookmark
+      style={{
+        fill: 'var(--font-color-100)',
+        width: '16px',
+        height: '16px'
+      }}
+    />
+  )
+}
+
+const BookmarkFillIcon = () => {
+  return (
+    <BookmarkFill
+      style={{
+        fill: 'var(--font-color-100)',
+        width: '16px',
+        height: '16px'
+      }}
+    />
+  )
+}
+
+const AddressItem = ({ name, address, onClick }) => {
+  return (
+    <div className='address-item' onClick={onClick}>
+      <div className='address-item-icon'>
+        <DestinationIcon />
+      </div>
+      <div className='address-item-text-group'>
+        <div className='address-item-name'>{name}</div>
+        <div className='address-item-address'>{address}</div>
+      </div>
+      <div className='address-save-icon'>
+        <BookmarkIcon />
+      </div>
+    </div>
   )
 }
 
@@ -139,6 +206,37 @@ const GrabHome = () => {
     'Yen Bai'
   ]
 
+  const locations2 = [
+    {
+      name: 'Truong Dai Hoc Kinh Te Quoc Dan',
+      address: '123 Nguyen Van Linh, District 7, Thu Duc, Ho Chi Minh City'
+    },
+    {
+      name: 'Truong Dai Hoc Bach Khoa Ha Noi',
+      address: '1 Dai Co Viet, Hai Ba Trung, Ha Noi'
+    },
+    {
+      name: 'Truong Dai Hoc Cong Nghe Thong Tin',
+      address: 'KP6, Linh Trung, Thu Duc, Ho Chi Minh City'
+    },
+    {
+      name: 'Truong Dai Hoc Khoa Hoc Tu Nhien',
+      address: '227 Nguyen Van Cu, District 5, Ho Chi Minh City'
+    },
+    {
+      name: 'Truong Dai Hoc Ngoai Thuong',
+      address: '91 Chua Lang, Dong Da, Ha Noi, District 5, Ho Chi Minh City'
+    },
+    {
+      name: 'Truong Dai Hoc Su Pham Ky Thuat',
+      address: '1 Vo Van Ngan, Thu Duc, Ho Chi Minh City'
+    },
+    {
+      name: 'Truong Dai Hoc Kinh Te TP.HCM',
+      address: '59C Nguyen Dinh Chieu, District 3, Ho Chi Minh City'
+    }
+  ]
+
   const handleSelect = location => {
     setSelectedLocation(location) // Cập nhật giá trị chọn
     setShowDropdown(false) // Đóng dropdown
@@ -155,10 +253,71 @@ const GrabHome = () => {
     return () => document.removeEventListener('mousedown', handleClickOutside)
   }, [])
 
-  const [isModalOpen, setIsModalOpen] = useState(false)
+  const [isModalOpen1, setIsModalOpen1] = useState(false)
 
-  const openModal = () => setIsModalOpen(true)
-  const closeModal = () => setIsModalOpen(false)
+  const openModal1 = () => setIsModalOpen1(true)
+  const closeModal1 = () => setIsModalOpen1(false)
+  // Hàm xử lý click ngoài modal
+  const handleOutsideClick1 = e => {
+    // Kiểm tra nếu click xảy ra ngoài modal-container-col
+    if (!e.target.closest('.modal-container-col')) {
+      closeModal1() // Đóng modal
+    }
+  }
+
+  const [isModalOpen2, setIsModalOpen2] = useState(false)
+
+  const openModal2 = () => setIsModalOpen2(true)
+  const closeModal2 = () => setIsModalOpen2(false)
+  // Hàm xử lý click ngoài modal
+  const handleOutsideClick2 = e => {
+    // Kiểm tra nếu click xảy ra ngoài modal-container-col
+    if (!e.target.closest('.modal-container-col')) {
+      closeModal2() // Đóng modal
+    }
+  }
+
+  const [isModalOpen3, setIsModalOpen3] = useState(false)
+
+  const openModal3 = () => setIsModalOpen3(true)
+  const closeModal3 = () => setIsModalOpen3(false)
+  // Hàm xử lý click ngoài modal
+  const handleOutsideClick3 = e => {
+    // Kiểm tra nếu click xảy ra ngoài modal-container-col
+    if (!e.target.closest('.modal-container-col')) {
+      closeModal3() // Đóng modal
+    }
+  }
+
+  // Sender
+  const [isSenderOpen, setIsSenderOpen] = useState(false)
+
+  const toggleSenderDropdown = () => {
+    setIsSenderOpen(!isSenderOpen)
+  }
+
+  const [selectedLocationSender, setSelectedLocationSender] =
+    useState('Điểm gửi hàng')
+
+  const handleSelectSender = locationSender => {
+    setSelectedLocationSender(locationSender) // Cập nhật giá trị chọn
+    setIsSenderOpen(false)
+  }
+
+  // Receiver
+  const [isReceiverOpen, setIsReceiverOpen] = useState(false)
+
+  const toggleReceiverDropdown = () => {
+    setIsReceiverOpen(!isReceiverOpen)
+  }
+
+  const [selectedLocationReceiver, setSelectedLocationReceiver] =
+    useState('Điểm nhận hàng')
+
+  const handleSelectReceiver = locationReceiver => {
+    setSelectedLocationReceiver(locationReceiver) // Cập nhật giá trị chọn
+    setIsReceiverOpen(false)
+  }
 
   return (
     <div className='grabhome__container'>
@@ -275,12 +434,12 @@ const GrabHome = () => {
           </div>
         </div>
         <div className='header-3'>
-          <div className='send-location-col'>
+          <div className='send-location-col' onClick={openModal2}>
             <div className='send-location'>
               <div className='send-location-icon'>
                 <DotIcon />
               </div>
-              <div className='send-location-text'>Điểm gửi hàng</div>
+              <div className='send-location-text'>{selectedLocationSender}</div>
             </div>
           </div>
           <div className='swap-btn-col'>
@@ -288,17 +447,19 @@ const GrabHome = () => {
               <ExchangeIcon />
             </div>
           </div>
-          <div className='receive-location-col'>
+          <div className='receive-location-col' onClick={openModal3}>
             <div className='receive-location'>
               <div className='receive-location-icon'>
                 <DestinationIcon />
               </div>
-              <div className='receive-location-text'>Điểm nhận hàng</div>
+              <div className='receive-location-text'>
+                {selectedLocationReceiver}
+              </div>
             </div>
           </div>
 
           <div className='service-type-btn-col'>
-            <div className='service-type-btn' onClick={openModal}>
+            <div className='service-type-btn' onClick={openModal1}>
               <div className='service-type-btn-content'>
                 <div className='service-type-icon'>
                   <img src={Fast} alt='' />
@@ -332,322 +493,253 @@ const GrabHome = () => {
           </div>
         </div>
       </div>
-      <div
-        className={`modal-background ${isModalOpen ? 'open' : ''}`}
-        onClick={closeModal}
-      >
-        <div className={`modal-container-col ${isModalOpen ? 'open' : ''}`}>
-          <div className='modal-content'>
-            <div className='modal-header'>
-              <div className='modal-header-content'>
-                <div className='modal-header-icon' onClick={closeModal}>
-                  <CrossIcon />
-                </div>
-                <div className='modal-header-text'>Tùy chọn giao hàng</div>
-              </div>
-            </div>
-            <div className='modal-body'>
-              <div className='modal-body-content'>
-                <div className='modal-body-content-title'>Loại giao hàng</div>
-                <div className='modal-body-content-btn-list'>
-                  <div className='modal-service-btn'>
-                    <div className='modal-service-btn-content'>
-                      <div className='modal-service-icon'>
-                        <img src={Fast} alt='' />
-                      </div>
-                      <div className='modal-service-text-group'>
-                        <div className='modal-service-text'>
-                          <div className='modal-service-text-left'>
-                            Siêu tốc
-                          </div>
-                          <div className='modal-service-text-right'>
-                            69.000 <span>đ</span>
-                          </div>
-                        </div>
-                        <div className='modal-service-text-sub'>
-                          Giao nhanh 30 phút/5km
-                        </div>
-                      </div>
-                    </div>
-                  </div>
 
-                  <div className='modal-service-btn'>
-                    <div className='modal-service-btn-content'>
-                      <div className='modal-service-icon'>
-                        <img src={TwoHours} alt='' />
-                      </div>
-                      <div className='modal-service-text-group'>
-                        <div className='modal-service-text'>
-                          <div className='modal-service-text-left'>2H</div>
-                          <div className='modal-service-text-right'>
-                            43.000 <span>đ</span>
-                          </div>
-                        </div>
-                        <div className='modal-service-text-sub'>
-                          Giao nhanh 2 giờ, giá tốt hơn
-                        </div>
-                      </div>
-                    </div>
+      <div className='modal-1'>
+        <div
+          className={`modal-background ${isModalOpen1 ? 'open-1' : ''}`}
+          onClick={handleOutsideClick1} // Sự kiện click ngoài modal
+        >
+          <div
+            className={`modal-container-col ${isModalOpen1 ? 'open-1' : ''}`}
+          >
+            <div className='modal-content'>
+              <div className='modal-header'>
+                <div className='modal-header-content'>
+                  <div className='modal-header-icon' onClick={closeModal1}>
+                    <CrossIcon />
                   </div>
-
-                  <div className='modal-service-btn'>
-                    <div className='modal-service-btn-content'>
-                      <div className='modal-service-icon'>
-                        <img src={Cheap} alt='' />
-                      </div>
-                      <div className='modal-service-text-group'>
-                        <div className='modal-service-text'>
-                          <div className='modal-service-text-left'>Siêu rẻ</div>
-                          <div className='modal-service-text-right'>
-                            84.000 <span>đ</span>
-                          </div>
-                        </div>
-                        <div className='modal-service-text-sub'>
-                          Giao nội thành trong 4H, đồng giá
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className='modal-service-btn'>
-                    <div className='modal-service-btn-content'>
-                      <div className='modal-service-icon'>
-                        <img src={Food} alt='' />
-                      </div>
-                      <div className='modal-service-text-group'>
-                        <div className='modal-service-text'>
-                          <div className='modal-service-text-left'>
-                            Thực phẩm
-                          </div>
-                          <div className='modal-service-text-right'>
-                            63.000 <span>đ</span>
-                          </div>
-                        </div>
-                        <div className='modal-service-text-sub'>
-                          Giao siêu tốc dành riêng cho thực phẩm
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+                  <div className='modal-header-text'>Tùy chọn giao hàng</div>
                 </div>
               </div>
-            </div>
-            <div className='modal-footer'>
-              <div className='modal-submit-btn'>Xác nhận</div>
+              <div className='modal-body'>
+                <div className='modal-body-content'>
+                  <div className='modal-body-content-title'>Loại giao hàng</div>
+                  <div className='modal-body-content-btn-list'>
+                    <div className='modal-service-btn'>
+                      <div className='modal-service-btn-content'>
+                        <div className='modal-service-icon'>
+                          <img src={Fast} alt='' />
+                        </div>
+                        <div className='modal-service-text-group'>
+                          <div className='modal-service-text'>
+                            <div className='modal-service-text-left'>
+                              Siêu tốc
+                            </div>
+                            <div className='modal-service-text-right'>
+                              69.000 <span>đ</span>
+                            </div>
+                          </div>
+                          <div className='modal-service-text-sub'>
+                            Giao nhanh 30 phút/5km
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className='modal-service-btn'>
+                      <div className='modal-service-btn-content'>
+                        <div className='modal-service-icon'>
+                          <img src={TwoHours} alt='' />
+                        </div>
+                        <div className='modal-service-text-group'>
+                          <div className='modal-service-text'>
+                            <div className='modal-service-text-left'>2H</div>
+                            <div className='modal-service-text-right'>
+                              43.000 <span>đ</span>
+                            </div>
+                          </div>
+                          <div className='modal-service-text-sub'>
+                            Giao nhanh 2 giờ, giá tốt hơn
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className='modal-service-btn'>
+                      <div className='modal-service-btn-content'>
+                        <div className='modal-service-icon'>
+                          <img src={Cheap} alt='' />
+                        </div>
+                        <div className='modal-service-text-group'>
+                          <div className='modal-service-text'>
+                            <div className='modal-service-text-left'>
+                              Siêu rẻ
+                            </div>
+                            <div className='modal-service-text-right'>
+                              84.000 <span>đ</span>
+                            </div>
+                          </div>
+                          <div className='modal-service-text-sub'>
+                            Giao nội thành trong 4H, đồng giá
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className='modal-service-btn'>
+                      <div className='modal-service-btn-content'>
+                        <div className='modal-service-icon'>
+                          <img src={Food} alt='' />
+                        </div>
+                        <div className='modal-service-text-group'>
+                          <div className='modal-service-text'>
+                            <div className='modal-service-text-left'>
+                              Thực phẩm
+                            </div>
+                            <div className='modal-service-text-right'>
+                              63.000 <span>đ</span>
+                            </div>
+                          </div>
+                          <div className='modal-service-text-sub'>
+                            Giao siêu tốc dành riêng cho thực phẩm
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className='modal-footer'>
+                <div className='modal-submit-btn' onClick={closeModal1}>
+                  Xác nhận
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
 
-      <div
-        className={`modal-background ${isModalOpen ? 'open-1' : ''}`}
-        onClick={closeModal}
-      >
-        <div className={`modal-container-col ${isModalOpen ? 'open-1' : ''}`}>
-          <div className='modal-content'>
-            <div className='modal-header'>
-              <div className='modal-header-content'>
-                <div className='modal-header-icon' onClick={closeModal}>
-                  <CrossIcon />
-                </div>
-                <div className='modal-header-text'>Tùy chọn giao hàng</div>
-              </div>
-            </div>
-            <div className='modal-body'>
-              <div className='modal-body-content'>
-                <div className='modal-body-content-title'>Loại giao hàng</div>
-                <div className='modal-body-content-btn-list'>
-                  <div className='modal-service-btn'>
-                    <div className='modal-service-btn-content'>
-                      <div className='modal-service-icon'>
-                        <img src={Fast} alt='' />
-                      </div>
-                      <div className='modal-service-text-group'>
-                        <div className='modal-service-text'>
-                          <div className='modal-service-text-left'>
-                            Siêu tốc
-                          </div>
-                          <div className='modal-service-text-right'>
-                            69.000 <span>đ</span>
-                          </div>
-                        </div>
-                        <div className='modal-service-text-sub'>
-                          Giao nhanh 30 phút/5km
-                        </div>
-                      </div>
-                    </div>
+      <div className='modal-2'>
+        <div
+          className={`modal-background ${isModalOpen2 ? 'open-2' : ''}`}
+          onClick={handleOutsideClick2} // Sự kiện click ngoài modal
+        >
+          <div
+            className={`modal-container-col ${isModalOpen2 ? 'open-2' : ''}`}
+          >
+            <div className='modal-content'>
+              <div className='modal-header'>
+                <div className='modal-header-content'>
+                  <div className='modal-header-icon' onClick={closeModal2}>
+                    <CrossIcon />
                   </div>
-
-                  <div className='modal-service-btn'>
-                    <div className='modal-service-btn-content'>
-                      <div className='modal-service-icon'>
-                        <img src={TwoHours} alt='' />
-                      </div>
-                      <div className='modal-service-text-group'>
-                        <div className='modal-service-text'>
-                          <div className='modal-service-text-left'>2H</div>
-                          <div className='modal-service-text-right'>
-                            43.000 <span>đ</span>
-                          </div>
-                        </div>
-                        <div className='modal-service-text-sub'>
-                          Giao nhanh 2 giờ, giá tốt hơn
-                        </div>
-                      </div>
-                    </div>
+                  <div className='modal-header-map'>
+                    <img src={Map} alt='' />
                   </div>
-
-                  <div className='modal-service-btn'>
-                    <div className='modal-service-btn-content'>
-                      <div className='modal-service-icon'>
-                        <img src={Cheap} alt='' />
-                      </div>
-                      <div className='modal-service-text-group'>
-                        <div className='modal-service-text'>
-                          <div className='modal-service-text-left'>Siêu rẻ</div>
-                          <div className='modal-service-text-right'>
-                            84.000 <span>đ</span>
-                          </div>
-                        </div>
-                        <div className='modal-service-text-sub'>
-                          Giao nội thành trong 4H, đồng giá
-                        </div>
-                      </div>
+                  <div className='modal-header-adjust'>
+                    <div className='adjust-container-top'>
+                      <PlusIcon />
                     </div>
-                  </div>
-
-                  <div className='modal-service-btn'>
-                    <div className='modal-service-btn-content'>
-                      <div className='modal-service-icon'>
-                        <img src={Food} alt='' />
-                      </div>
-                      <div className='modal-service-text-group'>
-                        <div className='modal-service-text'>
-                          <div className='modal-service-text-left'>
-                            Thực phẩm
-                          </div>
-                          <div className='modal-service-text-right'>
-                            63.000 <span>đ</span>
-                          </div>
-                        </div>
-                        <div className='modal-service-text-sub'>
-                          Giao siêu tốc dành riêng cho thực phẩm
-                        </div>
-                      </div>
+                    <div className='divider'></div>
+                    <div className='adjust-container-bot'>
+                      <MinusIcon />
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
-            <div className='modal-footer'>
-              <div className='modal-submit-btn'>Xác nhận</div>
+              <div className='modal-body'>
+                <div className='modal-body-content'>
+                  <div
+                    className='send-location-modal'
+                    onClick={toggleSenderDropdown}
+                  >
+                    <div className='send-location-icon'>
+                      <DotIcon />
+                    </div>
+                    <div className='send-location-text'>
+                      {selectedLocationSender}
+                    </div>
+                    {isSenderOpen && (
+                      <div className='dropdown-list-sender'>
+                        <div className='dropdown-content-sender'>
+                          {locations2.map(location => (
+                            <AddressItem
+                              key={location.name}
+                              name={location.name}
+                              address={location.address}
+                              onClick={() => handleSelectSender(location.name)}
+                            />
+                          ))}
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                </div>
+              </div>
+              <div className='modal-footer'>
+                <div className='modal-submit-btn' onClick={closeModal2}>
+                  Xác nhận
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
 
-      <div
-        className={`modal-background ${isModalOpen ? 'open-2' : ''}`}
-        onClick={closeModal}
-      >
-        <div className={`modal-container-col ${isModalOpen ? 'open-2' : ''}`}>
-          <div className='modal-content'>
-            <div className='modal-header'>
-              <div className='modal-header-content'>
-                <div className='modal-header-icon' onClick={closeModal}>
-                  <CrossIcon />
-                </div>
-                <div className='modal-header-text'>Tùy chọn giao hàng</div>
-              </div>
-            </div>
-            <div className='modal-body'>
-              <div className='modal-body-content'>
-                <div className='modal-body-content-title'>Loại giao hàng</div>
-                <div className='modal-body-content-btn-list'>
-                  <div className='modal-service-btn'>
-                    <div className='modal-service-btn-content'>
-                      <div className='modal-service-icon'>
-                        <img src={Fast} alt='' />
-                      </div>
-                      <div className='modal-service-text-group'>
-                        <div className='modal-service-text'>
-                          <div className='modal-service-text-left'>
-                            Siêu tốc
-                          </div>
-                          <div className='modal-service-text-right'>
-                            69.000 <span>đ</span>
-                          </div>
-                        </div>
-                        <div className='modal-service-text-sub'>
-                          Giao nhanh 30 phút/5km
-                        </div>
-                      </div>
-                    </div>
+      <div className='modal-3'>
+        <div
+          className={`modal-background ${isModalOpen3 ? 'open-3' : ''}`}
+          onClick={handleOutsideClick3} // Sự kiện click ngoài modal
+        >
+          <div
+            className={`modal-container-col ${isModalOpen3 ? 'open-3' : ''}`}
+          >
+            <div className='modal-content'>
+              <div className='modal-header'>
+                <div className='modal-header-content'>
+                  <div className='modal-header-icon' onClick={closeModal3}>
+                    <CrossIcon />
                   </div>
-
-                  <div className='modal-service-btn'>
-                    <div className='modal-service-btn-content'>
-                      <div className='modal-service-icon'>
-                        <img src={TwoHours} alt='' />
-                      </div>
-                      <div className='modal-service-text-group'>
-                        <div className='modal-service-text'>
-                          <div className='modal-service-text-left'>2H</div>
-                          <div className='modal-service-text-right'>
-                            43.000 <span>đ</span>
-                          </div>
-                        </div>
-                        <div className='modal-service-text-sub'>
-                          Giao nhanh 2 giờ, giá tốt hơn
-                        </div>
-                      </div>
-                    </div>
+                  <div className='modal-header-map'>
+                    <img src={Map} alt='' />
                   </div>
-
-                  <div className='modal-service-btn'>
-                    <div className='modal-service-btn-content'>
-                      <div className='modal-service-icon'>
-                        <img src={Cheap} alt='' />
-                      </div>
-                      <div className='modal-service-text-group'>
-                        <div className='modal-service-text'>
-                          <div className='modal-service-text-left'>Siêu rẻ</div>
-                          <div className='modal-service-text-right'>
-                            84.000 <span>đ</span>
-                          </div>
-                        </div>
-                        <div className='modal-service-text-sub'>
-                          Giao nội thành trong 4H, đồng giá
-                        </div>
-                      </div>
+                  <div className='modal-header-adjust'>
+                    <div className='adjust-container-top'>
+                      <PlusIcon />
                     </div>
-                  </div>
-
-                  <div className='modal-service-btn'>
-                    <div className='modal-service-btn-content'>
-                      <div className='modal-service-icon'>
-                        <img src={Food} alt='' />
-                      </div>
-                      <div className='modal-service-text-group'>
-                        <div className='modal-service-text'>
-                          <div className='modal-service-text-left'>
-                            Thực phẩm
-                          </div>
-                          <div className='modal-service-text-right'>
-                            63.000 <span>đ</span>
-                          </div>
-                        </div>
-                        <div className='modal-service-text-sub'>
-                          Giao siêu tốc dành riêng cho thực phẩm
-                        </div>
-                      </div>
+                    <div className='divider'></div>
+                    <div className='adjust-container-bot'>
+                      <MinusIcon />
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
-            <div className='modal-footer'>
-              <div className='modal-submit-btn'>Xác nhận</div>
+              <div className='modal-body'>
+                <div className='modal-body-content'>
+                  <div
+                    className='receive-location-modal'
+                    onClick={toggleReceiverDropdown}
+                  >
+                    <div className='receive-location-icon'>
+                      <DestinationIcon />
+                    </div>
+                    <div className='receive-location-text'>
+                      {selectedLocationReceiver}
+                    </div>
+                    {isReceiverOpen && (
+                      <div className='dropdown-list-receiver'>
+                        <div className='dropdown-content-receiver'>
+                          {locations2.map(location => (
+                            <AddressItem
+                              key={location.name}
+                              name={location.name}
+                              address={location.address}
+                              onClick={() =>
+                                handleSelectReceiver(location.name)
+                              }
+                            />
+                          ))}
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                </div>
+              </div>
+              <div className='modal-footer'>
+                <div className='modal-submit-btn' onClick={closeModal3}>
+                  Xác nhận
+                </div>
+              </div>
             </div>
           </div>
         </div>
