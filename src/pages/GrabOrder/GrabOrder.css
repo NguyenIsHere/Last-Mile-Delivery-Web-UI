@@ -357,6 +357,8 @@
   .order-details-content-right-col-value {
     color: var(--font-color-100);
     font-weight: 500;
+    display: flex;
+    gap: 10px;
   }
 
   .order-details-content-right {

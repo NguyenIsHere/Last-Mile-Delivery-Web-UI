@@ -14,6 +14,7 @@ import { ReactComponent as Bookmark } from '../../assets/icons/bookmark (1).svg'
 import { ReactComponent as BookmarkFill } from '../../assets/icons/bookmark (2).svg'
 import { ReactComponent as Calendar } from '../../assets/icons/calendar-minus.svg'
 import { ReactComponent as Dots } from '../../assets/icons/menu-dots-vertical.svg'
+import { ReactComponent as Momo } from '../../assets/icons/momo_square_pinkbg.svg'
 
 import Fast from '../../assets/images/Instant_36x36.png'
 import TwoHours from '../../assets/images/UpfrontBatchV2_36x36.png'
@@ -55,6 +56,17 @@ const DownIcon = () => {
         width: '14px',
         height: '14px',
         transform: 'rotate(90deg)'
+      }}
+    />
+  )
+}
+
+const MoMoIcon = () => {
+  return (
+    <Momo
+      style={{
+        width: '20px',
+        height: '20px'
       }}
     />
   )
@@ -350,7 +362,9 @@ const GrabOrder = () => {
                                           Phương thức thanh toán
                                         </div>
                                         <div className='order-details-content-right-col-value'>
-                                          <div className='order-details-content-right-col-value-icon'></div>
+                                          <div className='order-details-content-right-col-value-icon'>
+                                            <MoMoIcon />
+                                          </div>
                                           <div className='order-details-content-right-col-value-text'>
                                             MoMo
                                           </div>
