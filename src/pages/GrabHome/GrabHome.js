@@ -373,7 +373,7 @@ const GrabHome = () => {
           </div>
           <div className='grab-navbar'>
             <div className='link-group'>
-              <Link className='grab-link' to='/grab-home'>
+              <Link className='grab-link' to='/grab'>
                 Trang chủ
               </Link>
               <Link className='grab-link' to='/grab-order'>
