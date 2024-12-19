@@ -253,7 +253,11 @@
   table {
     width: 100%;
     border-collapse: collapse;
-    background-color: var(--pink-color-30);
+    background-color: var(--white-color-90);
+  }
+
+  tbody tr {
+    cursor: pointer;
   }
 
   td {

@@ -299,11 +299,8 @@ const GrabOrder = () => {
                   <tbody>
                     {orders.map(order => (
                       <React.Fragment key={order.id}>
-                        <tr>
-                          <td
-                            onClick={() => handleToggleRow(order.id)}
-                            style={{ textAlign: 'center' }}
-                          >
+                        <tr onClick={() => handleToggleRow(order.id)}>
+                          <td style={{ textAlign: 'center' }}>
                             <DownIcon />
                           </td>
                           <td>

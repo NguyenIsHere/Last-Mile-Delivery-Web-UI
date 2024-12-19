@@ -1,4 +1,4 @@
-.grabhome__container {
+.NewOrder__container {
 
   padding: 0 100px;
   display: flex;
@@ -154,11 +154,11 @@
   .header-3 {
     box-sizing: border-box;
     display: flex;
-    flex-flow: row-wrap;
+    flex-direction: column;
     justify-content: space-between;
     align-items: center;
     width: 80%;
-    height: 98px;
+    height: 80%;
     margin-top: 22px;
     background: #fff;
     box-shadow: 0 12px 20px rgba(26, 26, 26, .12);

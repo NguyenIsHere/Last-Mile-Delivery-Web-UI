@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
-import './GrabHome.css'
+import './NewOrder.css'
 import { ReactComponent as Dot } from '../../assets/icons/dot-circle (1).svg'
 import { ReactComponent as Destination } from '../../assets/icons/marker.svg'
 import { ReactComponent as Exchange } from '../../assets/icons/exchange.svg'
@@ -133,7 +133,7 @@ const AddressItem = ({ name, address, onClick }) => {
   )
 }
 
-const GrabHome = () => {
+const NewOrder = () => {
   const [selectedLocation, setSelectedLocation] = useState('Ho Chi Minh') // Giá trị mặc định
   const [showDropdown, setShowDropdown] = useState(false)
   const dropdownRef = useRef(null) // Tạo tham chiếu đến dropdown
@@ -344,7 +344,7 @@ const GrabHome = () => {
   }
 
   return (
-    <div className='grabhome__container'>
+    <div className='NewOrder__container'>
       <div className='grab-header-group'>
         <div className='header-1'>
           <div className='grab-logo'>
@@ -794,4 +794,4 @@ const GrabHome = () => {
   )
 }
 
-export default GrabHome
+export default NewOrder
