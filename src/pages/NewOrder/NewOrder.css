@@ -1,9 +1,10 @@
 .NewOrder__container {
 
-  padding: 0 100px;
   display: flex;
   align-items: center;
+  justify-content: center;
   box-sizing: border-box;
+  width: 100%;
 
   .grab-header-group {
     display: flex;
@@ -13,13 +14,13 @@
     flex-direction: column;
     align-items: center;
     box-sizing: border-box;
-    width: 100vw;
+    width: 100%;
     height: 300px;
-    padding: 0 100px;
     background: url(../../assets/images/layout-background.png);
     background-size: cover;
     box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1);
     color: #fff;
+
 
   }
 
@@ -31,6 +32,7 @@
     align-items: center;
     padding-top: 24px;
     padding-bottom: 54px;
+    z-index: 10;
   }
 
   .grab-navbar__logo {
@@ -66,6 +68,7 @@
     width: 80%;
     height: 36px;
     box-sizing: border-box;
+    z-index: 10;
   }
 
   .header-2 .left-header-2 {
@@ -146,33 +149,119 @@
   }
 
   .right-header-2-item-group .text {
-    color: #ffffffc4;
+    color: var(--font-color-60);
     font-size: 15.5px;
     font-weight: 500;
   }
 
+  .new-order-page-container {
+    z-index: 10;
+    margin-top: 112px;
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    gap: 12px;
+    overflow-x: hidden;
+  }
+
+  .add-order-float-group {
+    width: 48px;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 20px;
+    position: sticky;
+    top: 24px;
+    float: left;
+    margin-left: -60px;
+  }
+
+  .order-number-group {
+    background-color: #fff;
+    border: .75px solid #eceff1 !important;
+    box-shadow: 0 4px 12px rgba(17, 51, 83, .02);
+    border-radius: 6px;
+    min-height: 48px;
+    padding: 12px 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .order-number-group a {
+    text-decoration: none;
+    color: #708598 !important;
+  }
+
+  .plus-order-btn {
+    background-color: #fff;
+    border: .75px solid #eceff1 !important;
+    box-shadow: 0 4px 12px rgba(17, 51, 83, .02);
+    border-radius: 6px;
+    color: #708598 !important;
+    margin-top: 12px;
+    height: 48px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
+
+  .order-list-with-float-price-group {
+    display: flex;
+    width: 80%;
+    flex: 1;
+  }
+
+  .price-container {
+    background-color: #fff;
+    border: .75px solid #eceff1 !important;
+    box-shadow: 0 4px 12px rgba(17, 51, 83, .02);
+    border-radius: 6px;
+    margin-left: 20px;
+    width: 390px;
+    position: sticky;
+    top: 0;
+    padding: 16px 20px;
+    height: fit-content;
+  }
+
   .header-3 {
-    box-sizing: border-box;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    width: 80%;
-    height: 80%;
-    margin-top: 22px;
+    width: 100%;
+    height: 100%;
+    flex: 1;
     background: #fff;
     box-shadow: 0 12px 20px rgba(26, 26, 26, .12);
     padding: 16px;
     border-radius: 8px;
   }
 
+  .address-input-group-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 16px;
+    gap: 10px;
+  }
+
+  .address-input-col-title {
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: varr(--font-color-100);
+  }
+
   .send-location-col {
     display: flex;
-    align-items: center;
-    width: 25%;
-    height: calc(100% - 32px);
-    flex: 0 0 auto;
-    float: left;
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
     position: relative;
     padding-right: 0;
     padding-left: 0;
@@ -182,7 +271,6 @@
     display: flex;
     cursor: pointer;
     width: 100%;
-    height: 100%;
     min-height: 66px;
     border-bottom-left-radius: 8px;
     border-top-left-radius: 8px;
@@ -213,34 +301,38 @@
     margin-inline-end: 0px;
   }
 
-  .swap-btn-col {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-sizing: border-box;
-    width: 4.16666667%;
-    height: 100%;
-    float: left;
-    position: relative;
-    background: var(--white-color-50);
-    cursor: pointer;
+  .send-note input {
+    width: calc(100%*2/3);
+    background-color: var(--white-color-50);
+    border: none;
+    border-radius: 8px;
+    padding: 10px 20px;
   }
 
-  .swap-btn {
+  .send-name-phone-group {
     display: flex;
-    justify-content: center;
-    margin: .5rem;
-    background: var(--white-color-50);
-    cursor: pointer;
+  }
+
+  .send-name,
+  .send-phone {
+    width: calc(100%/3);
+    border: none;
+  }
+
+  .send-name input,
+  .send-phone input {
+    width: 100%;
+    background-color: var(--white-color-50);
+    border: none;
+    border-radius: 8px;
+    padding: 10px 20px;
   }
 
   .receive-location-col {
     display: flex;
-    align-items: center;
-    width: 25%;
-    height: calc(100% - 32px);
-    flex: 0 0 auto;
-    float: left;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
     position: relative;
     padding-right: 0;
     padding-left: 0;
@@ -281,17 +373,171 @@
     margin-left: 10px;
   }
 
+  .receive-note input {
+    width: calc(100%*2/3);
+    background-color: var(--white-color-50);
+    border: none;
+    border-radius: 8px;
+    padding: 10px 20px;
+  }
+
+  .receive-name-phone-group {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+  }
+
+  .receive-name,
+  .receive-phone,
+  .receive-money {
+    width: 100%;
+  }
+
+  .receive-name input,
+  .receive-phone input,
+  .receive-money input {
+    width: 100%;
+    background-color: var(--white-color-50);
+    border: none;
+    border-radius: 8px;
+    padding: 10px 20px;
+  }
+
+  .adjust-destination {
+    cursor: pointer;
+    color: var(--blue-color-60);
+    font-weight: 600;
+  }
+
+  /* Chi tiết kiện hàng */
+
+  .package-input-group-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-bottom: 16px;
+    box-sizing: border-box;
+  }
+
+  .package-input-col {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    position: relative;
+    padding-right: 0;
+    padding-left: 0;
+  }
+
+  .package-input-col-title {
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: varr(--font-color-100);
+  }
+
+  .package-input-col-group {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    gap: 10px;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .size-btn-group,
+  .weight-group,
+  .package-type-group {
+    display: flex;
+    width: calc(100%/3);
+    height: 100%;
+    background-color: var(--white-color-50);
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+  }
+
+  .weight-group,
+  .package-type-group {
+    padding: 10px 20px;
+  }
+
+  .size-btn-group {
+    display: flex;
+    justify-content: space-between;
+    border-radius: 8px;
+    background-color: #fff;
+    gap: 10px;
+  }
+
+  .size-btn-group .size-btn {
+    display: flex;
+    width: 25%;
+    justify-content: center;
+    background-color: var(--white-color-50);
+    border-radius: 8px;
+    height: 100%;
+    padding: 10px;
+  }
+
+  .size-btn span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--font-color-100);
+    margin: 0;
+    padding: 0;
+  }
+
+  .weight-group input,
+  .package-type-group input {
+    width: 100%;
+    background-color: var(--white-color-50);
+    border: none;
+    border-radius: 8px;
+    padding: 10px 20px;
+  }
+
+  .package-type-icon {
+    cursor: pointer;
+  }
+
+
+  /* Tùy chỉnh đơn giao */
+
+  .service-type-input-group-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-bottom: 16px;
+    margin-top: 20px;
+    gap: 10px;
+  }
+
+
+  .service-type-input-col-title {
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: varr(--font-color-100);
+  }
+
+  .service-vehicle-input-group {
+    display: flex;
+    width: 100%;
+    gap: 10px;
+  }
+
   .service-type-btn-col {
     display: block;
     box-sizing: border-box;
-    width: 29.16666667%;
+    width: 60%;
   }
 
   .service-type-btn {
     display: flex;
     align-items: center;
-    margin-left: 8px;
-    width: calc(100% - 16px);
     height: 100%;
     min-height: 66px;
     border-radius: 8px;
@@ -343,85 +589,254 @@
     color: var(--font-color-60);
   }
 
-  .order-detail-btn-col {
-    display: block;
-    box-sizing: border-box;
-    width: 16.66666667%;
+  .vehicle-btn-col {
+    width: 40%;
   }
 
-  .order-detail-btn {
-    margin-left: 8px;
-    width: calc(100% - 8px);
-    height: 100%;
-    border: none;
-    padding-right: 24px;
-    background: var(--main-color-100);
-    line-height: 1.499;
-    position: relative;
-    display: inline-block;
-    font-weight: 400;
-    white-space: nowrap;
-    text-align: center;
-    background-image: none;
-    cursor: pointer;
-    transition: all .3s cubic-bezier(.645, .045, .355, 1);
-    user-select: none;
-    touch-action: manipulation;
-    padding: 11px 12px 13px;
-    font-size: 14px;
-    border-radius: 6px;
-    overflow: visible;
-    margin: 0;
-    text-decoration: none;
-  }
-
-  .order-detail-btn:hover {
-    background-color: var(--secondary-color-100);
-  }
-
-  .order-detail-btn-content {
+  .vehicle-btn {
     display: flex;
+    align-items: center;
+    height: 100%;
+    min-height: 66px;
+    border-radius: 8px;
+    background-color: var(--white-color-50);
+  }
+
+  .vehicle-btn-content {
+    height: 100%;
+    display: flex;
+    padding: 10px;
+    align-items: center;
+    cursor: pointer;
+  }
+
+  .vehicle-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+  }
+
+  .vehicle-icon img {
+    width: 32px;
+    height: 32px;
+  }
+
+  .vehicle-text-group {
+    margin-left: 10px;
+    flex-grow: 1;
+  }
+
+  .vehicle-text {
+    display: block;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 16px;
+    color: var(--font-color-100);
+  }
+
+  .vehicle-text-sub {
+    display: block;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 12px;
+    color: var(--font-color-60);
+  }
+
+  /* Đảm bảo hàng hóa */
+
+  .insurance-input-group-container {
+    display: flex;
+    flex-direction: column;
     justify-content: space-between;
+    width: 100%;
+    margin-bottom: 16px;
+  }
+
+  .insurance-input-col-title {
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: varr(--font-color-100);
+  }
+
+  .insurance-input-col-text {
+    font-size: 12px;
+    margin-bottom: 20px;
+    color: varr(--font-color-100);
+  }
+
+  .insurance-input-col {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    position: relative;
+    padding-right: 0;
+    padding-left: 0;
+  }
+
+  .insurance-btn-group {
+    display: flex;
+    width: 100%;
+    gap: 10px;
+  }
+
+
+  .insurance-btn {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    min-height: 66px;
+    border-radius: 8px;
+    background-color: var(--white-color-50);
     align-items: center;
   }
 
-  .order-detail-text-group {
-    max-width: calc(100% - 16px);
-    text-align: left;
+  .insurance-btn-content {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+    align-items: center;
+    cursor: pointer;
+  }
+
+  .insurance-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     box-sizing: border-box;
   }
 
+  .insurance-icon img {
+    width: 32px;
+    height: 32px;
+  }
 
-  .order-detail-text {
-    font-size: 12px;
-    color: #fff;
+  .insurance-text-group {
+    margin-left: 10px;
+    flex-grow: 1;
+  }
+
+  .insurance-text {
     display: block;
     max-width: 100%;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-    font-weight: 400;
-  }
-
-  .order-detail-text-sub {
-    color: #fff;
     font-size: 16px;
-    font-weight: 500;
+    color: var(--font-color-100);
+  }
+
+  .insurance-text-sub {
     display: block;
     max-width: 100%;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-
+    font-size: 12px;
+    color: var(--font-color-60);
   }
 
-  .order-detail-text-sub span {
-    text-decoration: underline;
+  /* Chi tiết thanh toán */
+
+
+  .payment-input-group-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 16px;
   }
+
+  .payment-input-col-title {
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: varr(--font-color-100);
+  }
+
+  .payment-btn-col {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    position: relative;
+    padding-right: 0;
+    padding-left: 0;
+  }
+
+  .payment-btn-group {
+    display: flex;
+    width: 100%;
+    gap: 10px;
+  }
+
+  .payment-btn {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    min-height: 66px;
+    border-radius: 8px;
+    background-color: var(--white-color-50);
+    align-items: center;
+  }
+
+  .payment-btn-content {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+    align-items: center;
+    cursor: pointer;
+  }
+
+  .payment-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+  }
+
+  .payment-icon img {
+    width: 32px;
+    height: 32px;
+  }
+
+  .payment-text-group {
+    margin-left: 10px;
+    flex-grow: 1;
+  }
+
+  .payment-text {
+    display: block;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 16px;
+    color: var(--font-color-100);
+  }
+
+  .payment-text-sub {
+    display: block;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 12px;
+    color: var(--font-color-60);
+  }
+
+
 
   .modal-1 {
+    z-index: 20;
+
+
     .modal-background {
-      position: absolute;
+      position: fixed;
       top: 0;
       left: 0;
       width: 100%;
@@ -597,13 +1012,15 @@
   }
 
   .modal-2 {
+    z-index: 20;
+
 
     .modal-background {
-      position: absolute;
+      position: fixed;
       top: 0;
       left: 0;
       width: 100%;
-      height: 100%;
+      height: 100vh;
       background-color: rgba(0, 0, 0, .45);
       overflow: hidden;
       visibility: hidden;
@@ -868,9 +1285,10 @@
   }
 
   .modal-3 {
+    z-index: 20;
 
     .modal-background {
-      position: absolute;
+      position: fixed;
       top: 0;
       left: 0;
       width: 100%;

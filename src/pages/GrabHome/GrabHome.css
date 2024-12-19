@@ -421,7 +421,7 @@
 
   .modal-1 {
     .modal-background {
-      position: absolute;
+      position: fixed;
       top: 0;
       left: 0;
       width: 100%;
@@ -599,7 +599,7 @@
   .modal-2 {
 
     .modal-background {
-      position: absolute;
+      position: fixed;
       top: 0;
       left: 0;
       width: 100%;
@@ -870,7 +870,7 @@
   .modal-3 {
 
     .modal-background {
-      position: absolute;
+      position: fixed;
       top: 0;
       left: 0;
       width: 100%;
