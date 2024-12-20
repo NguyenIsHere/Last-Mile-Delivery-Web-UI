@@ -12,6 +12,9 @@ import { ReactComponent as Plus } from '../../assets/icons/plus (1).svg'
 import { ReactComponent as Minus } from '../../assets/icons/minus.svg'
 import { ReactComponent as Bookmark } from '../../assets/icons/bookmark (1).svg'
 import { ReactComponent as BookmarkFill } from '../../assets/icons/bookmark (2).svg'
+import { ReactComponent as Copy } from '../../assets/icons/copy.svg'
+import { ReactComponent as Momo } from '../../assets/icons/momo_square_pinkbg.svg'
+import { ReactComponent as Money } from '../../assets/icons/usd-square.svg'
 
 import Fast from '../../assets/images/Instant_36x36.png'
 import TwoHours from '../../assets/images/UpfrontBatchV2_36x36.png'
@@ -23,6 +26,30 @@ import Van from '../../assets/images/Van_36x36@2x.png'
 import BoxTruck from '../../assets/images/BoxTruck_36x36@2x.png'
 
 import Map from '../../assets/images/map.png'
+import ZaloPay from '../../assets/images/Logo FA-14.png'
+
+const MoneyIcon = () => {
+  return (
+    <Money
+      style={{
+        fill: 'var(--blue-color-60)',
+        width: '20px',
+        height: '20px'
+      }}
+    />
+  )
+}
+
+const MoMoIcon = () => {
+  return (
+    <Momo
+      style={{
+        width: '20px',
+        height: '20px'
+      }}
+    />
+  )
+}
 
 const DotIcon = () => {
   return (
@@ -162,6 +189,18 @@ const BookmarkFillIcon = () => {
   )
 }
 
+const CopyIcon = () => {
+  return (
+    <Copy
+      style={{
+        fill: 'var(--font-color-60)',
+        width: '24px',
+        height: '24px'
+      }}
+    />
+  )
+}
+
 const AddressItem = ({ name, address, onClick }) => {
   return (
     <div className='address-item' onClick={onClick}>
@@ -194,9 +233,69 @@ const NewOrder = () => {
     note: ''
   })
 
+  // Các dropdown nhỏ
+
+  // Loại hàng hóa dropdown
+  const [showPackageTypeDropdown, setShowPackageTypeDropdown] = useState(false)
+  const showPackageType_dropdownRef = useRef(null) // Tạo tham chiếu đến dropdown
+  // Xử lý click bên ngoài dropdown
+  useEffect(() => {
+    const handleClickOutside = event => {
+      if (
+        showPackageType_dropdownRef.current &&
+        !showPackageType_dropdownRef.current.contains(event.target)
+      ) {
+        setShowPackageTypeDropdown(false) // Ẩn dropdown
+      }
+    }
+    document.addEventListener('mousedown', handleClickOutside)
+    return () => document.removeEventListener('mousedown', handleClickOutside)
+  }, [])
+
+  const handleSelect = location => {
+    setSelectedLocation(location) // Cập nhật giá trị chọn
+    setShowPackageTypeDropdown(false) // Đóng dropdown
+    setShowVehicleDropdown(false) // Đóng dropdown
+    setShowPaymentDropdown(false) // Đóng dropdown
+  }
+
+  const packageType = ['Thực phẩm', 'Quần áo', 'Điện tử', 'Dễ vỡ', 'Khác']
+
+  // Phương tiện dropdown
+  const [showVehicleDropdown, setShowVehicleDropdown] = useState(false)
+  const showVehicle_dropdownRef = useRef(null) // Tạo tham chiếu đến dropdown
+  // Xử lý click bên ngoài dropdown
+  useEffect(() => {
+    const handleClickOutside = event => {
+      if (
+        showVehicle_dropdownRef.current &&
+        !showVehicle_dropdownRef.current.contains(event.target)
+      ) {
+        setShowVehicleDropdown(false) // Ẩn dropdown
+      }
+    }
+    document.addEventListener('mousedown', handleClickOutside)
+    return () => document.removeEventListener('mousedown', handleClickOutside)
+  }, [])
+
+  // Thanh toán dropdown
+  const [showPaymentDropdown, setShowPaymentDropdown] = useState(false)
+  const showPayment_dropdownRef = useRef(null) // Tạo tham chiếu đến dropdown
+  // Xử lý click bên ngoài dropdown
+  useEffect(() => {
+    const handleClickOutside = event => {
+      if (
+        showPayment_dropdownRef.current &&
+        !showPayment_dropdownRef.current.contains(event.target)
+      ) {
+        setShowPaymentDropdown(false) // Ẩn dropdown
+      }
+    }
+    document.addEventListener('mousedown', handleClickOutside)
+    return () => document.removeEventListener('mousedown', handleClickOutside)
+  }, [])
+
   const [selectedLocation, setSelectedLocation] = useState('Ho Chi Minh') // Giá trị mặc định
-  const [showDropdown, setShowDropdown] = useState(false)
-  const dropdownRef = useRef(null) // Tạo tham chiếu đến dropdown
 
   const locations = [
     'Ho Chi Minh',
@@ -297,22 +396,6 @@ const NewOrder = () => {
     }
   ]
 
-  const handleSelect = location => {
-    setSelectedLocation(location) // Cập nhật giá trị chọn
-    setShowDropdown(false) // Đóng dropdown
-  }
-
-  // Xử lý click bên ngoài dropdown
-  useEffect(() => {
-    const handleClickOutside = event => {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-        setShowDropdown(false) // Ẩn dropdown
-      }
-    }
-    document.addEventListener('mousedown', handleClickOutside)
-    return () => document.removeEventListener('mousedown', handleClickOutside)
-  }, [])
-
   const [isModalOpen1, setIsModalOpen1] = useState(false)
 
   const openModal1 = () => setIsModalOpen1(true)
@@ -346,6 +429,18 @@ const NewOrder = () => {
     // Kiểm tra nếu click xảy ra ngoài modal-container-col
     if (!e.target.closest('.modal-container-col')) {
       closeModal3() // Đóng modal
+    }
+  }
+
+  const [isModalOpen4, setIsModalOpen4] = useState(false)
+
+  const openModal4 = () => setIsModalOpen4(true)
+  const closeModal4 = () => setIsModalOpen4(false)
+  // Hàm xử lý click ngoài modal
+  const handleOutsideClick4 = e => {
+    // Kiểm tra nếu click xảy ra ngoài modal-container-col
+    if (!e.target.closest('.modal-container-col')) {
+      closeModal4() // Đóng modal
     }
   }
 
@@ -401,6 +496,12 @@ const NewOrder = () => {
       // Xác định vị trí dưới chuột + offset 40px
       else setDropdownPosition({ x: rect.left, y: rect.top - 280 }) // Xác định vị trí trên chuột - offset 280px
     }
+  }
+
+  const [orders, setOrders] = useState([1]) // Mảng chứa các đơn hàng, bắt đầu với 1 đơn hàng
+
+  const handleAddOrder = () => {
+    setOrders([...orders, orders.length + 1]) // Thêm một đơn hàng mới vào danh sách
   }
 
   return (
@@ -480,366 +581,586 @@ const NewOrder = () => {
                     <a href=''>2</a>
                     <a href=''>3</a>
                   </div>
-                  <div className='plus-order-btn'>
+                  <div className='plus-order-btn' onClick={handleAddOrder}>
                     <span>+</span>
                   </div>
                 </div>
                 <div className='new-order-page-container'>
                   <div className='order-list-with-float-price-group'>
-                    {/* 1 order */}
-                    <div className='header-3'>
-                      <div className='header-2'>
-                        <div className='left-header-2'>
-                          <h1>
-                            Giao tai <span>{selectedLocation}</span>
-                          </h1>
-                          <div className='dropdown-gps' ref={dropdownRef}>
-                            {/* Icon để mở dropdown */}
-                            <div
-                              className='icon-dropdown'
-                              onClick={() => setShowDropdown(prev => !prev)}
-                              style={{ cursor: 'pointer' }}
-                            >
-                              <div className='right-icon'>
-                                <RightIcon />
+                    <div className='order-list-with-add-btn-group-container'>
+                      <div className='order-list-with-add-btn-group'>
+                        <div className='order-list'>
+                          {orders.map(order => (
+                            <div className='header-3' key={order}>
+                              <div className='header-2'>
+                                <div className='left-header-2'>
+                                  <h1>Đơn giao {order}</h1>
+                                </div>
+                                <div className='right-header-2'>
+                                  <div className='copy-icon'>
+                                    <CopyIcon />
+                                  </div>
+                                </div>
                               </div>
-                            </div>
 
-                            {/* Dropdown List */}
-                            {showDropdown && (
-                              <ul className='dropdown-list'>
-                                {locations.map(location => (
-                                  <li
-                                    key={location}
-                                    className='dropdown-item'
-                                    onClick={() => handleSelect(location)}
+                              <div className='address-input-group-container'>
+                                <div className='address-input-col-title'>
+                                  Tuyến giao
+                                </div>
+                                <div className='send-location-col'>
+                                  <div
+                                    className='send-location'
+                                    onClick={openModal2}
                                   >
-                                    {location}
-                                  </li>
-                                ))}
-                              </ul>
-                            )}
-                          </div>
-                        </div>
-                        <div className='right-header-2'>
-                          <Link className='right-header-2-item-group'>
-                            <div className='icon'>
-                              <BoxesIcon />
-                            </div>
-                            <div className='text'>Thêm đơn hàng</div>
-                          </Link>
-                          <Link className='right-header-2-item-group'>
-                            <div className='icon'>
-                              <UploadIcon />
-                            </div>
-                            <div className='text'>Upload đơn hàng</div>
-                          </Link>
-                        </div>
-                      </div>
+                                    <div className='send-location-icon'>
+                                      <DotIcon />
+                                    </div>
+                                    <div className='send-location-text'>
+                                      {selectedLocationSender}
+                                    </div>
+                                    <div className='send-location-icon-save'>
+                                      <BookmarkFillIcon />
+                                    </div>
+                                  </div>
+                                  <div className='send-note'>
+                                    <input
+                                      type='text'
+                                      className='note'
+                                      placeholder='Thêm ghi chú địa điểm (Không bắt buộc)'
+                                    />
+                                  </div>
+                                  <div className='send-name-phone-group'>
+                                    <div className='send-name'>
+                                      <input
+                                        type='text'
+                                        className='name'
+                                        placeholder='Ai là người gửi?'
+                                      />
+                                    </div>
+                                    <div className='send-phone'>
+                                      <input
+                                        type='text'
+                                        className='phone'
+                                        placeholder='Số điện thoại'
+                                      />
+                                    </div>
+                                  </div>
+                                </div>
 
-                      <div className='address-input-group-container'>
-                        <div className='address-input-col-title'>
-                          Tuyến giao
-                        </div>
-                        <div className='send-location-col'>
-                          <div className='send-location' onClick={openModal2}>
-                            <div className='send-location-icon'>
-                              <DotIcon />
-                            </div>
-                            <div className='send-location-text'>
-                              {selectedLocationSender}
-                            </div>
-                            <div className='send-location-icon-save'>
-                              <BookmarkFillIcon />
-                            </div>
-                          </div>
-                          <div className='send-note'>
-                            <input
-                              type='text'
-                              className='note'
-                              placeholder='Thêm ghi chú địa điểm (Không bắt buộc)'
-                            />
-                          </div>
-                          <div className='send-name-phone-group'>
-                            <div className='send-name'>
-                              <input
-                                type='text'
-                                className='name'
-                                placeholder='Ai là người gửi?'
-                              />
-                            </div>
-                            <div className='send-phone'>
-                              <input
-                                type='text'
-                                className='phone'
-                                placeholder='Số điện thoại'
-                              />
-                            </div>
-                          </div>
-                        </div>
+                                <div className='receive-location-col'>
+                                  <div
+                                    className='receive-location'
+                                    onClick={openModal3}
+                                  >
+                                    <div className='receive-location-icon'>
+                                      <DestinationIcon />
+                                    </div>
+                                    <div className='receive-location-text'>
+                                      {receiverLocations[0] || 'Điểm nhận hàng'}
+                                    </div>
+                                    <div className='receive-location-icon-save'>
+                                      <BookmarkFillIcon />
+                                    </div>
+                                  </div>
+                                  <div className='receive-note'>
+                                    <input
+                                      type='text'
+                                      className='note'
+                                      placeholder='Thêm ghi chú địa điểm (Không bắt buộc)'
+                                    />
+                                  </div>
+                                  <div className='receive-name-phone-group'>
+                                    <div className='receive-name'>
+                                      <input
+                                        type='text'
+                                        className='name'
+                                        placeholder='Tên người nhận'
+                                      />
+                                    </div>
+                                    <div className='receive-phone'>
+                                      <input
+                                        type='text'
+                                        className='phone'
+                                        placeholder='Số điện thoại'
+                                      />
+                                    </div>
+                                    <div className='receive-money'>
+                                      <input
+                                        type='number'
+                                        className='money'
+                                        placeholder='Thu tiền hộ (Không bắt buộc)'
+                                      />
+                                    </div>
+                                  </div>
+                                  <div
+                                    className='adjust-destination'
+                                    onClick={openModal3}
+                                  >
+                                    Chỉnh sửa điểm đến
+                                  </div>
+                                </div>
+                              </div>
 
-                        <div className='receive-location-col'>
-                          <div
-                            className='receive-location'
-                            onClick={openModal3}
-                          >
-                            <div className='receive-location-icon'>
-                              <DestinationIcon />
-                            </div>
-                            <div className='receive-location-text'>
-                              {receiverLocations[0] || 'Điểm nhận hàng'}
-                            </div>
-                            <div className='receive-location-icon-save'>
-                              <BookmarkFillIcon />
-                            </div>
-                          </div>
-                          <div className='receive-note'>
-                            <input
-                              type='text'
-                              className='note'
-                              placeholder='Thêm ghi chú địa điểm (Không bắt buộc)'
-                            />
-                          </div>
-                          <div className='receive-name-phone-group'>
-                            <div className='receive-name'>
-                              <input
-                                type='text'
-                                className='name'
-                                placeholder='Tên người nhận'
-                              />
-                            </div>
-                            <div className='receive-phone'>
-                              <input
-                                type='text'
-                                className='phone'
-                                placeholder='Số điện thoại'
-                              />
-                            </div>
-                            <div className='receive-money'>
-                              <input
-                                type='number'
-                                className='money'
-                                placeholder='Thu tiền hộ (Không bắt buộc)'
-                              />
-                            </div>
-                          </div>
-                          <div
-                            className='adjust-destination'
-                            onClick={openModal3}
-                          >
-                            Chỉnh sửa điểm đến
-                          </div>
-                        </div>
-                      </div>
+                              {/* Chi tiết kiện hàng */}
+                              <div className='package-input-group-container'>
+                                <div className='package-input-col'>
+                                  <div className='package-input-col-title'>
+                                    Chi tiết kiện hàng
+                                  </div>
+                                  <div className='package-input-col-group'>
+                                    <div className='size-btn-group'>
+                                      <div className='size-btn'>
+                                        <span>S</span>
+                                      </div>
+                                      <div className='size-btn'>
+                                        <span>M</span>
+                                      </div>
+                                      <div className='size-btn'>
+                                        <span>L</span>
+                                      </div>
+                                      <div className='size-btn'>
+                                        <span>XL</span>
+                                      </div>
+                                    </div>
+                                    <div className='weight-group'>
+                                      <input
+                                        type='number'
+                                        className='weight'
+                                        placeholder='Trọng lượng (kg)'
+                                      />
+                                      <div className='kg'>KG</div>
+                                    </div>
+                                    <div className='package-type-group'>
+                                      <div
+                                        className='package-type'
+                                        readOnly='true'
+                                        unselectable='on'
+                                        user-select='none'
+                                        onClick={() =>
+                                          setShowPackageTypeDropdown(
+                                            prev => !prev
+                                          )
+                                        }
+                                      >
+                                        <span>
+                                          Loại hàng hóa (Không bắt buộc)
+                                        </span>
+                                      </div>
+                                      <div className='package-type-icon'>
+                                        <div
+                                          className='dropdown-gps'
+                                          ref={showPackageType_dropdownRef}
+                                        >
+                                          {/* Icon để mở dropdown */}
+                                          <div
+                                            className='icon-dropdown'
+                                            style={{ cursor: 'pointer' }}
+                                          >
+                                            <div className='right-icon'>
+                                              <DownIcon />
+                                            </div>
+                                          </div>
 
-                      {/* Chi tiết kiện hàng */}
-                      <div className='package-input-group-container'>
-                        <div className='package-input-col'>
-                          <div className='package-input-col-title'>
-                            Chi tiết kiện hàng
-                          </div>
-                          <div className='package-input-col-group'>
-                            <div className='size-btn-group'>
-                              <div className='size-btn'>
-                                <span>S</span>
+                                          {/* Dropdown List */}
+                                          {showPackageTypeDropdown && (
+                                            <ul className='dropdown-list-package-type'>
+                                              {packageType.map(key => (
+                                                <li
+                                                  key={key}
+                                                  className='dropdown-item'
+                                                  onClick={() =>
+                                                    handleSelect(key)
+                                                  }
+                                                >
+                                                  {key}
+                                                </li>
+                                              ))}
+                                            </ul>
+                                          )}
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
                               </div>
-                              <div className='size-btn'>
-                                <span>M</span>
-                              </div>
-                              <div className='size-btn'>
-                                <span>L</span>
-                              </div>
-                              <div className='size-btn'>
-                                <span>XL</span>
-                              </div>
-                            </div>
-                            <div className='weight-group'>
-                              <input
-                                type='number'
-                                className='weight'
-                                placeholder='Trọng lượng (kg)'
-                              />
-                              <div className='kg'>KG</div>
-                            </div>
-                            <div className='package-type-group'>
-                              <div
-                                className='package-type'
-                                readOnly='true'
-                                unselectable='on'
-                                user-select='none'
-                              >
-                                <span>Loại hàng hóa (Không bắt buộc)</span>
-                              </div>
-                              <div className='package-type-icon'>
-                                <DownIcon />
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
 
-                      {/* Tùy chỉnh đơn giao */}
-                      <div className='service-type-input-group-container'>
-                        <div className='service-type-input-col-title'>
-                          Tùy chỉnh đơn giao
-                        </div>
-                        <div className='service-vehicle-input-group'>
-                          <div className='service-type-btn-col'>
-                            <div
-                              className='service-type-btn'
-                              onClick={openModal1}
-                            >
-                              <div className='service-type-btn-content'>
-                                <div className='service-type-icon'>
-                                  <img src={Fast} alt='' />
-                                </div>
-                                <div className='service-type-text-group'>
-                                  <div className='service-type-text'>
-                                    Lấy hàng hôm nay, đặt ngay
-                                  </div>
-                                  <div className='service-type-text-sub'>
-                                    Giao vào 00:13
-                                  </div>
-                                </div>
-                                <div className='right-icon'>
-                                  <RightIcon />
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                          <div className='vehicle-btn-col'>
-                            <div className='vehicle-btn' onClick={openModal1}>
-                              <div className='vehicle-btn-content'>
-                                <div className='vehicle-icon'>
-                                  <img src={Bike} alt='' />
-                                </div>
-                                <div className='vehicle-text-group'>
-                                  <div className='vehicle-text'>Xe máy</div>
-                                  <div className='vehicle-text-sub'>
-                                    Hàng hóa tối đa 30kg
-                                  </div>
-                                </div>
-                                <div className='down-icon'>
-                                  <DownIcon />
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
+                              {/* Tùy chỉnh đơn giao */}
 
-                      {/* Đảm bảo hàng hóa */}
-                      <div className='insurance-input-group-container'>
-                        <div className='insurance-input-col-title'>
-                          Đảm bảo hàng hóa
-                        </div>
-                        <div className='insurance-input-col-text'>
-                          Bồi thường lên đến ₫3.000.000 khi hàng hoá bị mất hoặc
-                          hư hại. Áp dụng cho tất cả
-                        </div>
-                        <div className='insurance-btn-col'>
-                          <div className='insurance-btn-group'>
-                            <div className='insurance-btn'>
-                              <div className='insurance-btn-content'>
-                                <div className='insurance-icon'>
-                                  <img src={Bike} alt='' />
+                              {/* Dịch vụ */}
+                              <div className='service-type-input-group-container'>
+                                <div className='service-type-input-col-title'>
+                                  Tùy chỉnh đơn giao
                                 </div>
-                                <div className='insurance-text-group'>
-                                  <div className='insurance-text'>Xe máy</div>
-                                  <div className='insurance-text-sub'>
-                                    Hàng hóa tối đa 30kg
+                                <div className='service-vehicle-input-group'>
+                                  <div className='service-type-btn-col'>
+                                    <div
+                                      className='service-type-btn'
+                                      onClick={openModal1}
+                                    >
+                                      <div className='service-type-btn-content'>
+                                        <div className='service-type-icon'>
+                                          <img src={Fast} alt='' />
+                                        </div>
+                                        <div className='service-type-text-group'>
+                                          <div className='service-type-text'>
+                                            Lấy hàng hôm nay, đặt ngay
+                                          </div>
+                                          <div className='service-type-text-sub'>
+                                            Giao vào 00:13
+                                          </div>
+                                        </div>
+                                        <div className='right-icon'>
+                                          <RightIcon />
+                                        </div>
+                                      </div>
+                                    </div>
                                   </div>
-                                </div>
-                              </div>
-                            </div>
-                            <div className='insurance-btn'>
-                              <div className='insurance-btn-content'>
-                                <div className='insurance-icon'>
-                                  <img src={Bike} alt='' />
-                                </div>
-                                <div className='insurance-text-group'>
-                                  <div className='insurance-text'>Xe máy</div>
-                                  <div className='insurance-text-sub'>
-                                    Hàng hóa tối đa 30kg
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                            <div className='insurance-btn'>
-                              <div className='insurance-btn-content'>
-                                <div className='insurance-icon'>
-                                  <img src={Bike} alt='' />
-                                </div>
-                                <div className='insurance-text-group'>
-                                  <div className='insurance-text'>Xe máy</div>
-                                  <div className='insurance-text-sub'>
-                                    Hàng hóa tối đa 30kg
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
 
-                      <div className='payment-input-group-container'>
-                        <div className='payment-input-col-title'>
-                          Chi tiết thanh toán
+                                  {/* Phương tiện */}
+                                  <div className='vehicle-btn-col'>
+                                    <div
+                                      className='vehicle-btn'
+                                      onClick={() =>
+                                        setShowVehicleDropdown(prev => !prev)
+                                      }
+                                    >
+                                      <div className='vehicle-btn-content'>
+                                        <div className='vehicle-icon'>
+                                          <img src={Bike} alt='' />
+                                        </div>
+                                        <div className='vehicle-text-group'>
+                                          <div className='vehicle-text'>
+                                            Xe máy
+                                          </div>
+                                          <div className='vehicle-text-sub'>
+                                            Hàng hóa tối đa 30kg
+                                          </div>
+                                        </div>
+
+                                        <div
+                                          className='dropdown-gps'
+                                          ref={showVehicle_dropdownRef}
+                                        >
+                                          {/* Icon để mở dropdown */}
+                                          <div
+                                            className='icon-dropdown'
+                                            style={{ cursor: 'pointer' }}
+                                          >
+                                            <div className='right-icon'>
+                                              <DownIcon />
+                                            </div>
+                                          </div>
+
+                                          {/* Dropdown List */}
+                                          {showVehicleDropdown && (
+                                            <ul className='dropdown-list-vehicle'>
+                                              <div
+                                                className='dropdown-item-vehicle'
+                                                onClick={() =>
+                                                  handleSelect('Xe máy')
+                                                }
+                                              >
+                                                <div className='vehicle-btn-content'>
+                                                  <div className='vehicle-icon'>
+                                                    <img src={Bike} alt='' />
+                                                  </div>
+                                                  <div className='vehicle-text-group'>
+                                                    <div className='vehicle-text'>
+                                                      Xe máy
+                                                    </div>
+                                                    <div className='vehicle-text-sub'>
+                                                      Hàng hóa tối đa 30kg
+                                                      (50x40x50cm)
+                                                    </div>
+                                                  </div>
+                                                </div>
+                                              </div>
+                                              <div
+                                                className='dropdown-item-vehicle'
+                                                onClick={() =>
+                                                  handleSelect('Xe máy')
+                                                }
+                                              >
+                                                <div className='vehicle-btn-content'>
+                                                  <div className='vehicle-icon'>
+                                                    <img src={Van} alt='' />
+                                                  </div>
+                                                  <div className='vehicle-text-group'>
+                                                    <div className='vehicle-text'>
+                                                      Xe tải/ Van 500kg
+                                                    </div>
+                                                    <div className='vehicle-text-sub'>
+                                                      Lên tới 500kg
+                                                      (160x120x120cm)
+                                                    </div>
+                                                  </div>
+                                                </div>
+                                              </div>
+                                              <div
+                                                className='dropdown-item-vehicle'
+                                                onClick={() =>
+                                                  handleSelect('Xe máy')
+                                                }
+                                              >
+                                                <div className='vehicle-btn-content'>
+                                                  <div className='vehicle-icon'>
+                                                    <img
+                                                      src={BoxTruck}
+                                                      alt=''
+                                                    />
+                                                  </div>
+                                                  <div className='vehicle-text-group'>
+                                                    <div className='vehicle-text'>
+                                                      Xe tải/ Van 1000kg
+                                                    </div>
+                                                    <div className='vehicle-text-sub'>
+                                                      Lên tới 1000kg
+                                                      (200x150x150cm)
+                                                    </div>
+                                                  </div>
+                                                </div>
+                                              </div>
+                                            </ul>
+                                          )}
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+
+                              {/* Đảm bảo hàng hóa */}
+                              <div className='insurance-input-group-container'>
+                                <div className='insurance-input-col-title'>
+                                  Đảm bảo hàng hóa
+                                </div>
+                                <div className='insurance-input-col-text'>
+                                  Bồi thường lên đến ₫3.000.000 khi hàng hoá bị
+                                  mất hoặc hư hại. Áp dụng cho tất cả
+                                </div>
+                                <div className='insurance-btn-col'>
+                                  <div className='insurance-btn-group'>
+                                    <div className='insurance-btn'>
+                                      <div className='insurance-btn-content'>
+                                        <div className='insurance-text-group'>
+                                          <div className='insurance-text'>
+                                            Cơ bản
+                                          </div>
+                                          <div className='insurance-text-sub'>
+                                            Mặc định
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div className='insurance-btn'>
+                                      <div className='insurance-btn-content'>
+                                        <div className='insurance-text-group'>
+                                          <div className='insurance-text'>
+                                            Tiêu chuẩn
+                                          </div>
+                                          <div className='insurance-text-sub'>
+                                            4.000{' '}
+                                            <span
+                                              style={{
+                                                textDecoration: 'underline',
+                                                transition: 'none'
+                                              }}
+                                            >
+                                              đ
+                                            </span>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div className='insurance-btn'>
+                                      <div className='insurance-btn-content'>
+                                        <div className='insurance-text-group'>
+                                          <div className='insurance-text'>
+                                            Nâng cao
+                                          </div>
+                                          <div className='insurance-text-sub'>
+                                            10.000
+                                            <span
+                                              style={{
+                                                textDecoration: 'underline',
+                                                transition: 'none'
+                                              }}
+                                            >
+                                              đ
+                                            </span>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+
+                              <div className='payment-input-group-container'>
+                                <div className='payment-input-col-title'>
+                                  Chi tiết thanh toán
+                                </div>
+                                <div className='payment-btn-col'>
+                                  <div className='payment-btn-group'>
+                                    <div
+                                      className='payment-btn'
+                                      onClick={() =>
+                                        setShowPaymentDropdown(prev => !prev)
+                                      }
+                                    >
+                                      <div className='payment-btn-content'>
+                                        <div className='payment-icon'>
+                                          <img src={ZaloPay} alt='' />
+                                        </div>
+                                        <div className='payment-text-group'>
+                                          <div className='payment-text'>
+                                            ZaloPay
+                                          </div>
+                                        </div>
+                                        <div
+                                          className='dropdown-gps'
+                                          ref={showPayment_dropdownRef}
+                                        >
+                                          {/* Icon để mở dropdown */}
+                                          <div
+                                            className='icon-dropdown'
+                                            style={{ cursor: 'pointer' }}
+                                          >
+                                            <div className='right-icon'>
+                                              <DownIcon />
+                                            </div>
+                                          </div>
+
+                                          {/* Dropdown List */}
+                                          {showPaymentDropdown && (
+                                            <div className='dropdown-list-payment'>
+                                              <div className='dropdown-item-payment'>
+                                                <div className='payment-icon'>
+                                                  <img
+                                                    src={ZaloPay}
+                                                    style={{
+                                                      height: '20px',
+                                                      width: '20px'
+                                                    }}
+                                                    alt=''
+                                                  />
+                                                </div>
+                                                <div className='payment-text-group'>
+                                                  <div className='payment-text'>
+                                                    ZaloPay
+                                                  </div>
+                                                </div>
+                                              </div>
+                                              <div className='dropdown-item-payment'>
+                                                <div className='payment-icon'>
+                                                  <MoMoIcon />
+                                                </div>
+                                                <div className='payment-text-group'>
+                                                  <div className='payment-text'>
+                                                    MoMo
+                                                  </div>
+                                                </div>
+                                              </div>
+                                              <div className='dropdown-item-payment'>
+                                                <div className='payment-icon'>
+                                                  <MoneyIcon />
+                                                </div>
+                                                <div className='payment-text-group'>
+                                                  <div className='payment-text'>
+                                                    Tiền mặt
+                                                  </div>
+                                                </div>
+                                              </div>
+                                            </div>
+                                          )}
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div className='payment-btn'>
+                                      <div className='payment-btn-content'>
+                                        <div className='payment-intro-code'>
+                                          <input
+                                            type='text'
+                                            className='intro-code'
+                                            placeholder='Mã giới thiệu (Không bắt buộc)'
+                                          />
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div
+                                      className='payment-btn'
+                                      onClick={openModal4}
+                                    >
+                                      <div className='payment-btn-content'>
+                                        <div className='payment-icon'>
+                                          <img src={Cheap} alt='' />
+                                        </div>
+                                        <div className='payment-text-group'>
+                                          <div className='payment-text'>
+                                            Áp dụng ưu đãi
+                                          </div>
+                                          <div className='payment-text-sub'>
+                                            Ngay hôm nay
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          ))}
                         </div>
-                        <div className='payment-btn-col'>
-                          <div className='payment-btn-group'>
-                            <div className='payment-btn'>
-                              <div className='payment-btn-content'>
-                                <div className='payment-icon'>
-                                  <img src={Bike} alt='' />
-                                </div>
-                                <div className='payment-text-group'>
-                                  <div className='payment-text'>Xe máy</div>
-                                  <div className='payment-text-sub'>
-                                    Hàng hóa tối đa 30kg
-                                  </div>
-                                </div>
-                                <div className='payment-icon'>
-                                  <DownIcon />
-                                </div>
-                              </div>
-                            </div>
-                            <div className='payment-btn'>
-                              <div className='payment-btn-content'>
-                                <div className='payment-icon'>
-                                  <img src={Bike} alt='' />
-                                </div>
-                                <div className='payment-text-group'>
-                                  <div className='payment-text'>Xe máy</div>
-                                  <div className='payment-text-sub'>
-                                    Hàng hóa tối đa 30kg
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                            <div className='payment-btn'>
-                              <div className='payment-btn-content'>
-                                <div className='payment-icon'>
-                                  <img src={Bike} alt='' />
-                                </div>
-                                <div className='payment-text-group'>
-                                  <div className='payment-text'>Xe máy</div>
-                                  <div className='payment-text-sub'>
-                                    Hàng hóa tối đa 30kg
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
+                        <div
+                          className='add-more-order-btn'
+                          onClick={handleAddOrder}
+                        >
+                          <span>+ Thêm đơn mới</span>
                         </div>
                       </div>
                     </div>
                     <div className='price-container'>
                       <div className='price-content'>
-                        <div className='title-row'></div>
-                        <div className='price-row'></div>
-                        <div className='total-row'></div>
-                        <div className='price-btn-row'></div>
+                        <div className='title-row'>Chi tiết giá tiền</div>
+                        <div className='price-row-group'>
+                          <div className='price-row'>
+                            <div className='price-row-left'>Đơn giao 1</div>
+                            <div className='price-row-right'>
+                              138.000
+                              <span style={{ textDecoration: 'underline' }}>
+                                đ
+                              </span>
+                            </div>
+                          </div>
+                          <div className='price-row'>
+                            <div className='price-row-left'>Đơn giao 1</div>
+                            <div className='price-row-right'>
+                              254.000
+                              <span style={{ textDecoration: 'underline' }}>
+                                đ
+                              </span>
+                            </div>
+                          </div>
+                          <div className='price-row'>
+                            <div className='price-row-left'>Đơn giao 1</div>
+                            <div className='price-row-right'>
+                              73.000
+                              <span style={{ textDecoration: 'underline' }}>
+                                đ
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                        <div className='total-row'>
+                          <div className='total-row-left'>Tổng cộng</div>
+                          <div className='total-row-right'>
+                            465.000
+                            <span style={{ textDecoration: 'underline' }}>
+                              đ
+                            </span>
+                          </div>
+                        </div>
+                        <div className='order-btn-row'>Đặt 3 đơn</div>
                       </div>
                     </div>
                   </div>
@@ -1150,6 +1471,138 @@ const NewOrder = () => {
                           <div
                             className='modal-submit-btn'
                             onClick={closeModal3}
+                          >
+                            Xác nhận
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div className='modal-4'>
+                  <div
+                    className={`modal-background ${
+                      isModalOpen4 ? 'open-4' : ''
+                    }`}
+                    onClick={handleOutsideClick4} // Sự kiện click ngoài modal
+                  >
+                    <div
+                      className={`modal-container-col ${
+                        isModalOpen4 ? 'open-4' : ''
+                      }`}
+                    >
+                      <div className='modal-content'>
+                        <div className='modal-header'>
+                          <div className='modal-header-content'>
+                            <div
+                              className='modal-header-icon'
+                              onClick={closeModal4}
+                            >
+                              <CrossIcon />
+                            </div>
+                            <div className='modal-header-text'>Ưu đãi</div>
+                          </div>
+                        </div>
+                        <div className='modal-body'>
+                          <div className='modal-body-content'>
+                            <div className='modal-body-content-title'>
+                              <input
+                                type='text'
+                                className='voucher-input'
+                                placeholder='Nhập mã khuyến mãi'
+                              />
+                            </div>
+                            <div className='modal-body-content-btn-list'>
+                              <div className='modal-service-btn'>
+                                <div className='modal-service-btn-content'>
+                                  <div className='modal-service-icon'>
+                                    <img src={Cheap} alt='' />
+                                  </div>
+                                  <div className='modal-service-text-group'>
+                                    <div className='modal-service-text'>
+                                      <div className='modal-service-text-left'>
+                                        Giảm 40% | Tối đa 15K
+                                      </div>
+                                    </div>
+                                    <div className='modal-service-text-sub'>
+                                      Hạn sử dụng 27 Dec 2024
+                                    </div>
+                                  </div>
+                                  <div className='modal-service-text-right'>
+                                    <BookmarkIcon />
+                                  </div>
+                                </div>
+                              </div>
+
+                              <div className='modal-service-btn'>
+                                <div className='modal-service-btn-content'>
+                                  <div className='modal-service-icon'>
+                                    <img src={Cheap} alt='' />
+                                  </div>
+                                  <div className='modal-service-text-group'>
+                                    <div className='modal-service-text'>
+                                      <div className='modal-service-text-left'>
+                                        Giảm 30% | Tối đa 200K
+                                      </div>
+                                    </div>
+                                    <div className='modal-service-text-sub'>
+                                      Hạn sử dụng 31 Dec 2024
+                                    </div>
+                                  </div>
+                                  <div className='modal-service-text-right'>
+                                    <BookmarkIcon />
+                                  </div>
+                                </div>
+                              </div>
+
+                              <div className='modal-service-btn'>
+                                <div className='modal-service-btn-content'>
+                                  <div className='modal-service-icon'>
+                                    <img src={Cheap} alt='' />
+                                  </div>
+                                  <div className='modal-service-text-group'>
+                                    <div className='modal-service-text'>
+                                      <div className='modal-service-text-left'>
+                                        Đồng giá 60K chuyến từ 61K
+                                      </div>
+                                    </div>
+                                    <div className='modal-service-text-sub'>
+                                      Hạn sử dụng 31 Dec 2024
+                                    </div>
+                                  </div>
+                                  <div className='modal-service-text-right'>
+                                    <BookmarkIcon />
+                                  </div>
+                                </div>
+                              </div>
+
+                              <div className='modal-service-btn'>
+                                <div className='modal-service-btn-content'>
+                                  <div className='modal-service-icon'>
+                                    <img src={Cheap} alt='' />
+                                  </div>
+                                  <div className='modal-service-text-group'>
+                                    <div className='modal-service-text'>
+                                      <div className='modal-service-text-left'>
+                                        Giảm 15% | Tối đa 10K
+                                      </div>
+                                    </div>
+                                    <div className='modal-service-text-sub'>
+                                      Hạn sử dụng 02 Mar 2025
+                                    </div>
+                                  </div>
+                                  <div className='modal-service-text-right'>
+                                    <BookmarkIcon />
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div className='modal-footer'>
+                          <div
+                            className='modal-submit-btn'
+                            onClick={closeModal1}
                           >
                             Xác nhận
                           </div>

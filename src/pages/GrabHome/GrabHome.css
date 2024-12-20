@@ -402,7 +402,7 @@
   }
 
   .order-detail-btn:hover {
-    background-color: var(--secondary-color-100);
+    background-color: var(--main-color-80);
   }
 
   .order-detail-btn-content {
@@ -618,7 +618,7 @@
     }
 
     .modal-submit-btn:hover {
-      background-color: var(--secondary-color-100);
+      background-color: var(--main-color-80);
     }
   }
 
@@ -889,7 +889,7 @@
     }
 
     .modal-submit-btn:hover {
-      background-color: var(--secondary-color-100);
+      background-color: var(--main-color-80);
     }
   }
 
@@ -1173,7 +1173,7 @@
     }
 
     .modal-submit-btn:hover {
-      background-color: var(--secondary-color-100);
+      background-color: var(--main-color-80);
     }
   }
 
