@@ -449,13 +449,13 @@ const GrabHome = () => {
                     </div>
                   </div>
                   <div className='right-header-2'>
-                    <Link className='right-header-2-item-group'>
+                    <Link className='right-header-2-item-group' to='/new'>
                       <div className='icon'>
                         <BoxesIcon />
                       </div>
                       <div className='text'>Thêm đơn hàng</div>
                     </Link>
-                    <Link className='right-header-2-item-group'>
+                    <Link className='right-header-2-item-group' to='/upload'>
                       <div className='icon'>
                         <UploadIcon />
                       </div>

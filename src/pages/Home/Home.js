@@ -74,7 +74,7 @@ const Home = () => {
           <Link to='/grab' className='nav-link'>
             Grab
           </Link>
-          <Link to='/main' className='get-started-btn'>
+          <Link to='/grab' className='get-started-btn'>
             Get Started <ArrowIcon />
           </Link>
         </div>
@@ -92,7 +92,7 @@ const Home = () => {
               bảo an toàn và chính xác.
             </p>
             <div className='search-now'>
-              <input type='text' placeholder='Bạn muốn gửi hàng đến đâu?' pla />
+              <input type='text' placeholder='Bạn muốn gửi hàng đến đâu?' />
               <button className='search-now-btn'>Tìm ngay</button>
             </div>
           </div>

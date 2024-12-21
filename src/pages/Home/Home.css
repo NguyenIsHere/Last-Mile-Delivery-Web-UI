@@ -54,7 +54,7 @@
   }
 
   .get-started-btn:hover {
-    background-color: var(--secondary-color-100);
+    background-color: var(--main-color-80);
     transform: translateX(2px);
   }
 
@@ -133,7 +133,7 @@
   }
 
   .search-now input {
-    height: 44px;
+    height: 100%;
     border-bottom-left-radius: 8px;
     border-top-left-radius: 8px;
     border-bottom-right-radius: 0px;
@@ -171,7 +171,7 @@
   }
 
   .search-now .search-now-btn:hover {
-    background-color: var(--secondary-color-100);
+    background-color: var(--main-color-80);
   }
 
   .right-hero {
