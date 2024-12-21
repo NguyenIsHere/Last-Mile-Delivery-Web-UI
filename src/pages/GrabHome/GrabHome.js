@@ -455,7 +455,7 @@ const GrabHome = () => {
                       </div>
                       <div className='text'>Thêm đơn hàng</div>
                     </Link>
-                    <Link className='right-header-2-item-group' to='/upload'>
+                    <Link className='right-header-2-item-group' to='/upload-1'>
                       <div className='icon'>
                         <UploadIcon />
                       </div>

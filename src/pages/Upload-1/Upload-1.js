@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
-import './GrabOrder.css'
+import './Upload-1.css'
 import { ReactComponent as Dot } from '../../assets/icons/dot-circle (1).svg'
 import { ReactComponent as Destination } from '../../assets/icons/marker.svg'
 import { ReactComponent as Exchange } from '../../assets/icons/exchange.svg'
@@ -112,7 +112,7 @@ const CalendarIcon = () => {
   )
 }
 
-const GrabOrder = () => {
+const Upload_1 = () => {
   // State quản lý checkbox "chọn tất cả"
   const [selectAll, setSelectAll] = useState(false)
 
@@ -161,7 +161,7 @@ const GrabOrder = () => {
   }
 
   return (
-    <div className='graborder__container'>
+    <div className='Upload_1__container'>
       <div className='app-layout-root'>
         <div className='grab-header-group'></div>
         <div className='app-layout'>
@@ -235,9 +235,47 @@ const GrabOrder = () => {
                   <div className='left-header-2'>
                     <h1>Đơn hàng</h1>
                   </div>
+                  <div className='right-header-2'>
+                    <div className='step-circle'></div>
+                    <div className='step-circle'></div>
+                    <div className='step-circle'></div>
+                    <div className='step-circle'></div>
+                  </div>
                 </div>
+
                 <div className='header-3'>
-                  <div className='header-3-title'>Đơn hàng trước đó</div>
+                  <div className='header-3-title'>
+                    Tải lên thông tin giao hàng bằng cách sử dụng mẫu tập tin
+                    XLSX.
+                  </div>
+                  <div className='header-3-upload-container'>
+                    <div className='header-3-upload-content'>
+                      <div className='upload-drag-container'>
+                        <div className='upload-btn-group'>
+                          <img src='https://express.grab.com/book/static/images/upload-round.26H3m-5.svg' />
+                          <p className='first-line'>Chọn tệp XLS</p>
+                          <p className='second-line'>
+                            Hoặc kéo và thả tập tin tại đây
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className='header-3-download-template'>
+                    <div className='header-3-download-template-content'>
+                      <div className='download-template-btn'>
+                        <img src='https://express.grab.com/book/static/images/excel.3uIJHS_.svg' />
+                        <p>Tải về mẫu XLSX</p>
+                      </div>
+                      <div className='help-btn'>
+                        <img
+                          src='https://express.grab.com/book/static/images/help.aQX20Fc.svg'
+                          alt=''
+                        />
+                      </div>
+                    </div>
+                  </div>
+
                   <div className='header-3-menu-container'>
                     <div className='header-3-menu-content'>
                       <div className='order-type-select'>
@@ -474,4 +512,4 @@ const GrabOrder = () => {
   )
 }
 
-export default GrabOrder
+export default Upload_1
