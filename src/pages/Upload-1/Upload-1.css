@@ -214,6 +214,7 @@
     box-shadow: 0 12px 20px rgba(26, 26, 26, .12);
     padding-left: 40px;
     padding-right: 40px;
+    padding-bottom: 30px;
     border-radius: 8px;
   }
 
@@ -308,6 +309,7 @@
     padding: 5px 20px;
     border-radius: 4px;
     gap: 10px;
+    cursor: pointer;
 
   }
 
@@ -316,6 +318,7 @@
     align-items: center;
     justify-content: center;
     color: var(--font-color-100);
+    cursor: pointer;
   }
 
 

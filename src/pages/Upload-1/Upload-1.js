@@ -279,7 +279,10 @@ const Upload_1 = () => {
                     </div>
                   </div>
 
-                  <div className='header-3-menu-container'>
+                  <div
+                    className='header-3-menu-container'
+                    style={{ display: 'none' }}
+                  >
                     <div className='header-3-menu-content'>
                       <div className='order-type-select'>
                         <div className='select-content'>
@@ -321,7 +324,10 @@ const Upload_1 = () => {
                       </div>
                     </div>
                   </div>
-                  <div className='header-3-order-list-container'>
+                  <div
+                    className='header-3-order-list-container'
+                    style={{ display: 'none' }}
+                  >
                     <div className='header-3-order-list-content'>
                       <div className='order-table'>
                         <table>
@@ -488,7 +494,10 @@ const Upload_1 = () => {
                       </div>
                     </div>
                   </div>
-                  <div className='header-3-pagination'>
+                  <div
+                    className='header-3-pagination'
+                    style={{ display: 'none' }}
+                  >
                     <div className='pagination-container'>
                       <div className='pagination-btn'>
                         <div className='pagination-content'>
