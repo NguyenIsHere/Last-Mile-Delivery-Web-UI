@@ -239,7 +239,10 @@ const Upload_1 = () => {
                     <h1>Bước 1: Tải lên tập tin</h1>
                   </div>
                   <div className='right-header-2'>
-                    <div className='step-circle'></div>
+                    <div
+                      className='step-circle'
+                      style={{ backgroundColor: '#fff' }}
+                    ></div>
                     <div className='step-circle'></div>
                     <div className='step-circle'></div>
                     <div className='step-circle'></div>

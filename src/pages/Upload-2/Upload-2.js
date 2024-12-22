@@ -332,8 +332,14 @@ const Upload_2 = () => {
                     <h1>Bước 2: Kiểm tra thông tin</h1>
                   </div>
                   <div className='right-header-2'>
-                    <div className='step-circle'></div>
-                    <div className='step-circle'></div>
+                    <div
+                      className='step-circle'
+                      style={{ backgroundColor: '#fff' }}
+                    ></div>
+                    <div
+                      className='step-circle'
+                      style={{ backgroundColor: '#fff' }}
+                    ></div>
                     <div className='step-circle'></div>
                     <div className='step-circle'></div>
                   </div>
@@ -728,7 +734,9 @@ const Upload_2 = () => {
           <div className='floating-footer'>
             <div className='floating-footer-content-wrapper'>
               <div className='check-upload-btn-wrapper'>
-                <button className='check-upload-btn'>Xác nhận thay đổi</button>
+                <Link className='check-upload-btn' to='/upload-3'>
+                  Xác nhận thay đổi
+                </Link>
               </div>
             </div>
           </div>
