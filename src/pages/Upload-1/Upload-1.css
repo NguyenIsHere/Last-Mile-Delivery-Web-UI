@@ -91,13 +91,21 @@
     width: 100%;
     height: 36px;
     box-sizing: border-box;
+    margin-top: 10px;
   }
 
   .header-2 .left-header-2 {
     display: flex;
-    align-items: center;
+    flex-direction: column;
     gap: 10px;
     height: 100%;
+    text-decoration: none;
+  }
+
+  .back-link {
+    text-decoration: none;
+    color: var(--main-color-30);
+    font-size: 14px;
   }
 
   .left-header-2 h1 {
@@ -241,6 +249,7 @@
     text-align: center;
     cursor: pointer;
     transition: border-color .3s;
+    text-decoration: none;
   }
 
   .upload-drag-container {

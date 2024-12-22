@@ -6,6 +6,7 @@ import GrabHome from './pages/GrabHome/GrabHome'
 import GrabOrder from './pages/GrabOrder/GrabOrder'
 import NewOrder from './pages/NewOrder/NewOrder'
 import Upload_1 from './pages/Upload-1/Upload-1'
+import Upload_2 from './pages/Upload-2/Upload-2'
 import './App.css'
 
 const App = () => {
@@ -17,6 +18,7 @@ const App = () => {
         <Route path='/grab-order' element={<GrabOrder />} />
         <Route path='/new' element={<NewOrder />} />
         <Route path='/upload-1' element={<Upload_1 />} />
+        <Route path='/upload-2' element={<Upload_2 />} />
         <Route path='/main/*' element={<MainLayout />} />
       </Routes>
     </Router>

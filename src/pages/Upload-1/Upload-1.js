@@ -231,9 +231,12 @@ const Upload_1 = () => {
           <div className='app-content'>
             <div className='app-content-page'>
               <div className='new-booking-page'>
+                <Link className='back-link' to='/grab'>
+                  {'<'} Quay lại trang chủ
+                </Link>
                 <div className='header-2'>
                   <div className='left-header-2'>
-                    <h1>Đơn hàng</h1>
+                    <h1>Bước 1: Tải lên tập tin</h1>
                   </div>
                   <div className='right-header-2'>
                     <div className='step-circle'></div>
@@ -249,7 +252,7 @@ const Upload_1 = () => {
                     XLSX.
                   </div>
                   <div className='header-3-upload-container'>
-                    <div className='header-3-upload-content'>
+                    <Link className='header-3-upload-content' to='/upload-2'>
                       <div className='upload-drag-container'>
                         <div className='upload-btn-group'>
                           <img src='https://express.grab.com/book/static/images/upload-round.26H3m-5.svg' />
@@ -259,7 +262,7 @@ const Upload_1 = () => {
                           </p>
                         </div>
                       </div>
-                    </div>
+                    </Link>
                   </div>
                   <div className='header-3-download-template'>
                     <div className='header-3-download-template-content'>

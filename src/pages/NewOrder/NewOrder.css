@@ -209,8 +209,8 @@
   }
 
   .dropdown-item:hover {
-    background-color: #03B151;
-    color: white;
+    background-color: var(--white-color-30);
+    color: var(--font-color-100);
   }
 
   .dropdown-item-vehicle {
