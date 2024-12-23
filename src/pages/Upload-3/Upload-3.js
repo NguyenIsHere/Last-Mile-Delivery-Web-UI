@@ -15,11 +15,18 @@ import { ReactComponent as BookmarkFill } from '../../assets/icons/bookmark (2).
 import { ReactComponent as Calendar } from '../../assets/icons/calendar-minus.svg'
 import { ReactComponent as Dots } from '../../assets/icons/menu-dots-vertical.svg'
 import { ReactComponent as Momo } from '../../assets/icons/momo_square_pinkbg.svg'
+import { ReactComponent as Copy } from '../../assets/icons/copy.svg'
 
 import Fast from '../../assets/images/Instant_36x36.png'
 import TwoHours from '../../assets/images/UpfrontBatchV2_36x36.png'
 import Cheap from '../../assets/images/SameDay_36x36.png'
 import Food from '../../assets/images/Food_36x36.png'
+
+import Bike from '../../assets/images/Bike_36x36@2x.png'
+import Van from '../../assets/images/Van_36x36@2x.png'
+import BoxTruck from '../../assets/images/BoxTruck_36x36@2x.png'
+
+import GrabPackage from '../../assets/images/home-icon-Delivery.png'
 
 import Map from '../../assets/images/map.png'
 
@@ -112,6 +119,90 @@ const CalendarIcon = () => {
   )
 }
 
+const BoxesIcon = () => {
+  return (
+    <Boxes
+      style={{ fill: 'var(--font-color-60)', width: '17px', height: '15.5px' }}
+    />
+  )
+}
+
+const UploadIcon = () => {
+  return (
+    <Upload
+      style={{
+        fill: 'var(--font-color-60)',
+        width: '15.5px',
+        height: '15.5px'
+      }}
+    />
+  )
+}
+
+const CrossIcon = () => {
+  return (
+    <Cross
+      style={{ fill: 'var(--font-color-100)', width: '20px', height: '20px' }}
+    />
+  )
+}
+
+const PlusIcon = () => {
+  return (
+    <Plus
+      style={{ fill: 'var(--font-color-100)', width: '16px', height: '16px' }}
+    />
+  )
+}
+
+const MinusIcon = () => {
+  return (
+    <Minus
+      style={{
+        fill: 'var(--font-color-100)',
+        width: '16px',
+        height: '16px'
+      }}
+    />
+  )
+}
+
+const BookmarkIcon = () => {
+  return (
+    <Bookmark
+      style={{
+        fill: 'var(--font-color-100)',
+        width: '16px',
+        height: '16px'
+      }}
+    />
+  )
+}
+
+const BookmarkFillIcon = () => {
+  return (
+    <BookmarkFill
+      style={{
+        fill: 'var(--font-color-100)',
+        width: '16px',
+        height: '16px'
+      }}
+    />
+  )
+}
+
+const CopyIcon = () => {
+  return (
+    <Copy
+      style={{
+        fill: 'var(--font-color-60)',
+        width: '24px',
+        height: '24px'
+      }}
+    />
+  )
+}
+
 const Upload_3 = () => {
   // State quản lý checkbox "chọn tất cả"
   const [selectAll, setSelectAll] = useState(false)
@@ -124,60 +215,65 @@ const Upload_3 = () => {
       sender: 'Nguyễn Ngọc Phú 091886759',
       senderAdress:
         '123 Nguyen Van Linh, District 7, Thu Duc, Ho Chi Minh City',
-      receiver: 'Trần Thái Minh 091886759',
+      receiver: 'Trần Thái Minh',
       receiverAdress: '227 Nguyen Van Cu, District 5, Ho Chi Minh City',
       size: 'M',
       weight: '1',
       deliveryType: 'Instant',
-      vehicleType: 'Bike'
+      vehicleType: 'Bike',
+      price: '100.000'
     },
     {
       id: 2,
       orderDate: 'Dec 09, 9:15 AM',
       sender: 'Lê Thị Thu Hồng 091886759',
       senderAdress: '45 Bach Dang, Binh Thanh, Ho Chi Minh City',
-      receiver: 'Phạm Văn Quang 091886759',
+      receiver: 'Phạm Văn Quang',
       receiverAdress: '56 Lê Lợi, District 1, Ho Chi Minh City',
       size: 'S',
       weight: '0.5',
       deliveryType: 'Express',
-      vehicleType: 'Bike'
+      vehicleType: 'Bike',
+      price: '100.000'
     },
     {
       id: 3,
       orderDate: 'Dec 09, 3:20 PM',
       sender: 'Trần Văn Hùng 091886759',
       senderAdress: '98 Hai Bà Trưng, District 3, Ho Chi Minh City',
-      receiver: 'Nguyễn Thị Thanh 091886759',
+      receiver: 'Nguyễn Thị Thanh',
       receiverAdress: '300 Vo Van Ngan, Thu Duc, Ho Chi Minh City',
       size: 'L',
       weight: '2',
       deliveryType: 'Instant',
-      vehicleType: 'Car'
+      vehicleType: 'Car',
+      price: '100.000'
     },
     {
       id: 4,
       orderDate: 'Dec 10, 1:45 PM',
       sender: 'Hoàng Phương Linh 091886759',
       senderAdress: '18 Pasteur, District 1, Ho Chi Minh City',
-      receiver: 'Lê Quốc Việt 091886759',
+      receiver: 'Lê Quốc Việt',
       receiverAdress: '10 Tran Hung Dao, District 1, Ho Chi Minh City',
       size: 'XL',
       weight: '3',
       deliveryType: 'Same Day',
-      vehicleType: 'Truck'
+      vehicleType: 'Truck',
+      price: '100.000'
     },
     {
       id: 5,
       orderDate: 'Dec 10, 6:10 PM',
       sender: 'Phạm Xuân An 091886759',
       senderAdress: '210 Le Loi, District 1, Ho Chi Minh City',
-      receiver: 'Trần Thị Thảo 091886759',
+      receiver: 'Trần Thị Thảo',
       receiverAdress: '140 Nguyen Dinh Chieu, District 3, Ho Chi Minh City',
       size: 'M',
       weight: '1.5',
       deliveryType: 'Standard',
-      vehicleType: 'Bike'
+      vehicleType: 'Bike',
+      price: '100.000'
     }
   ]
 
@@ -264,6 +360,78 @@ const Upload_3 = () => {
   const scrollRight = () => {
     if (sliderRef.current) {
       sliderRef.current.scrollLeft += 200
+    }
+  }
+
+  const [isModalOpen1, setIsModalOpen1] = useState(false)
+
+  const openModal1 = () => setIsModalOpen1(true)
+  const closeModal1 = () => setIsModalOpen1(false)
+  // Hàm xử lý click ngoài modal
+  const handleOutsideClick1 = e => {
+    // Kiểm tra nếu click xảy ra ngoài modal-container-col
+    if (!e.target.closest('.modal-container-col')) {
+      closeModal1() // Đóng modal
+    }
+  }
+
+  const [isModalOpen2, setIsModalOpen2] = useState(false)
+
+  const openModal2 = () => setIsModalOpen2(true)
+  const closeModal2 = () => setIsModalOpen2(false)
+  // Hàm xử lý click ngoài modal
+  const handleOutsideClick2 = e => {
+    // Kiểm tra nếu click xảy ra ngoài modal-container-col
+    if (!e.target.closest('.modal-container-col')) {
+      closeModal2() // Đóng modal
+    }
+  }
+
+  const [isModalOpen3, setIsModalOpen3] = useState(false)
+
+  const openModal3 = () => setIsModalOpen3(true)
+  const closeModal3 = () => setIsModalOpen3(false)
+  // Hàm xử lý click ngoài modal
+  const handleOutsideClick3 = e => {
+    // Kiểm tra nếu click xảy ra ngoài modal-container-col
+    if (!e.target.closest('.modal-container-col')) {
+      closeModal3() // Đóng modal
+    }
+  }
+
+  const [isModalOpen4, setIsModalOpen4] = useState(false)
+
+  const openModal4 = () => setIsModalOpen4(true)
+  const closeModal4 = () => setIsModalOpen4(false)
+  // Hàm xử lý click ngoài modal
+  const handleOutsideClick4 = e => {
+    // Kiểm tra nếu click xảy ra ngoài modal-container-col
+    if (!e.target.closest('.modal-container-col')) {
+      closeModal4() // Đóng modal
+    }
+  }
+
+  const [isModalOpen5, setIsModalOpen5] = useState(false)
+
+  const openModal5 = () => setIsModalOpen5(true)
+  const closeModal5 = () => setIsModalOpen5(false)
+  // Hàm xử lý click ngoài modal
+  const handleOutsideClick5 = e => {
+    // Kiểm tra nếu click xảy ra ngoài modal-container-col
+    if (!e.target.closest('.modal-container-col')) {
+      closeModal5() // Đóng modal
+    }
+  }
+
+  const [isModalOpen6, setIsModalOpen6] = useState(false)
+
+  const openModal6 = () => setIsModalOpen6(true)
+  const closeModal6 = () => setIsModalOpen6(false)
+  // Hàm xử lý click ngoài modal
+  const handleOutsideClick6 = e => {
+    // Kiểm tra nếu click xảy ra ngoài modal-container-col
+    if (!e.target.closest('.modal-container-col')) {
+      closeModal6() // Đóng modal
     }
   }
 
@@ -508,14 +676,27 @@ const Upload_3 = () => {
 
                   <div className='header-3-title'>3 đơn giao hàng</div>
                   <div className='header-3-tab-container'>
+                    <div className='header-3-tab-title'>
+                      Đã chọn 1 đơn giao hàng
+                    </div>
                     <div className='header-3-tab-content'>
-                      <div className='header-3-tab'>
+                      <div className='header-3-tab' onClick={openModal1}>
                         <div className='header-3-tab-text'>
-                          Tất cả đơn hàng (5)
+                          Chỉnh sửa tùy chọn giao hàng
                         </div>
+                        <RightIcon />
                       </div>
-                      <div className='header-3-tab'>
-                        <div className='header-3-tab-text'>Đơn có lỗi (0)</div>
+                      <div className='header-3-tab' onClick={openModal5}>
+                        <div className='header-3-tab-text'>
+                          Chỉnh sửa loại phương tiện
+                        </div>
+                        <RightIcon />
+                      </div>
+                      <div className='header-3-tab' onClick={openModal6}>
+                        <div className='header-3-tab-text'>
+                          Chỉnh sửa đảm bảo hàng hóa
+                        </div>
+                        <RightIcon />
                       </div>
                     </div>
                   </div>
@@ -595,7 +776,6 @@ const Upload_3 = () => {
                         <table>
                           <thead>
                             <tr>
-                              {/* <th></th>
                               <th>
                                 <input
                                   type='checkbox'
@@ -603,16 +783,23 @@ const Upload_3 = () => {
                                   onChange={handleSelectAll}
                                   style={{ textAlign: 'center' }}
                                 />
-                              </th> */}
+                              </th>
                               {/* <th>Đã đặt vào</th> */}
-                              <th>Người gửi</th>
-                              <th>Địa chỉ người gửi</th>
+                              {/* <th>Người gửi</th>
+                              <th>Địa chỉ người gửi</th> */}
                               <th>Người nhận</th>
-                              <th>Địa chỉ người nhận</th>
-                              <th>Size</th>
-                              <th>Khối lượng</th>
-                              <th>Hình thức giao hàng</th>
+                              <th style={{ paddingRight: '0' }}>
+                                Địa chỉ người nhận
+                              </th>
+                              {/* <th>Size</th>
+                              <th>Khối lượng</th> */}
+                              <th>Item</th>
+                              <th>Loại dịch vụ</th>
                               <th>Loại phương tiện</th>
+                              <th style={{ width: '100px' }}>
+                                Đảm bảo hàng hóa
+                              </th>
+                              <th>Giá</th>
                             </tr>
                           </thead>
                           <tbody>
@@ -621,245 +808,137 @@ const Upload_3 = () => {
                                 <tr onClick={() => handleToggleRow(order.id)}>
                                   {/* <td style={{ textAlign: 'center' }}>
                                     <DownIcon />
-                                  </td>
+                                  </td> */}
                                   <td>
                                     <input type='checkbox' />
                                   </td>
-                                  <td>{order.orderDate}</td> */}
-                                  <td>
+                                  {/* <td>{order.orderDate}</td>  */}
+                                  {/* <td>
                                     <span>{order.sender}</span>
                                   </td>
                                   <td>
                                     <span>{order.senderAdress}</span>
-                                  </td>
+                                  </td> */}
                                   <td>
-                                    <span>{order.receiver}</span>
+                                    <span
+                                      style={{
+                                        display: 'flex',
+                                        alignItems: 'center',
+                                        gap: '5px',
+                                        width: 'fit-content'
+                                      }}
+                                    >
+                                      <DestinationIcon />
+                                      {order.receiver}
+                                    </span>
                                   </td>
-                                  <td>
+                                  <td style={{ paddingRight: '0' }}>
                                     <span>{order.receiverAdress}</span>
                                   </td>
-                                  {/* Size */}
+                                  <td>
+                                    {order.size}
+                                    {' • '}
+                                    {order.weight}
+                                  </td>
                                   <td
-                                    onClick={() =>
-                                      handleTogglePackageTypeDropdown(order.id)
-                                    }
+                                    onClick={openModal1}
+                                    style={{
+                                      cursor: 'pointer',
+                                      paddingRight: '0'
+                                    }}
+                                  >
+                                    {/* {order.deliveryType} */}
+                                    <div className='modal-service-btn'>
+                                      <div className='modal-service-btn-content'>
+                                        <div className='modal-service-icon'>
+                                          <img src={Fast} alt='' />
+                                        </div>
+                                        <div className='modal-service-text-group'>
+                                          <div className='modal-service-text'>
+                                            <div className='modal-service-text-left'>
+                                              Siêu tốc
+                                            </div>
+                                            <div className='modal-service-text-sub'>
+                                              Giao nhanh 30 phút/5km
+                                            </div>
+                                          </div>
+                                        </div>
+                                        <div className='modal-service-icon-right'>
+                                          <RightIcon />
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </td>
+                                  <td
+                                    onClick={openModal5}
+                                    style={{
+                                      cursor: 'pointer',
+                                      paddingRight: '0'
+                                    }}
+                                  >
+                                    {/* {order.vehicleType} */}
+                                    <div className='modal-service-btn'>
+                                      <div className='modal-service-btn-content'>
+                                        <div className='modal-service-icon'>
+                                          <img src={Bike} alt='' />
+                                        </div>
+                                        <div className='modal-service-text-group'>
+                                          <div className='modal-service-text'>
+                                            <div className='modal-service-text-left'>
+                                              Xe máy
+                                            </div>
+                                            <div className='modal-service-text-sub'>
+                                              Hàng hóa tối đa 30kg (50x40x50cm)
+                                            </div>
+                                          </div>
+                                        </div>
+                                        <div className='modal-service-icon-right'>
+                                          <RightIcon />
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </td>
+                                  <td
+                                    style={{ cursor: 'pointer' }}
+                                    onClick={openModal6}
                                   >
                                     <span
+                                      className='ensure'
                                       style={{
                                         display: 'flex',
                                         alignItems: 'center',
-                                        width: '80px',
-                                        justifyContent: 'space-between'
+                                        justifyContent: 'space-between',
+                                        width: '78px'
                                       }}
                                     >
-                                      {order.size}
-                                      <div className='package-type-icon'>
-                                        <div
-                                          className='dropdown-gps'
-                                          ref={showPackageType_dropdownRef}
-                                        >
-                                          {/* Icon để mở dropdown */}
-                                          <div
-                                            className='icon-dropdown'
-                                            style={{ cursor: 'pointer' }}
-                                          >
-                                            <div className='right-icon'>
-                                              <DownIcon />
-                                            </div>
-                                          </div>
-
-                                          {/* Dropdown List */}
-                                          {openPackageTypeRow === order.id && (
-                                            <ul className='dropdown-list-package-type'>
-                                              {packageType.map(key => (
-                                                <li
-                                                  key={key}
-                                                  className='dropdown-item'
-                                                  onClick={() =>
-                                                    handleSelect(key, order.id)
-                                                  }
-                                                >
-                                                  {key}
-                                                </li>
-                                              ))}
-                                            </ul>
-                                          )}
-                                        </div>
-                                      </div>
+                                      Cơ bản {<RightIcon />}
                                     </span>
                                   </td>
-                                  {/* Weight */}
-                                  <td
-                                    onClick={() =>
-                                      handleToggleWeightDropdown(order.id)
-                                    }
-                                  >
+                                  <td>
                                     <span
                                       style={{
                                         display: 'flex',
-                                        alignItems: 'center',
-                                        width: '80px',
-                                        justifyContent: 'space-between'
+                                        fontSize: '16px',
+                                        fontWeight: 600,
+                                        margin: 0,
+                                        padding: 0,
+                                        width: 'fit-content'
                                       }}
                                     >
-                                      {order.weight}
-                                      <div className='package-type-icon'>
-                                        <div
-                                          className='dropdown-gps'
-                                          ref={showPackageType_dropdownRef2}
-                                        >
-                                          {/* Icon để mở dropdown */}
-                                          <div
-                                            className='icon-dropdown'
-                                            style={{ cursor: 'pointer' }}
-                                          >
-                                            <div className='right-icon'>
-                                              <DownIcon />
-                                            </div>
-                                          </div>
-
-                                          {/* Dropdown List */}
-                                          {openWeightRow === order.id && (
-                                            <ul className='dropdown-list-package-type-2'>
-                                              {packageType2.map(key => (
-                                                <li
-                                                  key={key}
-                                                  className='dropdown-item-2'
-                                                  onClick={() =>
-                                                    handleSelectWeight(
-                                                      key,
-                                                      order.id
-                                                    )
-                                                  }
-                                                >
-                                                  {key}
-                                                </li>
-                                              ))}
-                                            </ul>
-                                          )}
-                                        </div>
-                                      </div>
+                                      {order.price}
+                                      <span
+                                        style={{
+                                          fontSize: '16px',
+                                          fontWeight: 600,
+                                          textDecoration: 'underline',
+                                          width: 'fit-content'
+                                        }}
+                                      >
+                                        đ
+                                      </span>
                                     </span>
                                   </td>
-                                  <td>{order.deliveryType}</td>
-                                  <td>{order.vehicleType}</td>
                                 </tr>
-                                {/* {expandedRow === order.id && (
-                                  <tr>
-                                    <td colSpan='8'>
-                                      <div className='order-details'>
-                                        <div className='order-details-content'>
-                                          <div className='order-details-content-left'>
-                                            <div className='order-details-content-left-row'>
-                                              <div className='order-details-content-left-row-icon'>
-                                                <DotIcon />
-                                              </div>
-                                              <div className='order-details-content-left-row-text-group'>
-                                                <div className='order-details-content-left-row-text'>
-                                                  Cơm gà Hồng Vân • 0968451694
-                                                </div>
-                                                <div className='order-details-content-left-row-text-sub'>
-                                                  123 Nguyen Van Linh, District
-                                                  7, Thu Duc, Ho Chi Minh City
-                                                </div>
-                                              </div>
-                                            </div>
-                                            <div className='order-details-content-left-row'>
-                                              <div className='order-details-content-left-row-icon'>
-                                                <DestinationIcon />
-                                              </div>
-                                              <div className='order-details-content-left-row-text-group'>
-                                                <div className='order-details-content-left-row-text'>
-                                                  Phạm Tuấn Nghĩa • 0846748052
-                                                </div>
-                                                <div className='order-details-content-left-row-text-sub'>
-                                                  227 Nguyen Van Cu, District 5,
-                                                  Ho Chi Minh City
-                                                </div>
-                                              </div>
-                                            </div>
-                                          </div>
-                                          <div className='order-details-content-right'>
-                                            <div className='order-details-content-right-row'>
-                                              <div className='order-details-content-right-col'>
-                                                <div className='order-details-content-right-col-title'>
-                                                  Phương thức thanh toán
-                                                </div>
-                                                <div className='order-details-content-right-col-value'>
-                                                  <div className='order-details-content-right-col-value-icon'>
-                                                    <MoMoIcon />
-                                                  </div>
-                                                  <div className='order-details-content-right-col-value-text'>
-                                                    MoMo
-                                                  </div>
-                                                </div>
-                                              </div>
-                                              <div className='order-details-content-right-col'>
-                                                <div className='order-details-content-right-col-title'>
-                                                  Mã đặt xe
-                                                </div>
-                                                <div className='order-details-content-right-col-value'>
-                                                  IN-2-0JTGBO4GHMSXTB1GBPG2
-                                                </div>
-                                              </div>
-                                              <div className='order-details-content-right-col'>
-                                                <div className='order-details-content-right-col-title'>
-                                                  Loại dịch vụ
-                                                </div>
-                                                <div className='order-details-content-right-col-value'>
-                                                  Thông qua Grab Superapp
-                                                </div>
-                                              </div>
-                                            </div>
-                                            <div className='order-details-content-right-row'>
-                                              <div className='order-details-content-right-col'>
-                                                <div className='order-details-content-right-col-title'>
-                                                  Loại hàng hóa
-                                                </div>
-                                                <div className='order-details-content-right-col-value'>
-                                                  Food
-                                                </div>
-                                              </div>
-                                              <div className='order-details-content-right-col'>
-                                                <div className='order-details-content-right-col-title'>
-                                                  Tổng trọng lượng
-                                                </div>
-                                                <div className='order-details-content-right-col-value'>
-                                                  1 kg
-                                                </div>
-                                              </div>
-                                              <div className='order-details-content-right-col'>
-                                                <div className='order-details-content-right-col-title'>
-                                                  Ghi chú giao hàng
-                                                </div>
-                                                <div className='order-details-content-right-col-value'>
-                                                  --
-                                                </div>
-                                              </div>
-                                            </div>
-                                            <div className='order-details-content-right-row'>
-                                              <div className='order-details-content-right-row-menu-container'>
-                                                <div className='order-details-content-right-row-menu-content'>
-                                                  <div className='order-details-content-right-row-menu-btn'>
-                                                    Tải về hóa đơn
-                                                  </div>
-                                                  <div className='menu-divider'></div>
-                                                  <div className='order-details-content-right-row-menu-btn'>
-                                                    Đặt lại
-                                                  </div>
-                                                  <div className='menu-divider'></div>
-                                                  <div className='order-details-content-right-row-menu-btn'>
-                                                    Báo lỗi
-                                                  </div>
-                                                </div>
-                                              </div>
-                                            </div>
-                                          </div>
-                                        </div>
-                                      </div>
-                                    </td>
-                                  </tr>
-                                )} */}
                               </React.Fragment>
                             ))}
                           </tbody>
@@ -867,7 +946,10 @@ const Upload_3 = () => {
                       </div>
                     </div>
                   </div>
-                  <div className='header-3-pagination'>
+                  <div
+                    className='header-3-pagination'
+                    style={{ display: 'none' }}
+                  >
                     <div className='pagination-container'>
                       <div className='pagination-btn'>
                         <div className='pagination-content'>
@@ -884,11 +966,501 @@ const Upload_3 = () => {
                       </div>
                     </div>
                   </div>
+                  <div className='modal-1'>
+                    <div
+                      className={`modal-background ${
+                        isModalOpen1 ? 'open-1' : ''
+                      }`}
+                      onClick={handleOutsideClick1} // Sự kiện click ngoài modal
+                    >
+                      <div
+                        className={`modal-container-col ${
+                          isModalOpen1 ? 'open-1' : ''
+                        }`}
+                      >
+                        <div className='modal-content'>
+                          <div className='modal-header'>
+                            <div className='modal-header-content'>
+                              <div
+                                className='modal-header-icon'
+                                onClick={closeModal1}
+                              >
+                                <CrossIcon />
+                              </div>
+                              <div className='modal-header-text'>
+                                Tùy chọn giao hàng
+                              </div>
+                            </div>
+                          </div>
+                          <div className='modal-body'>
+                            <div className='modal-body-content'>
+                              <div className='modal-body-content-title'>
+                                Loại giao hàng
+                              </div>
+                              <div className='modal-body-content-btn-list'>
+                                <div className='modal-service-btn'>
+                                  <div className='modal-service-btn-content'>
+                                    <div className='modal-service-icon'>
+                                      <img src={Fast} alt='' />
+                                    </div>
+                                    <div className='modal-service-text-group'>
+                                      <div className='modal-service-text'>
+                                        <div className='modal-service-text-left'>
+                                          Siêu tốc
+                                        </div>
+                                        <div className='modal-service-text-right'>
+                                          69.000 <span>đ</span>
+                                        </div>
+                                      </div>
+                                      <div className='modal-service-text-sub'>
+                                        Giao nhanh 30 phút/5km
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+
+                                <div className='modal-service-btn'>
+                                  <div className='modal-service-btn-content'>
+                                    <div className='modal-service-icon'>
+                                      <img src={TwoHours} alt='' />
+                                    </div>
+                                    <div className='modal-service-text-group'>
+                                      <div className='modal-service-text'>
+                                        <div className='modal-service-text-left'>
+                                          2H
+                                        </div>
+                                        <div className='modal-service-text-right'>
+                                          43.000 <span>đ</span>
+                                        </div>
+                                      </div>
+                                      <div className='modal-service-text-sub'>
+                                        Giao nhanh 2 giờ, giá tốt hơn
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+
+                                <div className='modal-service-btn'>
+                                  <div className='modal-service-btn-content'>
+                                    <div className='modal-service-icon'>
+                                      <img src={Cheap} alt='' />
+                                    </div>
+                                    <div className='modal-service-text-group'>
+                                      <div className='modal-service-text'>
+                                        <div className='modal-service-text-left'>
+                                          Siêu rẻ
+                                        </div>
+                                        <div className='modal-service-text-right'>
+                                          84.000 <span>đ</span>
+                                        </div>
+                                      </div>
+                                      <div className='modal-service-text-sub'>
+                                        Giao nội thành trong 4H, đồng giá
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+
+                                <div className='modal-service-btn'>
+                                  <div className='modal-service-btn-content'>
+                                    <div className='modal-service-icon'>
+                                      <img src={Food} alt='' />
+                                    </div>
+                                    <div className='modal-service-text-group'>
+                                      <div className='modal-service-text'>
+                                        <div className='modal-service-text-left'>
+                                          Thực phẩm
+                                        </div>
+                                        <div className='modal-service-text-right'>
+                                          63.000 <span>đ</span>
+                                        </div>
+                                      </div>
+                                      <div className='modal-service-text-sub'>
+                                        Giao siêu tốc dành riêng cho thực phẩm
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div className='modal-footer'>
+                            <div
+                              className='modal-submit-btn'
+                              onClick={closeModal1}
+                            >
+                              Xác nhận
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className='modal-4'>
+                    <div
+                      className={`modal-background ${
+                        isModalOpen4 ? 'open-4' : ''
+                      }`}
+                      onClick={handleOutsideClick4} // Sự kiện click ngoài modal
+                    >
+                      <div
+                        className={`modal-container-col ${
+                          isModalOpen4 ? 'open-4' : ''
+                        }`}
+                      >
+                        <div className='modal-content'>
+                          <div className='modal-header'>
+                            <div className='modal-header-content'>
+                              <div
+                                className='modal-header-icon'
+                                onClick={closeModal4}
+                              >
+                                <CrossIcon />
+                              </div>
+                              <div className='modal-header-text'>Ưu đãi</div>
+                            </div>
+                          </div>
+                          <div className='modal-body'>
+                            <div className='modal-body-content'>
+                              <div className='modal-body-content-title'>
+                                <input
+                                  type='text'
+                                  className='voucher-input'
+                                  placeholder='Nhập mã khuyến mãi'
+                                />
+                              </div>
+                              <div className='modal-body-content-btn-list'>
+                                <div className='modal-service-btn'>
+                                  <div className='modal-service-btn-content'>
+                                    <div className='modal-service-icon'>
+                                      <img src={Cheap} alt='' />
+                                    </div>
+                                    <div className='modal-service-text-group'>
+                                      <div className='modal-service-text'>
+                                        <div className='modal-service-text-left'>
+                                          Giảm 40% | Tối đa 15K
+                                        </div>
+                                      </div>
+                                      <div className='modal-service-text-sub'>
+                                        Hạn sử dụng 27 Dec 2024
+                                      </div>
+                                    </div>
+                                    <div className='modal-service-text-right'>
+                                      <BookmarkIcon />
+                                    </div>
+                                  </div>
+                                </div>
+
+                                <div className='modal-service-btn'>
+                                  <div className='modal-service-btn-content'>
+                                    <div className='modal-service-icon'>
+                                      <img src={Cheap} alt='' />
+                                    </div>
+                                    <div className='modal-service-text-group'>
+                                      <div className='modal-service-text'>
+                                        <div className='modal-service-text-left'>
+                                          Giảm 30% | Tối đa 200K
+                                        </div>
+                                      </div>
+                                      <div className='modal-service-text-sub'>
+                                        Hạn sử dụng 31 Dec 2024
+                                      </div>
+                                    </div>
+                                    <div className='modal-service-text-right'>
+                                      <BookmarkIcon />
+                                    </div>
+                                  </div>
+                                </div>
+
+                                <div className='modal-service-btn'>
+                                  <div className='modal-service-btn-content'>
+                                    <div className='modal-service-icon'>
+                                      <img src={Cheap} alt='' />
+                                    </div>
+                                    <div className='modal-service-text-group'>
+                                      <div className='modal-service-text'>
+                                        <div className='modal-service-text-left'>
+                                          Đồng giá 60K chuyến từ 61K
+                                        </div>
+                                      </div>
+                                      <div className='modal-service-text-sub'>
+                                        Hạn sử dụng 31 Dec 2024
+                                      </div>
+                                    </div>
+                                    <div className='modal-service-text-right'>
+                                      <BookmarkIcon />
+                                    </div>
+                                  </div>
+                                </div>
+
+                                <div className='modal-service-btn'>
+                                  <div className='modal-service-btn-content'>
+                                    <div className='modal-service-icon'>
+                                      <img src={Cheap} alt='' />
+                                    </div>
+                                    <div className='modal-service-text-group'>
+                                      <div className='modal-service-text'>
+                                        <div className='modal-service-text-left'>
+                                          Giảm 15% | Tối đa 10K
+                                        </div>
+                                      </div>
+                                      <div className='modal-service-text-sub'>
+                                        Hạn sử dụng 02 Mar 2025
+                                      </div>
+                                    </div>
+                                    <div className='modal-service-text-right'>
+                                      <BookmarkIcon />
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div className='modal-footer'>
+                            <div
+                              className='modal-submit-btn'
+                              onClick={closeModal1}
+                            >
+                              Xác nhận
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className='modal-5'>
+                    <div
+                      className={`modal-background ${
+                        isModalOpen5 ? 'open-5' : ''
+                      }`}
+                      onClick={handleOutsideClick5} // Sự kiện click ngoài modal
+                    >
+                      <div
+                        className={`modal-container-col ${
+                          isModalOpen5 ? 'open-5' : ''
+                        }`}
+                      >
+                        <div className='modal-content'>
+                          <div className='modal-header'>
+                            <div className='modal-header-content'>
+                              <div
+                                className='modal-header-icon'
+                                onClick={closeModal5}
+                              >
+                                <CrossIcon />
+                              </div>
+                              <div className='modal-header-text'>
+                                Tùy chọn phương tiện
+                              </div>
+                            </div>
+                          </div>
+                          <div className='modal-body'>
+                            <div className='modal-body-content'>
+                              <div className='modal-body-content-title'>
+                                Loại phương tiện
+                              </div>
+                              <div className='modal-body-content-btn-list'>
+                                <div className='modal-service-btn'>
+                                  <div className='modal-service-btn-content'>
+                                    <div className='modal-service-icon'>
+                                      <img src={Bike} alt='' />
+                                    </div>
+                                    <div className='modal-service-text-group'>
+                                      <div className='modal-service-text'>
+                                        <div className='modal-service-text-left'>
+                                          Xe máy
+                                        </div>
+                                        <div className='modal-service-text-right'>
+                                          205.000 <span>đ</span>
+                                        </div>
+                                      </div>
+                                      <div className='modal-service-text-sub'>
+                                        Hàng hóa tối đa 30kg (50x40x50cm)
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+
+                                <div className='modal-service-btn'>
+                                  <div className='modal-service-btn-content'>
+                                    <div className='modal-service-icon'>
+                                      <img src={Van} alt='' />
+                                    </div>
+                                    <div className='modal-service-text-group'>
+                                      <div className='modal-service-text'>
+                                        <div className='modal-service-text-left'>
+                                          Xe tải/ Van 500kg
+                                        </div>
+                                        <div className='modal-service-text-right'>
+                                          462.000 <span>đ</span>
+                                        </div>
+                                      </div>
+                                      <div className='modal-service-text-sub'>
+                                        Lên tới 500kg (160x120x120cm)
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+
+                                <div className='modal-service-btn'>
+                                  <div className='modal-service-btn-content'>
+                                    <div className='modal-service-icon'>
+                                      <img src={BoxTruck} alt='' />
+                                    </div>
+                                    <div className='modal-service-text-group'>
+                                      <div className='modal-service-text'>
+                                        <div className='modal-service-text-left'>
+                                          Xe tải/ Van 1000kg
+                                        </div>
+                                        <div className='modal-service-text-right'>
+                                          571.000 <span>đ</span>
+                                        </div>
+                                      </div>
+                                      <div className='modal-service-text-sub'>
+                                        Lên tới 1000kg (200x150x150cm)
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div className='modal-footer'>
+                            <div
+                              className='modal-submit-btn'
+                              onClick={closeModal5}
+                            >
+                              Xác nhận
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className='modal-6'>
+                    <div
+                      className={`modal-background ${
+                        isModalOpen6 ? 'open-6' : ''
+                      }`}
+                      onClick={handleOutsideClick6} // Sự kiện click ngoài modal
+                    >
+                      <div
+                        className={`modal-container-col ${
+                          isModalOpen6 ? 'open-6' : ''
+                        }`}
+                      >
+                        <div className='modal-content'>
+                          <div className='modal-header'>
+                            <div className='modal-header-content'>
+                              <div
+                                className='modal-header-icon'
+                                onClick={closeModal6}
+                              >
+                                <CrossIcon />
+                              </div>
+                              <div className='modal-header-text'>
+                                Tùy chọn đảm bảo hàng hóa
+                              </div>
+                            </div>
+                          </div>
+                          <div className='modal-body'>
+                            <div className='modal-body-content'>
+                              <div className='modal-body-content-title'>
+                                Loại bảo hiểm
+                              </div>
+                              <div className='modal-body-content-btn-list'>
+                                <div className='modal-service-btn'>
+                                  <div className='modal-service-btn-content'>
+                                    <div className='modal-service-icon'>
+                                      <img src={GrabPackage} alt='' />
+                                    </div>
+                                    <div className='modal-service-text-group'>
+                                      <div className='modal-service-text'>
+                                        <div className='modal-service-text-left'>
+                                          Cơ bản
+                                        </div>
+                                        <div className='modal-service-text-right'>
+                                          Mặc định
+                                        </div>
+                                      </div>
+                                      <div className='modal-service-text-sub'>
+                                        Bồi thường lên đến 3.000.000 VNĐ
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+
+                                <div className='modal-service-btn'>
+                                  <div className='modal-service-btn-content'>
+                                    <div className='modal-service-icon'>
+                                      <img src={GrabPackage} alt='' />
+                                    </div>
+                                    <div className='modal-service-text-group'>
+                                      <div className='modal-service-text'>
+                                        <div className='modal-service-text-left'>
+                                          Tiêu chuẩn
+                                        </div>
+                                        <div className='modal-service-text-right'>
+                                          4.000 <span>đ</span>
+                                        </div>
+                                      </div>
+                                      <div className='modal-service-text-sub'>
+                                        Bồi thường lên đến 15.000.000 VNĐ
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+
+                                <div className='modal-service-btn'>
+                                  <div className='modal-service-btn-content'>
+                                    <div className='modal-service-icon'>
+                                      <img src={GrabPackage} alt='' />
+                                    </div>
+                                    <div className='modal-service-text-group'>
+                                      <div className='modal-service-text'>
+                                        <div className='modal-service-text-left'>
+                                          Nâng cao
+                                        </div>
+                                        <div className='modal-service-text-right'>
+                                          10.000 <span>đ</span>
+                                        </div>
+                                      </div>
+                                      <div className='modal-service-text-sub'>
+                                        Bồi thường lên đến 30.000.000 VNĐ
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div className='modal-footer'>
+                            <div
+                              className='modal-submit-btn'
+                              onClick={closeModal6}
+                            >
+                              Xác nhận
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-          <div className='floating-footer'>
+          <div
+            className='floating-footer'
+            style={
+              isModalOpen1 || isModalOpen4 || isModalOpen5
+                ? { display: 'none' }
+                : { display: 'flex' }
+            }
+          >
             <div className='floating-footer-content-wrapper'>
               <div className='check-upload-btn-wrapper'>
                 <div className='total-price-text'>
