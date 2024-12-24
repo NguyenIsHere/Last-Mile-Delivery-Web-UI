@@ -507,7 +507,7 @@ const Upload_3 = () => {
             <div className='app-content-page'>
               <div className='new-booking-page'>
                 <Link className='back-link' to='/grab'>
-                  {'<'} Quay lại kiểm tra tin
+                  {'<'} Quay lại kiểm tra tập tin
                 </Link>
                 <div className='header-2'>
                   <div className='left-header-2'>
@@ -1478,7 +1478,9 @@ const Upload_3 = () => {
                   1.024.000
                   <span style={{ textDecoration: 'underline' }}>đ</span>
                 </div>
-                <button className='check-upload-btn'>Đến thanh toán</button>
+                <Link to='/upload-4' className='check-upload-btn'>
+                  Đến thanh toán
+                </Link>
               </div>
             </div>
           </div>

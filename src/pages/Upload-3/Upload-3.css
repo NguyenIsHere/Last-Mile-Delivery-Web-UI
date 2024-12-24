@@ -518,6 +518,10 @@
 
   .check-upload-btn {
     height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
     width: 230px;
     font-weight: 500;
     font-size: 16px;
