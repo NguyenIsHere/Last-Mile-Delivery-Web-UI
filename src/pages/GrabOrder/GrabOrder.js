@@ -189,6 +189,36 @@ const GrabOrder = () => {
     setShowPackageTypeDropdown(false) // Đóng dropdown
   }
 
+  const packageType2 = [
+    'Tất cả tình trạng',
+    'Đã hoàn tất',
+    'Đã hủy đơn',
+    'Không có tài xế',
+    'Trả lại hàng'
+  ]
+
+  // Loại hàng hóa dropdown
+  const [showPackageTypeDropdown2, setShowPackageTypeDropdown2] =
+    useState(false)
+  const showPackageType_dropdownRef2 = useRef(null) // Tạo tham chiếu đến dropdown
+  // Xử lý click bên ngoài dropdown
+  useEffect(() => {
+    const handleClickOutside = event => {
+      if (
+        showPackageType_dropdownRef2.current &&
+        !showPackageType_dropdownRef2.current.contains(event.target)
+      ) {
+        setShowPackageTypeDropdown2(false) // Ẩn dropdown
+      }
+    }
+    document.addEventListener('mousedown', handleClickOutside)
+    return () => document.removeEventListener('mousedown', handleClickOutside)
+  }, [])
+
+  const handleSelect2 = location => {
+    setShowPackageTypeDropdown2(false) // Đóng dropdown
+  }
+
   return (
     <div className='graborder__container'>
       <div className='app-layout-root'>
@@ -300,13 +330,34 @@ const GrabOrder = () => {
                       </div>
 
                       <div className='order-status-select'>
-                        <div className='select-content'>
+                        <div
+                          className='select-content'
+                          onClick={() =>
+                            setShowPackageTypeDropdown2(prev => !prev)
+                          }
+                          ref={showPackageType_dropdownRef2}
+                        >
                           <div className='select-content-text'>
                             Tất cả tình trạng
                           </div>
                           <div className='select-content-icon'>
                             <DownIcon />
                           </div>
+
+                          {/* Dropdown List */}
+                          {showPackageTypeDropdown2 && (
+                            <ul className='dropdown-list-package-type'>
+                              {packageType2.map(key => (
+                                <li
+                                  key={key}
+                                  className='dropdown-item'
+                                  onClick={() => handleSelect2(key)}
+                                >
+                                  {key}
+                                </li>
+                              ))}
+                            </ul>
+                          )}
                         </div>
                       </div>
                       <div className='order-date-select'>

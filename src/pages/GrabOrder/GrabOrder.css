@@ -182,7 +182,7 @@
     margin-top: 10px;
     padding: 0;
     z-index: 1000;
-    max-height: 200px;
+    max-height: fit-content;
     overflow-y: auto;
   }
 
@@ -245,6 +245,7 @@
     border-radius: 4px;
     display: flex;
     align-items: center;
+    justify-content: space-between;
     position: relative;
   }
 
@@ -263,6 +264,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 11px 12px 11px 0;
   }
 
   .order-date-select {
