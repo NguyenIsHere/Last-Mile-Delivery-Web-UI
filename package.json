@@ -5,9 +5,11 @@
   "dependencies": {
     "autoprefixer": "^10.4.20",
     "cra-template": "1.2.0",
+    "date-fns": "^4.1.0",
     "lucide-react": "^0.469.0",
     "postcss": "^8.4.49",
     "react": "^19.0.0",
+    "react-day-picker": "^9.4.4",
     "react-dom": "^19.0.0",
     "react-router-dom": "^7.0.2",
     "react-scripts": "5.0.1",

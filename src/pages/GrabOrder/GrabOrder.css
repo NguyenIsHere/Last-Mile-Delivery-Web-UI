@@ -269,7 +269,118 @@
 
   .order-date-select {
     cursor: pointer;
+    position: relative;
   }
+
+  .date-picker-container {
+    position: absolute;
+    z-index: 10;
+    top: 100%;
+    width: 100%;
+    margin-top: 10px;
+    /* Hiển thị ngay bên dưới order-date-select */
+    left: 0;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+  }
+
+  /* Tùy chỉnh container chính */
+  .rdp-root {
+    width: 100%;
+    background-color: #ffffff;
+    font-family: 'Quicksand';
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+  }
+
+  /* Tùy chỉnh tháng */
+  .rdp-month {
+    width: 100%;
+  }
+
+  .rdp-month_caption {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 10px 20px 10px;
+  }
+
+  .rdp-caption_label {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--font-color-100);
+  }
+
+  /* Header với nút điều hướng */
+  .rdp-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 10px 20px 10px;
+  }
+
+  .rdp-button_previous,
+  .rdp-button_next {
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+
+  .rdp-chevron {
+    fill: var(--font-color-100);
+    /* Màu xanh lá */
+  }
+
+  .rdp-weekday {
+    padding: 0 10px;
+    text-align: center;
+  }
+
+  .rdp-day {
+    padding: 0 10px;
+    text-align: center;
+  }
+
+  /* Tùy chỉnh ngày */
+  .rdp-day_button {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: none;
+    font-size: 14px;
+    color: var(--font-color-100);
+    cursor: pointer;
+    background-color: transparent;
+  }
+
+  .rdp-day_button:hover {
+    background-color: var(--white-color-30);
+  }
+
+  /* Ngày được chọn */
+  .rdp-day_button[aria-selected="true"] {
+    background-color: var(--main-color-100);
+    color: white;
+  }
+
+  /* Ngày hôm nay */
+  .rdp-day.rdp-today .rdp-day_button {
+    border: 2px solid var(--orange-color-100);
+  }
+
+  /* Ngày ngoài tháng hiện tại */
+  .rdp-day.rdp-outside .rdp-day_button {
+    color: #ccc;
+    pointer-events: none;
+  }
+
+
 
   .order-date-select-content {
     padding: 11px 12px;

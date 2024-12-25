@@ -1,5 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
+import { Day, DayPicker } from 'react-day-picker'
+import 'react-day-picker/dist/style.css' // Import style mặc định
 import './GrabOrder.css'
 import { ReactComponent as Dot } from '../../assets/icons/dot-circle (1).svg'
 import { ReactComponent as Destination } from '../../assets/icons/marker.svg'
@@ -219,6 +221,14 @@ const GrabOrder = () => {
     setShowPackageTypeDropdown2(false) // Đóng dropdown
   }
 
+  const [isDatePickerOpen, setIsDatePickerOpen] = useState(false) // Quản lý trạng thái mở/đóng lịch
+  const [selectedDate, setSelectedDate] = useState(null) // Ngày được chọn
+
+  // Hàm toggle hiển thị DatePicker
+  const toggleDatePicker = () => {
+    setIsDatePickerOpen(prev => !prev)
+  }
+
   return (
     <div className='graborder__container'>
       <div className='app-layout-root'>
@@ -360,7 +370,10 @@ const GrabOrder = () => {
                           )}
                         </div>
                       </div>
-                      <div className='order-date-select'>
+                      <div
+                        className='order-date-select'
+                        onClick={toggleDatePicker}
+                      >
                         <div className='order-date-select-content'>
                           <input
                             type='text'
@@ -379,6 +392,16 @@ const GrabOrder = () => {
                             <CalendarIcon />
                           </div>
                         </div>
+                        {/* Hiển thị lịch nếu isDatePickerOpen là true */}
+                        {isDatePickerOpen && (
+                          <div className='date-picker-container'>
+                            <DayPicker
+                              mode='single'
+                              selected={selectedDate}
+                              onSelect={setSelectedDate}
+                            />
+                          </div>
+                        )}
                       </div>
                     </div>
                   </div>
