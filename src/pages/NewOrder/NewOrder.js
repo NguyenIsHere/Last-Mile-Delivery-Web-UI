@@ -1160,7 +1160,9 @@ const NewOrder = () => {
                             </span>
                           </div>
                         </div>
-                        <div className='order-btn-row'>Đặt 3 đơn</div>
+                        <Link to='/upload-4' className='order-btn-row'>
+                          Đặt 3 đơn
+                        </Link>
                       </div>
                     </div>
                   </div>

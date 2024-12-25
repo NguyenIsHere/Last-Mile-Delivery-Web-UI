@@ -488,7 +488,11 @@
   }
 
   .pagination-btn {
-    padding: 10px 16px;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     border: 1px solid var(--white-color-30);
     cursor: pointer;
   }
@@ -498,13 +502,17 @@
   }
 
   .pagination-btn-number {
-    padding: 10px 16px;
-    border: 1px solid var(--main-color-50);
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid var(--font-color-60);
     cursor: pointer;
   }
 
   .pagination-content-number {
-    color: var(--main-color-100);
+    color: var(--font-color-100);
     font-weight: 500;
   }
 }
