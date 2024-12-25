@@ -12,6 +12,7 @@ import { ReactComponent as Plus } from '../../assets/icons/plus (1).svg'
 import { ReactComponent as Minus } from '../../assets/icons/minus.svg'
 import { ReactComponent as Bookmark } from '../../assets/icons/bookmark (1).svg'
 import { ReactComponent as BookmarkFill } from '../../assets/icons/bookmark (2).svg'
+import { ReactComponent as Momo } from '../../assets/icons/momo_square_pinkbg.svg'
 
 import Fast from '../../assets/images/Instant_36x36.png'
 import TwoHours from '../../assets/images/UpfrontBatchV2_36x36.png'
@@ -48,8 +49,53 @@ const ExchangeIcon = () => {
   )
 }
 
+const LeftIcon = () => {
+  return (
+    <Right
+      style={{
+        fill: 'var(--font-color-60)',
+        width: '14px',
+        height: '14px',
+        transform: 'rotate(-180deg)'
+      }}
+    />
+  )
+}
+
 const RightIcon = () => {
-  return <Right style={{ fill: '#fff', width: '14px', height: '14px' }} />
+  return (
+    <Right
+      style={{
+        fill: 'var(--font-color-60)',
+        width: '14px',
+        height: '14px'
+      }}
+    />
+  )
+}
+
+const DownIcon = () => {
+  return (
+    <Right
+      style={{
+        fill: 'var(--font-color-100)',
+        width: '14px',
+        height: '14px',
+        transform: 'rotate(90deg)'
+      }}
+    />
+  )
+}
+
+const MoMoIcon = () => {
+  return (
+    <Momo
+      style={{
+        width: '20px',
+        height: '20px'
+      }}
+    />
+  )
 }
 
 const BoxesIcon = () => {
@@ -343,6 +389,67 @@ const GrabHome = () => {
     }
   }
 
+  const sliderRef = useRef(null)
+
+  const scrollLeft = () => {
+    if (sliderRef.current) {
+      sliderRef.current.scrollLeft -= 200
+    }
+  }
+
+  const scrollRight = () => {
+    if (sliderRef.current) {
+      sliderRef.current.scrollLeft += 200
+    }
+  }
+
+  // State quản lý checkbox "chọn tất cả"
+  const [selectAll, setSelectAll] = useState(false)
+
+  // Dữ liệu giả lập cho bảng đơn hàng
+  const orders = [
+    {
+      id: 1,
+      orderDate: 'Dec 08, 5:32 PM',
+      sender: 'Nguyễn Ngọc Phú',
+      receiver: 'Trần Thái Minh',
+      orderType: 'Instant - Bike',
+      price: '200.000 VNĐ',
+      status: 'Đã hoàn tất'
+    },
+    {
+      id: 2,
+      orderDate: 'Dec 12, 10:45 AM',
+      sender: 'Lê Công Tuấn',
+      receiver: 'Phạm Ngọc Anh',
+      orderType: 'Instant - Bike',
+      price: '500.000 VNĐ',
+      status: 'Đã hoàn tất'
+    },
+    {
+      id: 3,
+      orderDate: 'Dec 15, 9:14 PM',
+      sender: 'Nguyễn Minh Thư',
+      receiver: 'Trần Bảo Châu',
+      orderType: 'Instant - Bike',
+      price: '150.000 VNĐ',
+      status: 'Đã hoàn tất'
+    }
+    // Thêm các đơn hàng khác nếu cần
+  ]
+
+  // Hàm để xử lý checkbox "chọn tất cả"
+  const handleSelectAll = event => {
+    setSelectAll(event.target.checked)
+  }
+
+  const [expandedRow, setExpandedRow] = useState(null)
+
+  // Hàm xử lý mở rộng hoặc thu gọn hàng
+  const handleToggleRow = id => {
+    setExpandedRow(prev => (prev === id ? null : id)) // Đóng nếu cùng id, mở nếu khác
+  }
+
   return (
     <div className='grabhome__container'>
       <div className='app-layout-root'>
@@ -526,7 +633,337 @@ const GrabHome = () => {
                     </Link>
                   </div>
                 </div>
-
+                <div className='header-4'>
+                  <div className='header-4-title'>Giao tới (5)</div>
+                  <div className='header-3-sender-slider-wrapper'>
+                    <div
+                      class='slider-btn slider-btn-left'
+                      onClick={scrollLeft}
+                    >
+                      <LeftIcon />
+                    </div>
+                    <div className='header-3-sender-slider'>
+                      <div
+                        className='header-3-sender-slider-content'
+                        ref={sliderRef}
+                      >
+                        <div className='header-3-sender-slider-item'>
+                          <div className='header-3-sender-slider-item-content'>
+                            <div className='header-3-sender-slider-item-icon'>
+                              <img
+                                src='https://express.grab.com/book/static/images/saved-poi-bookmark-icon.363q8GK.svg'
+                                alt=''
+                              />
+                            </div>
+                            <div className='header-3-sender-slider-item-text'>
+                              <div className='sender-name'>
+                                Vincom Mega Mall Royal City
+                              </div>
+                              <div className='sender-info'>
+                                72A Nguyễn Trãi, phường Thượng Đình, quận Thanh
+                                Xuân, Hà Nội
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div className='header-3-sender-slider-item'>
+                          <div className='header-3-sender-slider-item-content'>
+                            <div className='header-3-sender-slider-item-icon'>
+                              <img
+                                src='https://express.grab.com/book/static/images/saved-poi-bookmark-icon.363q8GK.svg'
+                                alt=''
+                              />
+                            </div>
+                            <div className='header-3-sender-slider-item-text'>
+                              <div className='sender-name'>
+                                Trung tâm thương mại Landmark 81
+                              </div>
+                              <div className='sender-info'>
+                                208 Nguyễn Hữu Cảnh, phường 22, quận Bình Thạnh,
+                                TP.HCM
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div className='header-3-sender-slider-item'>
+                          <div className='header-3-sender-slider-item-content'>
+                            <div className='header-3-sender-slider-item-icon'>
+                              <img
+                                src='https://express.grab.com/book/static/images/saved-poi-bookmark-icon.363q8GK.svg'
+                                alt=''
+                              />
+                            </div>
+                            <div className='header-3-sender-slider-item-text'>
+                              <div className='sender-name'>Chợ Bến Thành</div>
+                              <div className='sender-info'>
+                                Lê Lợi, phường Bến Thành, quận 1, TP.HCM
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div className='header-3-sender-slider-item'>
+                          <div className='header-3-sender-slider-item-content'>
+                            <div className='header-3-sender-slider-item-icon'>
+                              <img
+                                src='https://express.grab.com/book/static/images/saved-poi-bookmark-icon.363q8GK.svg'
+                                alt=''
+                              />
+                            </div>
+                            <div className='header-3-sender-slider-item-text'>
+                              <div className='sender-name'>
+                                Trường Đại học Khoa học Tự nhiên TP.HCM
+                              </div>
+                              <div className='sender-info'>
+                                227 Nguyễn Văn Cừ, phường 4, quận 5, TP.HCM
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div className='header-3-sender-slider-item'>
+                          <div className='header-3-sender-slider-item-content'>
+                            <div className='header-3-sender-slider-item-icon'>
+                              <img
+                                src='https://express.grab.com/book/static/images/saved-poi-bookmark-icon.363q8GK.svg'
+                                alt=''
+                              />
+                            </div>
+                            <div className='header-3-sender-slider-item-text'>
+                              <div className='sender-name'>Khôi Nguyên</div>
+                              <div className='sender-info'>
+                                0846920011 • 123 Nguyen Van Linh, District 7,
+                                Tp.HCM
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div className='header-3-sender-slider-item'>
+                          <div className='header-3-sender-slider-item-content'>
+                            <div className='header-3-sender-slider-item-icon'>
+                              <img
+                                src='https://express.grab.com/book/static/images/saved-poi-bookmark-icon.363q8GK.svg'
+                                alt=''
+                              />
+                            </div>
+                            <div className='header-3-sender-slider-item-text'>
+                              <div className='sender-name'>
+                                Bưu điện Trung tâm Sài Gòn
+                              </div>
+                              <div className='sender-info'>
+                                2 Công xã Paris, phường Bến Nghé, quận 1, TP.HCM
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div className='header-3-sender-slider-item'>
+                          <div className='header-3-sender-slider-item-content'>
+                            <div className='header-3-sender-slider-item-icon'>
+                              <img
+                                src='https://express.grab.com/book/static/images/saved-poi-bookmark-icon.363q8GK.svg'
+                                alt=''
+                              />
+                            </div>
+                            <div className='header-3-sender-slider-item-text'>
+                              <div className='sender-name'>
+                                Cầu Rồng Đà Nẵng
+                              </div>
+                              <div className='sender-info'>
+                                Võ Văn Kiệt, phường An Hải Tây, quận Sơn Trà, Đà
+                                Nẵng.
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      class='slider-btn slider-btn-right'
+                      onClick={scrollRight}
+                    >
+                      <RightIcon />
+                    </div>
+                  </div>
+                </div>
+                <div className='header-5'>
+                  <div className='header-5-top-bar'>
+                    <div className='header-5-top-bar-left'>Đặt lại</div>
+                    <div className='header-5-top-bar-right'>Xem tất cả</div>
+                  </div>
+                  <div className='header-3-order-list-container'>
+                    <div className='header-3-order-list-content'>
+                      <div className='order-table'>
+                        <table>
+                          <thead>
+                            <tr>
+                              {/* 
+                              <th>
+                                <input
+                                  type='checkbox'
+                                  checked={selectAll}
+                                  onChange={handleSelectAll}
+                                  style={{ textAlign: 'center' }}
+                                />
+                              </th> */}
+                              <th>Đã đặt vào</th>
+                              <th>Người gửi</th>
+                              <th>Người nhận</th>
+                              <th>Loại đơn hàng</th>
+                              <th>Giá tiền</th>
+                              <th>Tình trạng</th>
+                              <th></th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            {orders.map(order => (
+                              <React.Fragment key={order.id}>
+                                <tr onClick={() => handleToggleRow(order.id)}>
+                                  {/* <td style={{ textAlign: 'center' }}>
+                                    <DownIcon />
+                                  </td> */}
+                                  {/* <td>
+                                    <input type='checkbox' />
+                                  </td> */}
+                                  <td>{order.orderDate}</td>
+                                  <td>{order.sender}</td>
+                                  <td>{order.receiver}</td>
+                                  <td>{order.orderType}</td>
+                                  <td>{order.price}</td>
+                                  <td>
+                                    <div className='success'>
+                                      {order.status}
+                                    </div>
+                                  </td>
+                                  <td>
+                                    <div className='re-order'>Đặt lại</div>
+                                  </td>
+                                </tr>
+                                {expandedRow === order.id && (
+                                  <tr>
+                                    <td colSpan='8'>
+                                      {/* Nội dung chi tiết của đơn hàng */}
+                                      <div className='order-details'>
+                                        <div className='order-details-content'>
+                                          <div className='order-details-content-left'>
+                                            <div className='order-details-content-left-row'>
+                                              <div className='order-details-content-left-row-icon'>
+                                                <DotIcon />
+                                              </div>
+                                              <div className='order-details-content-left-row-text-group'>
+                                                <div className='order-details-content-left-row-text'>
+                                                  Cơm gà Hồng Vân • 0968451694
+                                                </div>
+                                                <div className='order-details-content-left-row-text-sub'>
+                                                  123 Nguyen Van Linh, District
+                                                  7, Thu Duc, Ho Chi Minh City
+                                                </div>
+                                              </div>
+                                            </div>
+                                            {/* <div className='dots'>
+                                      <DotsIcon />
+                                    </div> */}
+                                            <div className='order-details-content-left-row'>
+                                              <div className='order-details-content-left-row-icon'>
+                                                <DestinationIcon />
+                                              </div>
+                                              <div className='order-details-content-left-row-text-group'>
+                                                <div className='order-details-content-left-row-text'>
+                                                  Phạm Tuấn Nghĩa • 0846748052
+                                                </div>
+                                                <div className='order-details-content-left-row-text-sub'>
+                                                  227 Nguyen Van Cu, District 5,
+                                                  Ho Chi Minh City
+                                                </div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                          <div className='order-details-content-right'>
+                                            <div className='order-details-content-right-row'>
+                                              <div className='order-details-content-right-col'>
+                                                <div className='order-details-content-right-col-title'>
+                                                  Phương thức thanh toán
+                                                </div>
+                                                <div className='order-details-content-right-col-value'>
+                                                  <div className='order-details-content-right-col-value-icon'>
+                                                    <MoMoIcon />
+                                                  </div>
+                                                  <div className='order-details-content-right-col-value-text'>
+                                                    MoMo
+                                                  </div>
+                                                </div>
+                                              </div>
+                                              <div className='order-details-content-right-col'>
+                                                <div className='order-details-content-right-col-title'>
+                                                  Mã đặt xe
+                                                </div>
+                                                <div className='order-details-content-right-col-value'>
+                                                  IN-2-0JTGBO4GHMSXTB1GBPG2
+                                                </div>
+                                              </div>
+                                              <div className='order-details-content-right-col'>
+                                                <div className='order-details-content-right-col-title'>
+                                                  Loại dịch vụ
+                                                </div>
+                                                <div className='order-details-content-right-col-value'>
+                                                  Thông qua Grab Superapp
+                                                </div>
+                                              </div>
+                                            </div>
+                                            <div className='order-details-content-right-row'>
+                                              <div className='order-details-content-right-col'>
+                                                <div className='order-details-content-right-col-title'>
+                                                  Loại hàng hóa
+                                                </div>
+                                                <div className='order-details-content-right-col-value'>
+                                                  Food
+                                                </div>
+                                              </div>
+                                              <div className='order-details-content-right-col'>
+                                                <div className='order-details-content-right-col-title'>
+                                                  Tổng trọng lượng
+                                                </div>
+                                                <div className='order-details-content-right-col-value'>
+                                                  1 kg
+                                                </div>
+                                              </div>
+                                              <div className='order-details-content-right-col'>
+                                                <div className='order-details-content-right-col-title'>
+                                                  Ghi chú giao hàng
+                                                </div>
+                                                <div className='order-details-content-right-col-value'>
+                                                  --
+                                                </div>
+                                              </div>
+                                            </div>
+                                            <div className='order-details-content-right-row'>
+                                              <div className='order-details-content-right-row-menu-container'>
+                                                <div className='order-details-content-right-row-menu-content'>
+                                                  <div className='order-details-content-right-row-menu-btn'>
+                                                    Tải về hóa đơn
+                                                  </div>
+                                                  <div className='menu-divider'></div>
+                                                  <div className='order-details-content-right-row-menu-btn'>
+                                                    Đặt lại
+                                                  </div>
+                                                  <div className='menu-divider'></div>
+                                                  <div className='order-details-content-right-row-menu-btn'>
+                                                    Báo lỗi
+                                                  </div>
+                                                </div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </td>
+                                  </tr>
+                                )}
+                              </React.Fragment>
+                            ))}
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
                 <div className='modal-1'>
                   <div
                     className={`modal-background ${

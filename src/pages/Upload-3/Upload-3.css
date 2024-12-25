@@ -331,10 +331,11 @@
     display: flex;
     align-items: center;
     gap: 16px;
-    background-color: var(--white-color-50);
+    /* background-color: var(--white-color-50); */
     padding: 16px;
     border-radius: 8px;
     cursor: pointer;
+    border: 1px solid var(--white-color-30);
   }
 
   .header-3-sender-slider-item:hover {
@@ -345,7 +346,7 @@
     display: flex;
     align-items: center;
     gap: 16px;
-    width: 190px;
+
   }
 
   .sender-name {
@@ -362,6 +363,13 @@
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+    width: 180px;
+  }
+
+  .header-3-sender-slider-item-icon img {
+    height: 38px;
+    overflow-clip-margin: content-box;
+    overflow: clip;
   }
 
   .sender-info {
@@ -369,14 +377,16 @@
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+    font-size: 14px;
   }
+
 
   .header-3-tab-container {
     margin-top: 16px;
     display: flex;
     align-items: center;
     gap: 20px;
-    background-color: var(--white-color-50);
+    background-color: var(--white-color-30);
     padding: 10px 20px;
     border-radius: 8px;
   }
