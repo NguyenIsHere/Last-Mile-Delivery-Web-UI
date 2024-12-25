@@ -546,7 +546,7 @@ const Upload_4 = () => {
           <div className='app-content'>
             <div className='app-content-page'>
               <div className='new-booking-page'>
-                <Link className='back-link' to='/grab'>
+                <Link className='back-link' to='/upload-3'>
                   {'<'} Quay lại thiết lập giao hàng
                 </Link>
                 <div className='header-2'>

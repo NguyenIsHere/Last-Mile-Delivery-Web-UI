@@ -143,7 +143,7 @@ const GrabOrder = () => {
       receiver: 'Trần Bảo Châu',
       orderType: 'Instant - Bike',
       price: '150.000 VNĐ',
-      status: 'Đang xử lý'
+      status: 'Đã hủy'
     }
     // Thêm các đơn hàng khác nếu cần
   ]
@@ -158,6 +158,35 @@ const GrabOrder = () => {
   // Hàm xử lý mở rộng hoặc thu gọn hàng
   const handleToggleRow = id => {
     setExpandedRow(prev => (prev === id ? null : id)) // Đóng nếu cùng id, mở nếu khác
+  }
+
+  const packageType = [
+    'Tất cả đơn',
+    'Đơn thường',
+    'Đơn shopify',
+    'Thông qua Grab Superapp',
+    'Thông qua Grab Merchant'
+  ]
+
+  // Loại hàng hóa dropdown
+  const [showPackageTypeDropdown, setShowPackageTypeDropdown] = useState(false)
+  const showPackageType_dropdownRef = useRef(null) // Tạo tham chiếu đến dropdown
+  // Xử lý click bên ngoài dropdown
+  useEffect(() => {
+    const handleClickOutside = event => {
+      if (
+        showPackageType_dropdownRef.current &&
+        !showPackageType_dropdownRef.current.contains(event.target)
+      ) {
+        setShowPackageTypeDropdown(false) // Ẩn dropdown
+      }
+    }
+    document.addEventListener('mousedown', handleClickOutside)
+    return () => document.removeEventListener('mousedown', handleClickOutside)
+  }, [])
+
+  const handleSelect = location => {
+    setShowPackageTypeDropdown(false) // Đóng dropdown
   }
 
   return (
@@ -241,13 +270,35 @@ const GrabOrder = () => {
                   <div className='header-3-menu-container'>
                     <div className='header-3-menu-content'>
                       <div className='order-type-select'>
-                        <div className='select-content'>
+                        <div
+                          className='select-content'
+                          onClick={() =>
+                            setShowPackageTypeDropdown(prev => !prev)
+                          }
+                          ref={showPackageType_dropdownRef}
+                        >
                           <div className='select-content-text'>Tất cả đơn</div>
                           <div className='select-content-icon'>
                             <DownIcon />
                           </div>
+
+                          {/* Dropdown List */}
+                          {showPackageTypeDropdown && (
+                            <ul className='dropdown-list-package-type'>
+                              {packageType.map(key => (
+                                <li
+                                  key={key}
+                                  className='dropdown-item'
+                                  onClick={() => handleSelect(key)}
+                                >
+                                  {key}
+                                </li>
+                              ))}
+                            </ul>
+                          )}
                         </div>
                       </div>
+
                       <div className='order-status-select'>
                         <div className='select-content'>
                           <div className='select-content-text'>

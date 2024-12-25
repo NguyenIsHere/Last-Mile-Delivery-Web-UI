@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 /* Bố cục tổng thể */
 .app-container {
   display: flex;

@@ -506,7 +506,7 @@ const Upload_3 = () => {
           <div className='app-content'>
             <div className='app-content-page'>
               <div className='new-booking-page'>
-                <Link className='back-link' to='/grab'>
+                <Link className='back-link' to='/upload-2'>
                   {'<'} Quay lại kiểm tra tập tin
                 </Link>
                 <div className='header-2'>
