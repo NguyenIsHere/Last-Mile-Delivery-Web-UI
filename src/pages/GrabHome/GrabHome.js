@@ -74,6 +74,18 @@ const RightIcon = () => {
   )
 }
 
+const WhiteRightIcon = () => {
+  return (
+    <Right
+      style={{
+        fill: '#fff',
+        width: '14px',
+        height: '14px'
+      }}
+    />
+  )
+}
+
 const DownIcon = () => {
   return (
     <Right
@@ -627,7 +639,7 @@ const GrabHome = () => {
                           </div>
                         </div>
                         <div className='order-detail-icon'>
-                          <RightIcon />
+                          <WhiteRightIcon />
                         </div>
                       </div>
                     </Link>
