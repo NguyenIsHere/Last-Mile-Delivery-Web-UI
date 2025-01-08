@@ -1407,6 +1407,8 @@
     .modal-header-map img {
       height: 400px;
       box-sizing: border-box;
+      width: 100%;
+      object-fit: cover;
     }
 
     .modal-header-content {
@@ -1678,6 +1680,8 @@
     .modal-header-map img {
       height: 400px;
       box-sizing: border-box;
+      width: 100%;
+      object-fit: cover;
     }
 
     .modal-header-content {

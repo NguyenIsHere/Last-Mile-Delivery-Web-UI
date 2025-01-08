@@ -115,9 +115,9 @@
     cursor: pointer;
   }
 
-  .left-header-2 .dropdown-gps .right-icon {
+  /* .left-header-2 .dropdown-gps .right-icon {
     transform: rotate(90deg);
-  }
+  } */
 
   .dropdown-list {
     position: absolute;
@@ -229,7 +229,7 @@
 
   .slider-btn {
     position: absolute;
-    z-index: 1000;
+    z-index: 20;
     /* Để nằm trên slider-container */
     cursor: pointer;
     width: 30px;
@@ -835,6 +835,8 @@
   }
 
   .modal-1 {
+    z-index: 1000;
+
     .modal-background {
       position: fixed;
       top: 0;
@@ -844,6 +846,7 @@
       background-color: rgba(0, 0, 0, .45);
       overflow: hidden;
       visibility: hidden;
+      z-index: 1000;
       /* Ẩn modal ban đầu */
     }
 
@@ -1012,6 +1015,7 @@
   }
 
   .modal-2 {
+    z-index: 1000;
 
     .modal-background {
       position: fixed;
@@ -1022,6 +1026,7 @@
       background-color: rgba(0, 0, 0, .45);
       overflow: hidden;
       visibility: hidden;
+      z-index: 1000;
       /* Ẩn modal ban đầu */
     }
 
@@ -1112,6 +1117,8 @@
     .modal-header-map img {
       height: 400px;
       box-sizing: border-box;
+      width: 100%;
+      object-fit: cover;
     }
 
     .modal-header-content {
@@ -1283,6 +1290,7 @@
   }
 
   .modal-3 {
+    z-index: 1000;
 
     .modal-background {
       position: fixed;
@@ -1293,6 +1301,7 @@
       background-color: rgba(0, 0, 0, .45);
       overflow: hidden;
       visibility: hidden;
+      z-index: 1000;
       /* Ẩn modal ban đầu */
     }
 
@@ -1382,6 +1391,8 @@
     .modal-header-map img {
       height: 400px;
       box-sizing: border-box;
+      width: 100%;
+      object-fit: cover;
     }
 
     .modal-header-content {

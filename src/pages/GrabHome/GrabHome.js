@@ -90,7 +90,7 @@ const DownIcon = () => {
   return (
     <Right
       style={{
-        fill: 'var(--font-color-100)',
+        fill: '#fff',
         width: '14px',
         height: '14px',
         transform: 'rotate(90deg)'
@@ -547,7 +547,7 @@ const GrabHome = () => {
                         style={{ cursor: 'pointer' }}
                       >
                         <div className='right-icon'>
-                          <RightIcon />
+                          <DownIcon />
                         </div>
                       </div>
 
