@@ -145,6 +145,14 @@ const CrossIcon = () => {
   )
 }
 
+const CrossIcon2 = () => {
+  return (
+    <Cross
+      style={{ fill: 'var(--font-color-100)', width: '16px', height: '16px' }}
+    />
+  )
+}
+
 const PlusIcon = () => {
   return (
     <Plus
@@ -459,25 +467,6 @@ const NewOrder = () => {
     setIsSenderOpen(false)
   }
 
-  // Receiver
-
-  // Test Receiver
-  const [receiverLocations, setReceiverLocations] = useState([])
-  const [dropdownOpenIndex, setDropdownOpenIndex] = useState(null)
-
-  // Thêm địa điểm mới
-  const handleAddLocation = () => {
-    setReceiverLocations([...receiverLocations, ''])
-  }
-
-  // Cập nhật địa điểm được chọn
-  const handleSelectLocation = (index, location) => {
-    const updatedLocations = [...receiverLocations]
-    updatedLocations[index] = location
-    setReceiverLocations(updatedLocations)
-    setDropdownOpenIndex(null) // Đóng dropdown sau khi chọn
-  }
-
   // test linh hoạt vị trí dropdown
   const [dropdownPosition, setDropdownPosition] = useState({ x: 0, y: 0 }) // Vị trí dropdown
 
@@ -502,6 +491,68 @@ const NewOrder = () => {
 
   const handleAddOrder = () => {
     setOrders([...orders, orders.length + 1]) // Thêm một đơn hàng mới vào danh sách
+  }
+
+  // Receiver
+
+  // Test Receiver
+  const [receiverLocations, setReceiverLocations] = useState([''])
+  const [dropdownOpenIndex, setDropdownOpenIndex] = useState(null)
+
+  // Thêm địa điểm mới
+  const handleAddLocation = () => {
+    setReceiverLocations([...receiverLocations, ''])
+  }
+
+  // Cập nhật địa điểm được chọn
+  const handleSelectLocation = (index, location) => {
+    const updatedLocations = [...receiverLocations]
+    updatedLocations[index] = location
+    setReceiverLocations(updatedLocations)
+    if (index === 0) {
+      setLocations3([
+        {
+          receiverLocation: updatedLocations,
+          note: '',
+          name: '',
+          phone: '',
+          money: ''
+        }
+      ])
+    } else if (index > 0) {
+      setLocations3([
+        ...locations3,
+        {
+          receiverLocation: updatedLocations,
+          note: '',
+          name: '',
+          phone: '',
+          money: ''
+        }
+      ])
+    }
+    setDropdownOpenIndex(null) // Đóng dropdown sau khi chọn
+  }
+
+  const [locations3, setLocations3] = useState([
+    {
+      receiverLocation: receiverLocations[0],
+      note: '',
+      name: '',
+      phone: '',
+      money: ''
+    }
+  ])
+
+  const addLocation3 = () => {
+    setLocations3([
+      ...locations3,
+      { receiverLocation: '', note: '', name: '', phone: '', money: '' }
+    ])
+  }
+
+  const removeLocation3 = index => {
+    setLocations3(locations3.filter((_, i) => i !== index))
   }
 
   return (
@@ -646,58 +697,128 @@ const NewOrder = () => {
                                     </div>
                                   </div>
                                 </div>
-
-                                <div className='receive-location-col'>
+                                {locations3.map((location3, index) => (
                                   <div
-                                    className='receive-location'
-                                    onClick={openModal3}
+                                    key={index}
+                                    className='receive-location-col'
                                   >
-                                    <div className='receive-location-icon'>
-                                      <DestinationIcon />
+                                    <div
+                                      className='receive-location'
+                                      onClick={openModal3}
+                                    >
+                                      <div className='receive-location-icon'>
+                                        <DestinationIcon />
+                                      </div>
+                                      <div className='receive-location-text'>
+                                        {location3.receiverLocation[index] ||
+                                          'Điểm nhận hàng'}
+                                      </div>
+                                      <div
+                                        className='receive-location-icon-save'
+                                        style={{
+                                          visibility:
+                                            index === 1 ? 'visible' : 'hidden'
+                                        }}
+                                        onClick={e => {
+                                          e.stopPropagation() // Ngăn sự kiện lan lên cha
+                                          removeLocation3(index)
+                                        }}
+                                      >
+                                        <CrossIcon2 />
+                                      </div>
+                                      <div className='receive-location-icon-save'>
+                                        <BookmarkFillIcon />
+                                      </div>
                                     </div>
-                                    <div className='receive-location-text'>
-                                      {receiverLocations[0] || 'Điểm nhận hàng'}
-                                    </div>
-                                    <div className='receive-location-icon-save'>
-                                      <BookmarkFillIcon />
-                                    </div>
-                                  </div>
-                                  <div className='receive-note'>
-                                    <input
-                                      type='text'
-                                      className='note'
-                                      placeholder='Thêm ghi chú địa điểm (Không bắt buộc)'
-                                    />
-                                  </div>
-                                  <div className='receive-name-phone-group'>
-                                    <div className='receive-name'>
+                                    <div className='receive-note'>
                                       <input
                                         type='text'
-                                        className='name'
-                                        placeholder='Tên người nhận'
+                                        className='note'
+                                        placeholder='Thêm ghi chú địa điểm (Không bắt buộc)'
+                                        value={location3.note}
+                                        onChange={e =>
+                                          setLocations3(
+                                            locations3.map((loc, i) =>
+                                              i === index
+                                                ? {
+                                                    ...loc,
+                                                    note: e.target.value
+                                                  }
+                                                : loc
+                                            )
+                                          )
+                                        }
                                       />
                                     </div>
-                                    <div className='receive-phone'>
-                                      <input
-                                        type='text'
-                                        className='phone'
-                                        placeholder='Số điện thoại'
-                                      />
-                                    </div>
-                                    <div className='receive-money'>
-                                      <input
-                                        type='number'
-                                        className='money'
-                                        placeholder='Thu tiền hộ (Không bắt buộc)'
-                                      />
+                                    <div className='receive-name-phone-group'>
+                                      <div className='receive-name'>
+                                        <input
+                                          type='text'
+                                          className='name'
+                                          placeholder='Tên người nhận'
+                                          value={location3.name}
+                                          onChange={e =>
+                                            setLocations3(
+                                              locations3.map((loc, i) =>
+                                                i === index
+                                                  ? {
+                                                      ...loc,
+                                                      name: e.target.value
+                                                    }
+                                                  : loc
+                                              )
+                                            )
+                                          }
+                                        />
+                                      </div>
+                                      <div className='receive-phone'>
+                                        <input
+                                          type='text'
+                                          className='phone'
+                                          placeholder='Số điện thoại'
+                                          value={location3.phone}
+                                          onChange={e =>
+                                            setLocations3(
+                                              locations3.map((loc, i) =>
+                                                i === index
+                                                  ? {
+                                                      ...loc,
+                                                      phone: e.target.value
+                                                    }
+                                                  : loc
+                                              )
+                                            )
+                                          }
+                                        />
+                                      </div>
+                                      <div className='receive-money'>
+                                        <input
+                                          type='number'
+                                          className='money'
+                                          placeholder='Thu tiền hộ (Không bắt buộc)'
+                                          value={location3.money}
+                                          onChange={e =>
+                                            setLocations3(
+                                              locations3.map((loc, i) =>
+                                                i === index
+                                                  ? {
+                                                      ...loc,
+                                                      money: e.target.value
+                                                    }
+                                                  : loc
+                                              )
+                                            )
+                                          }
+                                        />
+                                      </div>
                                     </div>
                                   </div>
-                                  <div
-                                    className='adjust-destination'
-                                    onClick={openModal3}
-                                  >
-                                    Chỉnh sửa điểm đến
-                                  </div>
+                                ))}
+                                <div
+                                  className='adjust-destination'
+                                  onClick={openModal3}
+                                >
+                                  Chỉnh sửa điểm đến
                                 </div>
                               </div>
 
@@ -1421,16 +1542,10 @@ const NewOrder = () => {
                                     handleToggleDropdown(event, index)
                                   }
                                 >
-                                  <div
-                                    className='receive-location-icon'
-                                    // onClick={event => handleToggleDropdown(event, index)}
-                                  >
+                                  <div className='receive-location-icon'>
                                     <DestinationIcon />
                                   </div>
-                                  <div
-                                    className='receive-location-text'
-                                    // onClick={event => handleToggleDropdown(event, index)}
-                                  >
+                                  <div className='receive-location-text'>
                                     {location || 'Chọn địa điểm'}
                                   </div>
                                   {dropdownOpenIndex === index && (
