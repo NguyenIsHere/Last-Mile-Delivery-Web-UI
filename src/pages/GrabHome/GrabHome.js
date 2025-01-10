@@ -41,6 +41,18 @@ const DestinationIcon = () => {
   )
 }
 
+const DestinationIcon2 = () => {
+  return (
+    <Destination
+      style={{
+        fill: 'var(--font-color-60)',
+        width: '16px',
+        height: '16px'
+      }}
+    />
+  )
+}
+
 const ExchangeIcon = () => {
   return (
     <Exchange
@@ -1275,7 +1287,8 @@ const GrabHome = () => {
                                 className='add-location'
                                 onClick={handleAddLocation}
                               >
-                                + Thêm địa điểm
+                                <DestinationIcon2 />
+                                Thêm điểm giao
                               </div>
                             </div>
                           </div>

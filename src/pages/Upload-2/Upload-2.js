@@ -112,19 +112,108 @@ const CalendarIcon = () => {
   )
 }
 
+const AddressItem = ({ name, address, onClick }) => {
+  return (
+    <div className='address-item' onClick={onClick}>
+      <div className='address-item-icon'>
+        <DestinationIcon />
+      </div>
+      <div className='address-item-text-group'>
+        <div className='address-item-name'>{name}</div>
+        <div className='address-item-address'>{address}</div>
+      </div>
+      <div className='address-save-icon'>
+        <BookmarkIcon />
+      </div>
+    </div>
+  )
+}
+
+const MinusIcon = () => {
+  return (
+    <Minus
+      style={{
+        fill: 'var(--font-color-100)',
+        width: '16px',
+        height: '16px'
+      }}
+    />
+  )
+}
+
+const BookmarkIcon = () => {
+  return (
+    <Bookmark
+      style={{
+        fill: 'var(--font-color-100)',
+        width: '16px',
+        height: '16px'
+      }}
+    />
+  )
+}
+const CrossIcon = () => {
+  return (
+    <Cross
+      style={{ fill: 'var(--font-color-100)', width: '20px', height: '20px' }}
+    />
+  )
+}
+
+const PlusIcon = () => {
+  return (
+    <Plus
+      style={{ fill: 'var(--font-color-100)', width: '16px', height: '16px' }}
+    />
+  )
+}
+
 const Upload_2 = () => {
   // State quản lý checkbox "chọn tất cả"
   const [selectAll, setSelectAll] = useState(false)
+
+  const locations2 = [
+    {
+      name: 'Truong Dai Hoc Kinh Te Quoc Dan',
+      address: '123 Nguyen Van Linh, District 7, Thu Duc, Ho Chi Minh City'
+    },
+    {
+      name: 'Truong Dai Hoc Bach Khoa Ha Noi',
+      address: '1 Dai Co Viet, Hai Ba Trung, Ha Noi'
+    },
+    {
+      name: 'Truong Dai Hoc Cong Nghe Thong Tin',
+      address: 'KP6, Linh Trung, Thu Duc, Ho Chi Minh City'
+    },
+    {
+      name: 'Truong Dai Hoc Khoa Hoc Tu Nhien',
+      address: '227 Nguyen Van Cu, District 5, Ho Chi Minh City'
+    },
+    {
+      name: 'Truong Dai Hoc Ngoai Thuong',
+      address: '91 Chua Lang, Dong Da, Ha Noi, District 5, Ho Chi Minh City'
+    },
+    {
+      name: 'Truong Dai Hoc Su Pham Ky Thuat',
+      address: '1 Vo Van Ngan, Thu Duc, Ho Chi Minh City'
+    },
+    {
+      name: 'Truong Dai Hoc Kinh Te TP.HCM',
+      address: '59C Nguyen Dinh Chieu, District 3, Ho Chi Minh City'
+    }
+  ]
 
   // Dữ liệu giả lập cho bảng đơn hàng
   const orders = [
     {
       id: 1,
       orderDate: 'Dec 08, 5:32 PM',
-      sender: 'Nguyễn Ngọc Phú 091886759',
+      sender: 'Nguyễn Ngọc Phú',
+      senderPhone: '091886759',
       senderAdress:
         '123 Nguyen Van Linh, District 7, Thu Duc, Ho Chi Minh City',
-      receiver: 'Trần Thái Minh 091886759',
+      receiver: 'Trần Thái Minh',
+      receiverPhone: '091886759',
       receiverAdress: '227 Nguyen Van Cu, District 5, Ho Chi Minh City',
       size: 'M',
       weight: '1',
@@ -134,9 +223,11 @@ const Upload_2 = () => {
     {
       id: 2,
       orderDate: 'Dec 09, 9:15 AM',
-      sender: 'Lê Thị Thu Hồng 091886759',
+      sender: 'Lê Thị Thu Hồng',
+      senderPhone: '091886759',
       senderAdress: '45 Bach Dang, Binh Thanh, Ho Chi Minh City',
-      receiver: 'Phạm Văn Quang 091886759',
+      receiver: 'Phạm Văn Quang',
+      receiverPhone: '091886759',
       receiverAdress: '56 Lê Lợi, District 1, Ho Chi Minh City',
       size: 'S',
       weight: '0.5',
@@ -146,9 +237,11 @@ const Upload_2 = () => {
     {
       id: 3,
       orderDate: 'Dec 09, 3:20 PM',
-      sender: 'Trần Văn Hùng 091886759',
+      sender: 'Trần Văn Hùng',
+      senderPhone: '091886759',
       senderAdress: '98 Hai Bà Trưng, District 3, Ho Chi Minh City',
-      receiver: 'Nguyễn Thị Thanh 091886759',
+      receiver: 'Nguyễn Thị Thanh',
+      receiverPhone: '091886759',
       receiverAdress: '300 Vo Van Ngan, Thu Duc, Ho Chi Minh City',
       size: 'L',
       weight: '2',
@@ -158,9 +251,11 @@ const Upload_2 = () => {
     {
       id: 4,
       orderDate: 'Dec 10, 1:45 PM',
-      sender: 'Hoàng Phương Linh 091886759',
+      sender: 'Hoàng Phương Linh',
       senderAdress: '18 Pasteur, District 1, Ho Chi Minh City',
-      receiver: 'Lê Quốc Việt 091886759',
+      receiver: 'Lê Quốc Việt',
+      senderPhone: '091886759',
+      receiverPhone: '091886759',
       receiverAdress: '10 Tran Hung Dao, District 1, Ho Chi Minh City',
       size: 'XL',
       weight: '3',
@@ -170,9 +265,11 @@ const Upload_2 = () => {
     {
       id: 5,
       orderDate: 'Dec 10, 6:10 PM',
-      sender: 'Phạm Xuân An 091886759',
+      sender: 'Phạm Xuân An',
+      senderPhone: '091886759',
+      receiverPhone: '091886759',
       senderAdress: '210 Le Loi, District 1, Ho Chi Minh City',
-      receiver: 'Trần Thị Thảo 091886759',
+      receiver: 'Trần Thị Thảo',
       receiverAdress: '140 Nguyen Dinh Chieu, District 3, Ho Chi Minh City',
       size: 'M',
       weight: '1.5',
@@ -251,6 +348,83 @@ const Upload_2 = () => {
   const handleSelectWeight = (key, orderId) => {
     console.log('Bạn đã chọn:', key, 'cho orderId:', orderId)
     setOpenWeightRow(null)
+  }
+
+  const [isModalOpen2, setIsModalOpen2] = useState(false)
+
+  const openModal2 = () => setIsModalOpen2(true)
+  const closeModal2 = () => setIsModalOpen2(false)
+  // Hàm xử lý click ngoài modal
+  const handleOutsideClick2 = e => {
+    // Kiểm tra nếu click xảy ra ngoài modal-container-col
+    if (!e.target.closest('.modal-container-col')) {
+      closeModal2() // Đóng modal
+    }
+  }
+
+  const [isModalOpen3, setIsModalOpen3] = useState(false)
+
+  const openModal3 = () => setIsModalOpen3(true)
+  const closeModal3 = () => setIsModalOpen3(false)
+  // Hàm xử lý click ngoài modal
+  const handleOutsideClick3 = e => {
+    // Kiểm tra nếu click xảy ra ngoài modal-container-col
+    if (!e.target.closest('.modal-container-col')) {
+      closeModal3() // Đóng modal
+    }
+  }
+
+  // Test Receiver
+  const [receiverLocations, setReceiverLocations] = useState([])
+  const [dropdownOpenIndex, setDropdownOpenIndex] = useState(null)
+
+  // test linh hoạt vị trí dropdown
+  const [dropdownPosition, setDropdownPosition] = useState({ x: 0, y: 0 }) // Vị trí dropdown
+
+  const handleToggleDropdown = (event, index) => {
+    if (dropdownOpenIndex === index) {
+      setDropdownOpenIndex(null)
+    } else {
+      setDropdownOpenIndex(index)
+      const rect = event.target.getBoundingClientRect()
+
+      if (rect.bottom + 420 < window.innerHeight)
+        setDropdownPosition({
+          x: rect.left,
+          y: rect.bottom + 40
+        })
+      // Xác định vị trí dưới chuột + offset 40px
+      else setDropdownPosition({ x: rect.left, y: rect.top - 280 }) // Xác định vị trí trên chuột - offset 280px
+    }
+  }
+
+  const sliderRef = useRef(null)
+
+  const scrollLeft = () => {
+    if (sliderRef.current) {
+      sliderRef.current.scrollLeft -= 200
+    }
+  }
+
+  const scrollRight = () => {
+    if (sliderRef.current) {
+      sliderRef.current.scrollLeft += 200
+    }
+  }
+
+  // Sender
+  const [isSenderOpen, setIsSenderOpen] = useState(false)
+
+  const toggleSenderDropdown = () => {
+    setIsSenderOpen(!isSenderOpen)
+  }
+
+  const [selectedLocationSender, setSelectedLocationSender] =
+    useState('Điểm gửi hàng')
+
+  const handleSelectSender = locationSender => {
+    setSelectedLocationSender(locationSender) // Cập nhật giá trị chọn
+    setIsSenderOpen(false)
   }
 
   return (
@@ -462,24 +636,89 @@ const Upload_2 = () => {
                             {orders.map(order => (
                               <React.Fragment key={order.id}>
                                 <tr onClick={() => handleToggleRow(order.id)}>
-                                  {/* <td style={{ textAlign: 'center' }}>
-                                    <DownIcon />
+                                  <td>
+                                    <span>
+                                      <input
+                                        className='sender'
+                                        type='text'
+                                        defaultValue={order.sender}
+                                      />
+                                      <input
+                                        className='sender-phone'
+                                        type='text'
+                                        defaultValue={order.senderPhone}
+                                      />
+                                    </span>
+                                  </td>
+                                  <td className='sender-address'>
+                                    <span>
+                                      {order.senderAdress}
+                                      <div className='detail-address-popup'>
+                                        <div className='detail-address-popup-content'>
+                                          <div className='address-label'>
+                                            Địa chỉ cũ
+                                          </div>
+                                          <div className='old-address'>
+                                            ĐH KHXH&NV
+                                          </div>
+                                          <div className='address-label'>
+                                            Đã đổi sang
+                                          </div>
+                                          <div className='new-address'>
+                                            10-12 Đinh Tiên Hoàng, P.Bến Nghé,
+                                            Q.1, Hồ Chí Minh, 70000, Vietnam
+                                          </div>
+                                          <div
+                                            className='adjust-btn'
+                                            onClick={openModal2}
+                                          >
+                                            Chỉnh sửa
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </span>
                                   </td>
                                   <td>
-                                    <input type='checkbox' />
+                                    <span>
+                                      <input
+                                        className='receiver'
+                                        type='text'
+                                        defaultValue={order.receiver}
+                                      />
+                                      <input
+                                        className='receiver-phone'
+                                        type='text'
+                                        defaultValue={order.receiverPhone}
+                                      />
+                                    </span>
                                   </td>
-                                  <td>{order.orderDate}</td> */}
-                                  <td>
-                                    <span>{order.sender}</span>
-                                  </td>
-                                  <td>
-                                    <span>{order.senderAdress}</span>
-                                  </td>
-                                  <td>
-                                    <span>{order.receiver}</span>
-                                  </td>
-                                  <td>
-                                    <span>{order.receiverAdress}</span>
+                                  <td className='receiver-address'>
+                                    <span>
+                                      {order.receiverAdress}
+                                      <div className='detail-address-popup'>
+                                        <div className='detail-address-popup-content'>
+                                          <div className='address-label'>
+                                            Địa chỉ cũ
+                                          </div>
+                                          <div className='old-address'>
+                                            ĐH KHXH&NV
+                                          </div>
+                                          <div className='address-label'>
+                                            Đã đổi sang
+                                          </div>
+                                          <div className='new-address'>
+                                            10-12 Đinh Tiên Hoàng, P.Bến Nghé,
+                                            Q.1, Hồ Chí Minh, 70000, Vietnam
+                                          </div>
+                                          <div
+                                            className='adjust-btn'
+                                            onClick={openModal3}
+                                          >
+                                            Chỉnh sửa
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </span>
                                   </td>
                                   {/* Size */}
                                   <td
@@ -587,122 +826,6 @@ const Upload_2 = () => {
                                   <td>{order.deliveryType}</td>
                                   <td>{order.vehicleType}</td>
                                 </tr>
-                                {/* {expandedRow === order.id && (
-                                  <tr>
-                                    <td colSpan='8'>
-                                      <div className='order-details'>
-                                        <div className='order-details-content'>
-                                          <div className='order-details-content-left'>
-                                            <div className='order-details-content-left-row'>
-                                              <div className='order-details-content-left-row-icon'>
-                                                <DotIcon />
-                                              </div>
-                                              <div className='order-details-content-left-row-text-group'>
-                                                <div className='order-details-content-left-row-text'>
-                                                  Cơm gà Hồng Vân • 0968451694
-                                                </div>
-                                                <div className='order-details-content-left-row-text-sub'>
-                                                  123 Nguyen Van Linh, District
-                                                  7, Thu Duc, Ho Chi Minh City
-                                                </div>
-                                              </div>
-                                            </div>
-                                            <div className='order-details-content-left-row'>
-                                              <div className='order-details-content-left-row-icon'>
-                                                <DestinationIcon />
-                                              </div>
-                                              <div className='order-details-content-left-row-text-group'>
-                                                <div className='order-details-content-left-row-text'>
-                                                  Phạm Tuấn Nghĩa • 0846748052
-                                                </div>
-                                                <div className='order-details-content-left-row-text-sub'>
-                                                  227 Nguyen Van Cu, District 5,
-                                                  Ho Chi Minh City
-                                                </div>
-                                              </div>
-                                            </div>
-                                          </div>
-                                          <div className='order-details-content-right'>
-                                            <div className='order-details-content-right-row'>
-                                              <div className='order-details-content-right-col'>
-                                                <div className='order-details-content-right-col-title'>
-                                                  Phương thức thanh toán
-                                                </div>
-                                                <div className='order-details-content-right-col-value'>
-                                                  <div className='order-details-content-right-col-value-icon'>
-                                                    <MoMoIcon />
-                                                  </div>
-                                                  <div className='order-details-content-right-col-value-text'>
-                                                    MoMo
-                                                  </div>
-                                                </div>
-                                              </div>
-                                              <div className='order-details-content-right-col'>
-                                                <div className='order-details-content-right-col-title'>
-                                                  Mã đặt xe
-                                                </div>
-                                                <div className='order-details-content-right-col-value'>
-                                                  IN-2-0JTGBO4GHMSXTB1GBPG2
-                                                </div>
-                                              </div>
-                                              <div className='order-details-content-right-col'>
-                                                <div className='order-details-content-right-col-title'>
-                                                  Loại dịch vụ
-                                                </div>
-                                                <div className='order-details-content-right-col-value'>
-                                                  Thông qua Grab Superapp
-                                                </div>
-                                              </div>
-                                            </div>
-                                            <div className='order-details-content-right-row'>
-                                              <div className='order-details-content-right-col'>
-                                                <div className='order-details-content-right-col-title'>
-                                                  Loại hàng hóa
-                                                </div>
-                                                <div className='order-details-content-right-col-value'>
-                                                  Food
-                                                </div>
-                                              </div>
-                                              <div className='order-details-content-right-col'>
-                                                <div className='order-details-content-right-col-title'>
-                                                  Tổng trọng lượng
-                                                </div>
-                                                <div className='order-details-content-right-col-value'>
-                                                  1 kg
-                                                </div>
-                                              </div>
-                                              <div className='order-details-content-right-col'>
-                                                <div className='order-details-content-right-col-title'>
-                                                  Ghi chú giao hàng
-                                                </div>
-                                                <div className='order-details-content-right-col-value'>
-                                                  --
-                                                </div>
-                                              </div>
-                                            </div>
-                                            <div className='order-details-content-right-row'>
-                                              <div className='order-details-content-right-row-menu-container'>
-                                                <div className='order-details-content-right-row-menu-content'>
-                                                  <div className='order-details-content-right-row-menu-btn'>
-                                                    Tải về hóa đơn
-                                                  </div>
-                                                  <div className='menu-divider'></div>
-                                                  <div className='order-details-content-right-row-menu-btn'>
-                                                    Đặt lại
-                                                  </div>
-                                                  <div className='menu-divider'></div>
-                                                  <div className='order-details-content-right-row-menu-btn'>
-                                                    Báo lỗi
-                                                  </div>
-                                                </div>
-                                              </div>
-                                            </div>
-                                          </div>
-                                        </div>
-                                      </div>
-                                    </td>
-                                  </tr>
-                                )} */}
                               </React.Fragment>
                             ))}
                           </tbody>
@@ -725,6 +848,159 @@ const Upload_2 = () => {
                           <RightIcon />
                         </div>
                       </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className='modal-2'>
+            <div
+              className={`modal-background ${isModalOpen2 ? 'open-2' : ''}`}
+              onClick={handleOutsideClick2} // Sự kiện click ngoài modal
+            >
+              <div
+                className={`modal-container-col ${
+                  isModalOpen2 ? 'open-2' : ''
+                }`}
+              >
+                <div className='modal-content'>
+                  <div className='modal-header'>
+                    <div className='modal-header-content'>
+                      <div className='modal-header-icon' onClick={closeModal2}>
+                        <CrossIcon />
+                      </div>
+                      <div className='modal-header-map'>
+                        <img src={Map} alt='' />
+                      </div>
+                      <div className='modal-header-adjust'>
+                        <div className='adjust-container-top'>
+                          <PlusIcon />
+                        </div>
+                        <div className='divider'></div>
+                        <div className='adjust-container-bot'>
+                          <MinusIcon />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className='modal-body'>
+                    <div className='modal-body-content'>
+                      <div
+                        className='send-location-modal'
+                        onClick={toggleSenderDropdown}
+                      >
+                        <div className='send-location-icon'>
+                          <DotIcon />
+                        </div>
+                        <div className='send-location-text'>
+                          {selectedLocationSender}
+                        </div>
+                        {isSenderOpen && (
+                          <div className='dropdown-list-sender'>
+                            <div className='dropdown-content-sender'>
+                              {locations2.map(location => (
+                                <AddressItem
+                                  key={location.name}
+                                  name={location.name}
+                                  address={location.address}
+                                  onClick={() =>
+                                    handleSelectSender(location.name)
+                                  }
+                                />
+                              ))}
+                            </div>
+                          </div>
+                        )}
+                      </div>
+                      <div className='add-note'>
+                        <input
+                          type='text'
+                          placeholder='Thêm ghi chú địa điểm (Không bắt buộc)'
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div className='modal-footer'>
+                    <div className='modal-submit-btn' onClick={closeModal2}>
+                      Xác nhận
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className='modal-3'>
+            <div
+              className={`modal-background ${isModalOpen3 ? 'open-3' : ''}`}
+              onClick={handleOutsideClick3} // Sự kiện click ngoài modal
+            >
+              <div
+                className={`modal-container-col ${
+                  isModalOpen3 ? 'open-3' : ''
+                }`}
+              >
+                <div className='modal-content'>
+                  <div className='modal-header'>
+                    <div className='modal-header-content'>
+                      <div className='modal-header-icon' onClick={closeModal3}>
+                        <CrossIcon />
+                      </div>
+                      <div className='modal-header-map'>
+                        <img src={Map} alt='' />
+                      </div>
+                      <div className='modal-header-adjust'>
+                        <div className='adjust-container-top'>
+                          <PlusIcon />
+                        </div>
+                        <div className='divider'></div>
+                        <div className='adjust-container-bot'>
+                          <MinusIcon />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className='modal-body'>
+                    <div className='modal-body-content'>
+                      <div
+                        className='send-location-modal'
+                        onClick={toggleSenderDropdown}
+                      >
+                        <div className='send-location-icon'>
+                          <DestinationIcon />
+                        </div>
+                        <div className='send-location-text'>
+                          {selectedLocationSender}
+                        </div>
+                        {isSenderOpen && (
+                          <div className='dropdown-list-sender'>
+                            <div className='dropdown-content-sender'>
+                              {locations2.map(location => (
+                                <AddressItem
+                                  key={location.name}
+                                  name={location.name}
+                                  address={location.address}
+                                  onClick={() =>
+                                    handleSelectSender(location.name)
+                                  }
+                                />
+                              ))}
+                            </div>
+                          </div>
+                        )}
+                      </div>
+                      <div className='add-note'>
+                        <input
+                          type='text'
+                          placeholder='Thêm ghi chú địa điểm (Không bắt buộc)'
+                        />
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className='modal-footer'>
+                    <div className='modal-submit-btn' onClick={closeModal3}>
+                      Xác nhận
                     </div>
                   </div>
                 </div>

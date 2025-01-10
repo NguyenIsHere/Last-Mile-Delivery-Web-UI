@@ -43,6 +43,6 @@ code {
   scrollbar-color: var(--font-color-60) var(--white-color-30);
 }
 
-input:focus {
+/* input:focus {
   outline: none;
-}
+} */

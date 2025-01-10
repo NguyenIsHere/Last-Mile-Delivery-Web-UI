@@ -36,6 +36,7 @@
   .receive-phone input,
   .receive-money input {
     min-height: 43px;
+    outline: none;
   }
 
   .app-layout {
@@ -475,6 +476,7 @@
     border: none;
     border-radius: 8px;
     padding: 10px 20px;
+    outline: none;
   }
 
 
@@ -499,6 +501,7 @@
     border: none;
     border-radius: 8px;
     padding: 10px 20px;
+    outline: none;
   }
 
 
@@ -565,6 +568,7 @@
     border: none;
     border-radius: 8px;
     padding: 10px 20px;
+    outline: none;
   }
 
   .receive-name-phone-group {
@@ -591,6 +595,7 @@
     border: none;
     border-radius: 8px;
     padding: 10px 20px;
+    outline: none;
   }
 
   .payment-intro-code {
@@ -605,6 +610,7 @@
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+    outline: none;
   }
 
   .adjust-destination {
@@ -707,6 +713,7 @@
     border: none;
     border-radius: 8px;
     padding: 10px 20px;
+    outline: none;
   }
 
   .package-type {
