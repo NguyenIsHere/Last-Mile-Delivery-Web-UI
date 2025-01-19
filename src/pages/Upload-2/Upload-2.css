@@ -1023,11 +1023,20 @@
       margin-bottom: 6px;
     }
 
+    .modal-header-map {
+      border-radius: 6px;
+      padding: 10px;
+      box-sizing: border-box;
+
+    }
+
     .modal-header-map img {
       height: 400px;
+      border-radius: 6px;
       box-sizing: border-box;
       width: 100%;
       object-fit: cover;
+      border: 1px solid #ccc;
     }
 
     .modal-header-content {
@@ -1124,7 +1133,7 @@
 
     .dropdown-list-sender {
       position: absolute;
-      top: 500px;
+      top: 520px;
       left: 24px;
       width: 447px;
       max-height: 280px;
@@ -1325,11 +1334,20 @@
       margin-bottom: 6px;
     }
 
+    .modal-header-map {
+      border-radius: 6px;
+      padding: 10px;
+      box-sizing: border-box;
+
+    }
+
     .modal-header-map img {
       height: 400px;
+      border-radius: 6px;
       box-sizing: border-box;
       width: 100%;
       object-fit: cover;
+      border: 1px solid #ccc;
     }
 
     .modal-header-content {
@@ -1427,7 +1445,7 @@
 
     .dropdown-list-sender {
       position: absolute;
-      top: 500px;
+      top: 520px;
       left: 24px;
       width: 447px;
       max-height: 280px;

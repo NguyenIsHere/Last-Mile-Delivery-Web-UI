@@ -480,10 +480,10 @@ const NewOrder = () => {
       if (rect.bottom + 420 < window.innerHeight)
         setDropdownPosition({
           x: rect.left,
-          y: rect.bottom + 40
+          y: rect.bottom + 20
         })
       // Xác định vị trí dưới chuột + offset 40px
-      else setDropdownPosition({ x: rect.left, y: rect.top - 280 }) // Xác định vị trí trên chuột - offset 280px
+      else setDropdownPosition({ x: rect.left, y: rect.top - 260 }) // Xác định vị trí trên chuột - offset 280px
     }
   }
 

@@ -1411,11 +1411,20 @@
       margin-bottom: 6px;
     }
 
+    .modal-header-map {
+      border-radius: 6px;
+      padding: 10px;
+      box-sizing: border-box;
+
+    }
+
     .modal-header-map img {
       height: 400px;
+      border-radius: 6px;
       box-sizing: border-box;
       width: 100%;
       object-fit: cover;
+      border: 1px solid #ccc;
     }
 
     .modal-header-content {
@@ -1455,7 +1464,8 @@
       padding-right: 10px;
       border-radius: 8px;
       align-items: center;
-      background-color: var(--white-color-50);
+      /* background-color: var(--white-color-50); */
+      border: 1px solid #ccc;
     }
 
     .send-location-icon {
@@ -1485,7 +1495,7 @@
 
     .dropdown-list-sender {
       position: absolute;
-      top: 500px;
+      top: 520px;
       left: 24px;
       width: 447px;
       max-height: 280px;
@@ -1684,11 +1694,20 @@
       margin-bottom: 6px;
     }
 
+    .modal-header-map {
+      border-radius: 6px;
+      padding: 10px;
+      box-sizing: border-box;
+
+    }
+
     .modal-header-map img {
       height: 400px;
+      border-radius: 6px;
       box-sizing: border-box;
       width: 100%;
       object-fit: cover;
+      border: 1px solid #ccc;
     }
 
     .modal-header-content {
@@ -1711,7 +1730,7 @@
       /* Cho phép chiếm không gian trống */
       overflow-y: auto;
       /* Kích hoạt cuộn */
-      height: calc(100vh - 200px);
+      /* height: calc(100vh - 200px); */
       /* Ví dụ: Chiều cao dựa trên màn hình */
       margin-top: 24px;
       scrollbar-width: thin;
@@ -1736,7 +1755,8 @@
       padding-right: 10px;
       border-radius: 8px;
       align-items: center;
-      background-color: var(--white-color-50);
+      /* background-color: var(--white-color-50); */
+      border: 1px solid #ccc;
       margin-bottom: 10px;
     }
 
